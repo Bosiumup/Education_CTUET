@@ -1,0 +1,35 @@
+footer {
+  background: var(--primary-color);
+  flex-shrink: 0;
+}
+footer .footer {
+  width: 100%;
+  margin: auto;
+  padding: 31px 0px;
+}
+footer .footer .block-footer {
+  text-align: center;
+}
+footer .footer .block-footer .text-footer span {
+  display: block;
+  font-size: larger;
+  color: #fff;
+  padding-bottom: 15px;
+}
+
+footer .footer .block-footer .button-footer .bg-fb {
+  margin-right: 20px;
+}
+
+footer .footer .block-footer .button-footer .bg-fb i,
+footer .footer .block-footer .button-footer .bg-yu i {
+  color: var(--secondary-color);
+  font-size: 30px;
+  transition: all 0.1s linear;
+}
+
+footer .footer .block-footer .button-footer .bg-fb:hover i,
+footer .footer .block-footer .button-footer .bg-yu:hover i {
+  color: var(--primary-hover-color);
+  scale: 1.3;
+}

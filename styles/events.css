@@ -1,0 +1,153 @@
+/* Heading */
+.heading-main-shared {
+    width     : 100%;
+    font-size : 36px;
+    color     : var(--primary-color);
+    text-align: center;
+    padding   : 40px 0 20px;
+}
+
+/* -------- Events --------- */
+.events {
+    margin-bottom: 11px;
+}
+
+.events-list {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+}
+
+.events-list .event-left {
+    display    : flex;
+    align-items: center;
+}
+
+.events-list .event-left .export .export-output {
+    display    : flex;
+    align-items: center;
+}
+
+.events-list .event-left .export .export-output {
+    display    : flex;
+    align-items: center;
+}
+
+.events-list .event-left .export .export-output .education-program_list select,
+.events-list .event-left .add_hocphan select {
+    font-size    : 14px;
+    padding      : 10px 7px;
+    border-radius: 20px;
+    transition   : all 0.1s linear;
+}
+
+.events-list .event-left.export .export-output .education-program_list select:focus,
+.events-list .event-left .add_hocphan select:focus {
+    color     : #333;
+    outline   : none;
+    box-shadow: 1px 1px 10px rgba(51, 51, 51, 0.5);
+}
+
+.events-list .event-left .add_ctdt button,
+.events-list .event-left .export .export-output button,
+.events-list .event-left .import .import-input button,
+.events-list .event-left .add_hocphan button {
+    font-size       : 14px;
+    background-color: var(--primary-hover-color);
+    color           : var(--secondary-color);
+    padding         : 15px 30px;
+    margin          : 0 10px;
+    border-radius   : 20px;
+}
+
+.events-list .event-left .add_ctdt button:hover,
+.events-list .event-left .export .export-output button:hover,
+.events-list .event-left .import .import-input button:hover,
+.events-list .event-left .add_hocphan button:hover {
+    background-color: #fca729;
+    scale           : 0.9;
+    transition      : all 0.15s linear;
+    opacity         : 0.95;
+    cursor          : pointer;
+}
+
+.events-list .event-right .search-form input {
+    font-size          : 15px;
+    color              : #0d0c22;
+    background-color   : transparent;
+    line-height        : 28px;
+    padding            : 0.2rem 0 0 0.6rem;
+    border             : 2px solid transparent;
+    border-bottom-color: #333;
+    outline            : none;
+    transition         : 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.events-list .event-right .search-form input:focus {
+    outline         : none;
+    background-color: var(--secondary-color);
+    padding         : 0.2rem 1rem;
+    border-radius   : 1rem;
+    border-color    : #7a9cc6;
+}
+
+.events-list .event-right .search-form input::placeholder {
+    color: #333;
+}
+
+.events-list .event-right .search-form input:focus::placeholder {
+    opacity   : 0;
+    transition: opacity 0.3s;
+}
+
+.events-list .event-right .search-form button {
+    font-size       : 14px;
+    font-weight     : 600;
+    background-color: var(--primary-color);
+    color           : #fff;
+    border          : none;
+    outline         : none;
+    padding         : 10px 20px;
+    margin-left     : 10px;
+    border-radius   : 10px;
+    transition      : all ease 0.1s;
+    box-shadow      : 0px 5px 0px 0px #9bbafe;
+}
+
+.events-list .event-right .search-form button:hover {
+    opacity: 0.9;
+    cursor : pointer;
+}
+
+.events-list .event-right .search-form button:active {
+    transform : translateY(5px);
+    box-shadow: 0px 0px 0px 0px #9badfe;
+}
+
+.option-cart button {
+    text-decoration : none;
+    color           : var(--secondary-color);
+    background-color: var(--primary-color);
+    padding         : 20px 35px;
+    margin-left     : 30px;
+    border-radius   : 20px;
+    transition      : 0.25s;
+    cursor          : pointer;
+}
+
+.events-list a:hover,
+.option-cart button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.events-list form input[type="file"] {
+    width           : 40%;
+    background-color: #1da3f7;
+    color           : var(--secondary-color);
+    padding         : 10px;
+    border          : 1px solid #777;
+    border-radius   : 20px;
+    cursor          : pointer;
+}
+
+/* -------- End --------- */

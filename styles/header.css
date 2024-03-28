@@ -1,0 +1,61 @@
+/* -------- Header --------- */
+.header {
+  width: 100%;
+  padding: 30px 60px 30px 40px;
+  background-color: var(--primary-color);
+}
+
+.header-main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-main-r .header-logo_link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-main-r .header-logo_link img {
+  width: 11%;
+}
+
+.header-main-r .header-logo_link span {
+  font-size: larger;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-left: 11px;
+}
+
+.header-main-l {
+  background-color: var(--primary-hover-color);
+  padding: 15px 30px;
+  margin-right: 50px;
+  border-radius: 20px;
+}
+
+.header-main-l .header-login_link {
+  font-size: 19px;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.header-main-l:hover {
+  background-color: #fca729;
+  scale: 0.9;
+  transition: all 0.15s linear;
+  opacity: 0.95;
+  cursor: pointer;
+}
+
+.header-main-l .header-login_link i {
+  color: var(--secondary-color);
+}
+
+.header-main-l .header-login_link span {
+  color: var(--secondary-color);
+  margin-left: 5px;
+}
+/* -------- End --------- */
