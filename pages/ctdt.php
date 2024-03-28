@@ -1,2 +1,2 @@
 <?php
-require "./src/components/pages/containerCtdt.php";
+require "components/ctdt/containerCtdt.php";

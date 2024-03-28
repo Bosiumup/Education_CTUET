@@ -1,2 +1,2 @@
 <?php
-require "./src/components/pages/containerHocphan.php";
+require "components/hocphan/containerHocphan.php";

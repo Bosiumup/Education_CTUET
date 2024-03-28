@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #0047a5;
-    --secondary-color: #fff;
+    --primary-color      : #0047a5;
+    --secondary-color    : #fff;
     --primary-hover-color: #f99a0e;
-    --arrow-width: 10px;
-    --arrow-stroke: 2px;
+    --arrow-width        : 10px;
+    --arrow-stroke       : 2px;
 }
 
 html {
@@ -11,36 +11,38 @@ html {
 }
 
 body {
-    display: flex;
+    display       : flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height    : 100vh;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+    margin    : 0;
+    padding   : 0;
     list-style: none;
 }
 
 button {
     display: inline-block;
-    border: none;
+    border : none;
     outline: none;
     padding: 0;
 }
 
 .education-program {
-    flex: 1 0 auto;
-    background: url(./assets/imgs/bg-main1.webp);
+    flex      : 1 0 auto;
+    background: url(../assets/imgs/bg-main1.webp);
 }
 
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -79,14 +81,14 @@ button {
 }
 
 .back {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--secondary-color);
+    display         : inline-block;
+    text-decoration : none;
+    color           : var(--secondary-color);
     background-color: var(--primary-color);
-    padding: 25px 40px;
-    border-radius: 20px;
-    transition: 0.25s;
-    cursor: pointer;
+    padding         : 25px 40px;
+    border-radius   : 20px;
+    transition      : 0.25s;
+    cursor          : pointer;
 }
 
 .back:hover {
@@ -128,10 +130,12 @@ button {
 .fz-29 {
     font-size: 29px !important;
 }
+
 .df-center {
     justify-content: center !important;
 }
+
 .fl-dr-col {
     flex-direction: column !important;
-    align-items: unset !important;
+    align-items   : unset !important;
 }

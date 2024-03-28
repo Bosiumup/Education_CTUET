@@ -3,7 +3,7 @@
         <!-- logo -->
         <div class="header-main-r">
             <a class="header-logo_link" href="index.php">
-                <img src="src/assets/imgs/logo.png" alt="header-logo">
+                <img src="assets/imgs/logo.png" alt="header-logo">
                 <span>
                     TRƯỜNG ĐẠI HỌC KỸ THUẬT - CÔNG NGHỆ CẦN THƠ
                 </span>

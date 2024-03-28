@@ -1,39 +1,42 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin    : 0;
+  padding   : 0;
   box-sizing: border-box;
 }
+
 /* grid wide để chia theo dạng layout grid 1200px */
 .grid {
-  width: 100%;
+  width  : 100%;
   display: block;
   padding: 0;
 }
 
 .grid.wide {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1700px;
+  margin   : 0 auto;
 }
+
 /* row để xử lý khoảng thừa (padding) cột đầu tiên và cột cuối cùng */
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -4px;
+  display     : flex;
+  flex-wrap   : wrap;
+  margin-left : -4px;
   margin-right: -4px;
 }
 
 .row.no-gutters {
-  margin-left: 0;
+  margin-left : 0;
   margin-right: 0;
 }
+
 /* col để tạo ra các rảnh (gutters) giữa các cột sử dụng padding */
 .col {
-  padding-left: 4px;
+  padding-left : 4px;
   padding-right: 4px;
 }
 
 .row.no-gutters .col {
-  padding-left: 0;
+  padding-left : 0;
   padding-right: 0;
 }
 
@@ -42,64 +45,65 @@
 }
 
 .c-1 {
-  flex: 0 0 8.33333%;
+  flex     : 0 0 8.33333%;
   max-width: 8.33333%;
 }
 
 .c-2 {
-  flex: 0 0 16.66667%;
+  flex     : 0 0 16.66667%;
   max-width: 16.66667%;
 }
 
 .c-3 {
-  flex: 0 0 25%;
+  flex     : 0 0 25%;
   max-width: 25%;
 }
 
 .c-4 {
-  flex: 0 0 33.33333%;
+  flex     : 0 0 33.33333%;
   max-width: 33.33333%;
 }
 
 .c-5 {
-  flex: 0 0 41.66667%;
+  flex     : 0 0 41.66667%;
   max-width: 41.66667%;
 }
 
 .c-6 {
-  flex: 0 0 50%;
+  flex     : 0 0 50%;
   max-width: 50%;
 }
 
 .c-7 {
-  flex: 0 0 58.33333%;
+  flex     : 0 0 58.33333%;
   max-width: 58.33333%;
 }
 
 .c-8 {
-  flex: 0 0 66.66667%;
+  flex     : 0 0 66.66667%;
   max-width: 66.66667%;
 }
 
 .c-9 {
-  flex: 0 0 75%;
+  flex     : 0 0 75%;
   max-width: 75%;
 }
 
 .c-10 {
-  flex: 0 0 83.33333%;
+  flex     : 0 0 83.33333%;
   max-width: 83.33333%;
 }
 
 .c-11 {
-  flex: 0 0 91.66667%;
+  flex     : 0 0 91.66667%;
   max-width: 91.66667%;
 }
 
 .c-12 {
-  flex: 0 0 100%;
+  flex     : 0 0 100%;
   max-width: 100%;
 }
+
 /* o: offset   */
 .c-o-1 {
   margin-left: 8.33333%;
@@ -148,12 +152,12 @@
 /* >= Tablet */
 @media (min-width: 740px) {
   .row {
-    margin-left: -8px;
+    margin-left : -8px;
     margin-right: -8px;
   }
 
   .col {
-    padding-left: 8px;
+    padding-left : 8px;
     padding-right: 8px;
   }
 
@@ -177,62 +181,62 @@
   }
 
   .m-1 {
-    flex: 0 0 8.33333%;
+    flex     : 0 0 8.33333%;
     max-width: 8.33333%;
   }
 
   .m-2 {
-    flex: 0 0 16.66667%;
+    flex     : 0 0 16.66667%;
     max-width: 16.66667%;
   }
 
   .m-3 {
-    flex: 0 0 25%;
+    flex     : 0 0 25%;
     max-width: 25%;
   }
 
   .m-4 {
-    flex: 0 0 33.33333%;
+    flex     : 0 0 33.33333%;
     max-width: 33.33333%;
   }
 
   .m-5 {
-    flex: 0 0 41.66667%;
+    flex     : 0 0 41.66667%;
     max-width: 41.66667%;
   }
 
   .m-6 {
-    flex: 0 0 50%;
+    flex     : 0 0 50%;
     max-width: 50%;
   }
 
   .m-7 {
-    flex: 0 0 58.33333%;
+    flex     : 0 0 58.33333%;
     max-width: 58.33333%;
   }
 
   .m-8 {
-    flex: 0 0 66.66667%;
+    flex     : 0 0 66.66667%;
     max-width: 66.66667%;
   }
 
   .m-9 {
-    flex: 0 0 75%;
+    flex     : 0 0 75%;
     max-width: 75%;
   }
 
   .m-10 {
-    flex: 0 0 83.33333%;
+    flex     : 0 0 83.33333%;
     max-width: 83.33333%;
   }
 
   .m-11 {
-    flex: 0 0 91.66667%;
+    flex     : 0 0 91.66667%;
     max-width: 91.66667%;
   }
 
   .m-12 {
-    flex: 0 0 100%;
+    flex     : 0 0 100%;
     max-width: 100%;
   }
 
@@ -284,22 +288,22 @@
 /* PC medium resolution > */
 @media (min-width: 1113px) {
   .row {
-    margin-left: -12px;
+    margin-left : -12px;
     margin-right: -12px;
   }
 
   .row.sm-gutter {
-    margin-left: -5px;
+    margin-left : -5px;
     margin-right: -5px;
   }
 
   .col {
-    padding-left: 12px;
+    padding-left : 12px;
     padding-right: 12px;
   }
 
   .row.sm-gutter .col {
-    padding-left: 5px;
+    padding-left : 5px;
     padding-right: 5px;
   }
 
@@ -324,67 +328,68 @@
   }
 
   .l-1 {
-    flex: 0 0 8.33333%;
+    flex     : 0 0 8.33333%;
     max-width: 8.33333%;
   }
 
   .l-2 {
-    flex: 0 0 16.66667%;
+    flex     : 0 0 16.66667%;
     max-width: 16.66667%;
   }
+
   /* l-2-4 nghĩa là một cột nó chiếm 2.4 suy ra 5 cột là 12 là layout 12 cột còn width 20% thì tương ứng mỗi cột trong 5 cột */
   .l-2-4 {
-    flex: 0 0 20%;
+    flex     : 0 0 20%;
     max-width: 20%;
   }
 
   .l-3 {
-    flex: 0 0 25%;
+    flex     : 0 0 25%;
     max-width: 25%;
   }
 
   .l-4 {
-    flex: 0 0 33.33333%;
+    flex     : 0 0 33.33333%;
     max-width: 33.33333%;
   }
 
   .l-5 {
-    flex: 0 0 41.66667%;
+    flex     : 0 0 41.66667%;
     max-width: 41.66667%;
   }
 
   .l-6 {
-    flex: 0 0 50%;
+    flex     : 0 0 50%;
     max-width: 50%;
   }
 
   .l-7 {
-    flex: 0 0 58.33333%;
+    flex     : 0 0 58.33333%;
     max-width: 58.33333%;
   }
 
   .l-8 {
-    flex: 0 0 66.66667%;
+    flex     : 0 0 66.66667%;
     max-width: 66.66667%;
   }
 
   .l-9 {
-    flex: 0 0 75%;
+    flex     : 0 0 75%;
     max-width: 75%;
   }
 
   .l-10 {
-    flex: 0 0 83.33333%;
+    flex     : 0 0 83.33333%;
     max-width: 83.33333%;
   }
 
   .l-11 {
-    flex: 0 0 91.66667%;
+    flex     : 0 0 91.66667%;
     max-width: 91.66667%;
   }
 
   .l-12 {
-    flex: 0 0 100%;
+    flex     : 0 0 100%;
     max-width: 100%;
   }
 
@@ -447,22 +452,22 @@
   }
 
   .wide .row {
-    margin-left: -12px;
+    margin-left : -12px;
     margin-right: -12px;
   }
 
   .wide .row.sm-gutter {
-    margin-left: -5px;
+    margin-left : -5px;
     margin-right: -5px;
   }
 
   .wide .col {
-    padding-left: 12px;
+    padding-left : 12px;
     padding-right: 12px;
   }
 
   .wide .row.sm-gutter .col {
-    padding-left: 5px;
+    padding-left : 5px;
     padding-right: 5px;
   }
 
@@ -487,67 +492,67 @@
   }
 
   .wide .l-1 {
-    flex: 0 0 8.33333%;
+    flex     : 0 0 8.33333%;
     max-width: 8.33333%;
   }
 
   .wide .l-2 {
-    flex: 0 0 16.66667%;
+    flex     : 0 0 16.66667%;
     max-width: 16.66667%;
   }
 
   .wide .l-2-4 {
-    flex: 0 0 20%;
+    flex     : 0 0 20%;
     max-width: 20%;
   }
 
   .wide .l-3 {
-    flex: 0 0 25%;
+    flex     : 0 0 25%;
     max-width: 25%;
   }
 
   .wide .l-4 {
-    flex: 0 0 33.33333%;
+    flex     : 0 0 33.33333%;
     max-width: 33.33333%;
   }
 
   .wide .l-5 {
-    flex: 0 0 41.66667%;
+    flex     : 0 0 41.66667%;
     max-width: 41.66667%;
   }
 
   .wide .l-6 {
-    flex: 0 0 50%;
+    flex     : 0 0 50%;
     max-width: 50%;
   }
 
   .wide .l-7 {
-    flex: 0 0 58.33333%;
+    flex     : 0 0 58.33333%;
     max-width: 58.33333%;
   }
 
   .wide .l-8 {
-    flex: 0 0 66.66667%;
+    flex     : 0 0 66.66667%;
     max-width: 66.66667%;
   }
 
   .wide .l-9 {
-    flex: 0 0 75%;
+    flex     : 0 0 75%;
     max-width: 75%;
   }
 
   .wide .l-10 {
-    flex: 0 0 83.33333%;
+    flex     : 0 0 83.33333%;
     max-width: 83.33333%;
   }
 
   .wide .l-11 {
-    flex: 0 0 91.66667%;
+    flex     : 0 0 91.66667%;
     max-width: 91.66667%;
   }
 
   .wide .l-12 {
-    flex: 0 0 100%;
+    flex     : 0 0 100%;
     max-width: 100%;
   }
 

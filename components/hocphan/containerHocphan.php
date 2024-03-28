@@ -24,14 +24,15 @@
                 <div style="width: 60%;" class="event-left">
                     <!-- ADD học phần -->
                     <div class="add_hocphan">
-                        <form style="display: flex; align-items: center;" action=" <?php echo "index.php?page=hocphan.php&ma_ctdt=$row[ma_ctdt]" ?>" method="post">
+                        <form style="display: flex; align-items: center;"
+                            action=" <?php echo "index.php?page=hocphan.php&ma_ctdt=$row[ma_ctdt]" ?>" method="post">
                             <select name="dsmh" id="dsmh">
                                 <?php
                                 $result_dsmh = getHocphan($conn);
                                 while ($row = $result_dsmh->fetch_assoc()) {
                                 ?>
-                                    <option value="<?php echo $row["ma_mon_hoc"] ?>"><?php echo $row["ten_mon_hoc"] ?>
-                                    </option>
+                                <option value="<?php echo $row["ma_mon_hoc"] ?>"><?php echo $row["ten_mon_hoc"] ?>
+                                </option>
                                 <?php
                                 }
                                 ?>
@@ -45,7 +46,9 @@
 
                 <div class="event-right">
                     <!-- Search -->
-                    <form action="<?php echo isset($row) ? "index.php?page=hocphan.php&ma_ctdt={$row['ma_ctdt']}" : '' ?>" method="post">
+                    <form
+                        action="<?php echo isset($row) ? "index.php?page=hocphan.php&ma_ctdt={$row['ma_ctdt']}" : '' ?>"
+                        method="post">
                         <div class="search-form">
                             <input type="text" placeholder="Nhập học phần" name="hoc_phan_search">
                             <button type="submit">Tra cứu</button>
@@ -77,7 +80,7 @@
             <!-- Body table -->
             <tbody id="table-body">
                 <?php
-                require "src/components/hocphan/tableHocphan.php";
+                require "tableHocphan.php";
                 ?>
             </tbody>
             <!-- End -->
