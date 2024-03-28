@@ -3,7 +3,7 @@
 $host = "localhost"; // Địa chỉ máy chủ MySQL
 $username = "root"; // Tên đăng nhập MySQL
 $password = ""; // Mật khẩu MySQL
-$database = "qlctdt"; // Tên cơ sở dữ liệu bạn đã tạo
+$database = "qlgvctuet"; // Tên cơ sở dữ liệu bạn đã tạo
 
 // Tạo kết nối đến cơ sở dữ liệu
 $conn = mysqli_connect($host, $username, $password, $database);
