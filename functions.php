@@ -8,10 +8,10 @@ function checkLogin($conn, $username)
     return $conn->query($query);
 }
 
-// Thêm dữ liệu vào db
-function sighUp($conn, $username, $pass)
+// Thêm tài khoản vào db
+function signUp($conn, $name, $user_name, $password, $hoc_vi, $vai_tro)
 {
-    $query = "INSERT INTO account (username, password) VALUES ('$username', '$pass')";
+    $query = "INSERT INTO account (ten, username, password, hoc_vi, vai_tro) values ('$name', '$user_name', '$password', '$hoc_vi', '$vai_tro')";
     return $conn->query($query);
 }
 

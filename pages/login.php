@@ -26,8 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_name = $_POST['username'];
     $password = $_POST['pass'];
 
-    $_SESSION['username'] = $_POST['username'];
-    $_SESSION['pass'] = $_POST['pass'];
+    $_SESSION['user_name'] = $_POST['username'];
 
     $check_login = checkLogin($conn, $user_name);
     if ($check_login->num_rows > 0) {
