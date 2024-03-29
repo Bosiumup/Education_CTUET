@@ -1,6 +1,6 @@
 <section class="container-education">
-    <h1 class="heading-main-shared">CHƯƠNG TRÌNH ĐÀO TẠO CTUET</h1>
-    <div class="grid wide majors-full">
+    <h1 class="heading-main-shared">QUẢN LÝ KHOA</h1>
+    <div style="max-width: 1200px" class="grid wide majors-full">
         <!-- Events -->
         <section class="events">
             <div class="events-list">
@@ -23,7 +23,7 @@
                                     </select>
                                 </div>
                                 <button type="submit">
-                                    <i style="margin-right: 6px;" class="fa-solid fa-file-export"></i>XUẤT CTĐT
+                                    <i style="margin-right: 6px;" class="fa-solid fa-file-export"></i>XUẤT KHOA
                                 </button>
                             </div>
                         </form>
@@ -31,26 +31,17 @@
 
                     <!-- ADD CTDT -->
                     <div class="add_ctdt">
-                        <button style="margin-left: 0" class="addCtdt" type="submit" name="addBtn">THÊM CTĐT</button>
+                        <button style="margin-left: 0" class="addCtdt" type="submit" name="addBtn">THÊM KHOA</button>
                     </div>
 
-                    <!-- Import học phần -->
-                    <div class="import">
-                        <div class="import-input">
-                            <form action="index.php" method="post" enctype="multipart/form-data">
-                                <button type="submit" name="import_hocphan"><i style="margin-right: 6px;"
-                                        class="fa-solid fa-file-import"></i>NHẬP HỌC PHẦN</button>
-                                <input type="file" name="excel_file" accept=".xlsx">
-                            </form>
-                        </div>
-                    </div>
+
                 </div>
 
                 <div class="event-right">
                     <!-- Search -->
-                    <form action="<?php echo "index.php?page=ctdt.php" ?>" method="post">
+                    <form action="<?php echo "index.php?page=khoa.php" ?>" method="post">
                         <div class="search-form">
-                            <input type="text" placeholder="Nhập chương trình đào tạo" name="ctdt_search">
+                            <input type="text" placeholder="Nhập tên Khoa" name="ctdt_search">
                             <button type="submit">Tra cứu</button>
                         </div>
                     </form>
@@ -65,9 +56,9 @@
                 <!-- Heading table -->
                 <thead id="table-head">
                     <tr class="row-h">
-                        <th class="col-h w-25">Mã chương trình đào tạo</th>
-                        <th class="col-h w-50">Tên chương trình đào tạo</th>
-                        <th class="col-h w-10">Cập nhật</th>
+                        <th class="col-h w-25">Mã Khoa</th>
+                        <th class="col-h w-50">Tên Khoa</th>
+                        <th class="col-h w-10">Sửa</th>
                         <th class="col-h w-10">Xóa</th>
                     </tr>
                 </thead>
@@ -76,7 +67,7 @@
                 <!-- Body table -->
                 <tbody id="table-body">
                     <?php
-                    require "tableCtdt.php";
+                    require "tableKhoa.php";
                     ?>
                 </tbody>
                 <!-- End -->
@@ -115,15 +106,6 @@
         //            </script>";
         // }
         ?>
-
-        <!-- Animation load page -->
-        <section class="dots-container">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </section>
 
     </div>
 </section>

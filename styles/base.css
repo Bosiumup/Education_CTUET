@@ -29,9 +29,16 @@ button {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color          : #000;
+}
+
 .education-program {
-    flex      : 1 0 auto;
-    background: url(../assets/imgs/bg-main1.webp);
+    flex             : 1 0 auto;
+    background-size  : cover;
+    background-image : url(../assets/imgs/bg-main.jpg);
+    background-repeat: no-repeat;
 }
 
 @keyframes gradient {

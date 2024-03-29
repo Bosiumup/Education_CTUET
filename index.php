@@ -1,6 +1,7 @@
 <?php
 require "functions.php";
 require "conn.php";
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +17,10 @@ require "conn.php";
 
     <!-- font icons -->
     <link rel="stylesheet" href="assets/icon/fontawesome-free-6.2.1-web/fontawesome-free-6.2.1-web/css/all.min.css">
+
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="./sweetalert2/sweetalert2.min.css">
+    <script src="./sweetalert2/sweetalert2.all.min.js"></script>
 
     <!-- Font text-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -49,7 +54,7 @@ require "conn.php";
             $p = $_GET["page"]; //pages/$p."php"
             require "pages/$p";
         } else {
-            require "pages/ctdt.php";
+            require "pages/main.php";
         }
         ?>
     </main>

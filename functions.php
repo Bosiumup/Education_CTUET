@@ -1,4 +1,20 @@
 <?php
+// ------------------ Login & SignUp -------------------
+
+// check db xem có dữ liệu chưa
+function checkLogin($conn, $username)
+{
+    $query = "SELECT * FROM account WHERE username = '$username'";
+    return $conn->query($query);
+}
+
+// Thêm dữ liệu vào db
+function sighUp($conn, $username, $pass)
+{
+    $query = "INSERT INTO account (username, password) VALUES ('$username', '$pass')";
+    return $conn->query($query);
+}
+
 // ------------------ CTDT --------------------
 
 // Hàm render ctdt
@@ -228,3 +244,34 @@ function deleteAllhp($conn)
 }
 
 // ------------------ End Mon_hoc --------------------
+
+// ------------------ Khoa ---------------------------
+// Hàm render ctdt
+function khoa($conn)
+{
+    $query = "SELECT * FROM khoa";
+    return $conn->query($query);
+}
+
+// Hàm kiểm tra mã Khoa or tên Khoa trùng
+function checkAddKhoa($conn, $maKhoa, $tenKhoa)
+{
+    $check_khoa_add = "SELECT COUNT(*) as count FROM khoa WHERE ma_khoa = '$maKhoa' OR ten_khoa = '$tenKhoa'";
+    return $conn->query($check_khoa_add);
+}
+
+// Hàm add khoa
+function addKhoa($conn, $makhoa, $tenkhoa)
+{
+    $sql = "INSERT INTO khoa (ma_khoa, ten_khoa) VALUES ('$makhoa', '$tenkhoa')";
+    return $conn->query($sql);
+}
+
+// -------------------- Account --------------------
+
+// Thông tin account 
+function account($conn, $username)
+{
+    $query = "SELECT * FROM account WHERE username = '{$username}'";
+    return $conn->query($query);
+}
