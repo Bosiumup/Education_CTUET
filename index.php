@@ -10,7 +10,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHƯƠNG TRÌNH ĐÀO TẠO</title>
+    <title>Sinh viên CTUET</title>
 
     <!-- logo website -->
     <link rel="icon" href="assets/imgs/logo.png" type="image/x-icon" />
@@ -34,8 +34,6 @@ session_start();
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/events.css">
     <link rel="stylesheet" href="styles/table.css">
-    <link rel="stylesheet" href="styles/ex-im.css">
-    <link rel="stylesheet" href="styles/modal.css">
     <link rel="stylesheet" href="styles/login.css">
 </head>
 
@@ -47,12 +45,12 @@ session_start();
         ?>
     </header>
 
-    <!-- Chương trình đào tạo -->
-    <main class="education-program">
+    <!-- Thêm sinh viên -->
+    <main class="education_student">
         <?php
         if (isset($_GET["page"])) {
             $p = $_GET["page"]; //pages/$p."php"
-            require "pages/$p";
+            require "pages/".$p.".php";
         } else {
             require "pages/main.php";
         }
