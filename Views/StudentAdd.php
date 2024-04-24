@@ -1,3 +1,8 @@
+<?php 
+require "Controllers/StudentController.php";
+$studentController = new StudentController();
+$studentController->add();
+?>
 <form id="add-student-form" action="index.php" method="POST">
     <input type="text" id="student_code" name="student_code" placeholder="MSSV">
     <input type="text" id="class" name="class" placeholder="Lớp">

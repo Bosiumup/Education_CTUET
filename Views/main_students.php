@@ -1,9 +1,3 @@
-<?php 
-require "Controllers/StudentController.php";
-$studentController = new StudentController($conn);
-$studentController->add();
-?>
-
 <section class="container-students">
     <h1 class="heading-main-shared">Sinh Viên CTUET</h1>
     <div class="grid wide majors-full">
