@@ -35,10 +35,7 @@ a {
 }
 
 .education_student {
-    flex             : 1 0 auto;
-    background-size  : cover;
-    background-image : url(../assets/imgs/bg-main.jpg);
-    background-repeat: no-repeat;
+    flex: 1 0 auto;
 }
 
 @keyframes gradient {
@@ -87,27 +84,8 @@ a {
     width: 80% !important;
 }
 
-.back {
-    display         : inline-block;
-    text-decoration : none;
-    color           : var(--secondary-color);
-    background-color: var(--primary-color);
-    padding         : 25px 40px;
-    border-radius   : 20px;
-    transition      : 0.25s;
-    cursor          : pointer;
-}
-
-.back:hover {
-    background-color: var(--primary-hover-color);
-}
-
 .mg-0 {
     margin: 0 !important;
-}
-
-.mg-back {
-    margin: 15px 0 0 20px !important;
 }
 
 .mg-b-50 {

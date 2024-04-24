@@ -14,10 +14,10 @@ function CheckAddStudent($conn, $maCtdt, $tenCtdt)
     return $conn->query($check_ctdt_add);
 }
 
-// Hàm add ctdt
-function AddStudent($conn, $tenCtdt, $age, $student_code, $class)
+// Hàm add student
+function AddStudent($conn, $name, $student_code, $class)
 {
-    $sql = "INSERT INTO ctdt (ma_ctdt, ten_ctdt) VALUES ('$maCtdt', '$tenCtdt')";
+    $sql = "INSERT INTO student (name, student_code, class) VALUES ('$name', '$student_code', '$class')";
     return $conn->query($sql);
 }
 

@@ -1,3 +1,9 @@
+<?php 
+require "Controllers/StudentController.php";
+$studentController = new StudentController($conn);
+$studentController->add();
+?>
+
 <section class="container-students">
     <h1 class="heading-main-shared">Sinh Viên CTUET</h1>
     <div class="grid wide majors-full">
@@ -6,11 +12,9 @@
             <div class="events-list">
                 <div class="event-left">
                     <!-- Add student -->
-                    <form action="index.php" method="post">
-                        <div class="add_student">
-                            <button class="btn_student" type="button" name="addBtn">Thêm sinh viên</button>
-                        </div>
-                    </form>
+                    <?php 
+                        require "StudentAdd.php"
+                    ?>
                 </div>
 
                 <div class="event-right">
@@ -48,12 +52,12 @@
                     while ($row = $result->fetch_assoc()) {
                         ?>
                 <tr class="row-d">
-                    <td class="col-d"><?php $row['class'] ?></td>
-                    <td class="col-d"><?php $row['student_code'] ?></td>
-                    <td class="col-d"><?php $row['name'] ?></td>
+                    <td class="col-d"><?php echo $row['class'] ?></td>
+                    <td class="col-d"><?php echo $row['student_code'] ?></td>
+                    <td class="col-d"><?php echo $row['name'] ?></td>
                     <td class="col-d">
                         <button type="button" class="deleteBtn">
-                            <i class="fa-solid fa-update"></i>
+                            <i class="fa-solid fa-pen"></i>
                         </button>
                     </td>
                     <td class="col-d">
