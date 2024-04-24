@@ -37,6 +37,7 @@ require "configs/functions.php";
     <link rel="stylesheet" href="Public/styles/footer.css">
     <link rel="stylesheet" href="Public/styles/events.css">
     <link rel="stylesheet" href="Public/styles/table.css">
+    <link rel="stylesheet" href="Public/styles/modal.css">
 </head>
 
 <body>

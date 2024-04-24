@@ -71,7 +71,9 @@
     cursor          : pointer;
 }
 
-.events-list .event-right .search-form input {
+.events-list .event-right .search-form input,
+.events-list .event-left input,
+.modal .modal-content label input {
     font-size          : 15px;
     color              : #0d0c22;
     background-color   : transparent;
@@ -83,7 +85,9 @@
     transition         : 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.events-list .event-right .search-form input:focus {
+.events-list .event-right .search-form input:focus,
+.events-list .event-left input:focus,
+.modal .modal-content label input:focus {
     outline         : none;
     background-color: var(--secondary-color);
     padding         : 0.2rem 1rem;
@@ -100,7 +104,9 @@
     transition: opacity 0.3s;
 }
 
-.events-list .event-right .search-form button {
+.events-list .event-right .search-form button,
+.events-list .event-left button,
+.modal .modal-content button {
     font-size       : 14px;
     font-weight     : 600;
     background-color: var(--primary-color);
@@ -114,12 +120,16 @@
     box-shadow      : 0px 5px 0px 0px #9bbafe;
 }
 
-.events-list .event-right .search-form button:hover {
+.events-list .event-right .search-form button:hover,
+.events-list .event-left button:hover,
+.modal .modal-content button:hover {
     opacity: 0.9;
     cursor : pointer;
 }
 
-.events-list .event-right .search-form button:active {
+.events-list .event-right .search-form button:active,
+.events-list .event-left button:active,
+.modal .modal-content button:active {
     transform : translateY(5px);
     box-shadow: 0px 0px 0px 0px #9badfe;
 }

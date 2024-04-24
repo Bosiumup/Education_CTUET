@@ -1,3 +1,11 @@
+<?php 
+    require "Controllers/StudentController.php";
+    $studentController = new StudentController();
+    $studentController->add();
+    $studentController->delete();
+    $studentController->update();
+?>
+
 <section class="container-students">
     <h1 class="heading-main-shared">Sinh Viên CTUET</h1>
     <div class="grid wide majors-full">
@@ -6,14 +14,21 @@
             <div class="events-list">
                 <div class="event-left">
                     <!-- Add student -->
-                    <?php 
-                        require "StudentAdd.php"
-                    ?>
+                    <form id="add-student-form" action="" method="POST">
+                        <input type="text" id="class" name="class" placeholder="Lớp...">
+                        <input type="text" id="student_code" name="student_code" placeholder="MSSV...">
+                        <input type="text" id="name" name="name" placeholder="Tên...">
+                        <button class="btn_student" name="btn_add" type="submit">Thêm sinh viên</button>
+                        <?php 
+                            require "StudentAdd.php"
+                        ?>
+                    </form>
+
                 </div>
 
                 <div class="event-right">
                     <!-- Search -->
-                    <form action="index.php" method="post">
+                    <form action="" method="post">
                         <div class="search-form">
                             <input type="text" placeholder="Sinh viên..." name="search_student">
                             <button type="button">Tra cứu</button>
@@ -25,48 +40,91 @@
         <!-- End -->
 
         <!-- Table majors -->
-        <table id="table-majors">
-            <!-- Heading table -->
-            <thead id="table-head">
-                <tr class="row-h">
-                    <th class="col-h">Lớp</th>
-                    <th class="col-h">Mã sinh viên</th>
-                    <th class="col-h">Tên</th>
-                    <th class="col-h">Sửa</th>
-                    <th class="col-h">Xóa</th>
-                </tr>
-            </thead>
-            <!-- End -->
+        <form action="" method="post">
+            <table id="table-majors">
+                <!-- Heading table -->
+                <thead id="table-head">
+                    <tr class="row-h">
+                        <th class="col-h">Lớp</th>
+                        <th class="col-h">Mã sinh viên</th>
+                        <th class="col-h">Tên</th>
+                        <th class="col-h">Sửa</th>
+                        <th class="col-h">Xóa</th>
+                    </tr>
+                </thead>
+                <!-- End -->
 
-            <!-- Body table -->
-            <tbody id="table-body">
-                <?php 
+                <!-- Body table -->
+                <tbody id="table-body">
+                    <?php 
                     $result = Students($conn);
                     if ($result->num_rows > 0) {        
                     while ($row = $result->fetch_assoc()) {
                         ?>
-                <tr class="row-d">
-                    <td class="col-d"><?php echo $row['class'] ?></td>
-                    <td class="col-d"><?php echo $row['student_code'] ?></td>
-                    <td class="col-d"><?php echo $row['name'] ?></td>
-                    <td class="col-d">
-                        <button type="button" class="deleteBtn">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                    </td>
-                    <td class="col-d">
-                        <button type="button" class="deleteBtn">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-                <?php
+                    <tr class="row-d">
+                        <td class="col-d"><?php echo $row['class'] ?></td>
+                        <td class="col-d"><?php echo $row['student_code'] ?></td>
+                        <td class="col-d"><?php echo $row['name'] ?></td>
+                        <td class="col-d">
+                            <?php 
+                                require "StudentUpdate.php";
+                            ?>
+                            <button class="update-student-form deleteBtn" type="button" name="btn_update">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        </td>
+                        <td class="col-d">
+                            <?php 
+                                require "StudentDelete.php";
+                            ?>
+                            <input type="hidden" name="student_code" id="student_code"
+                                value="<?php echo $row['student_code'] ?>">
+                            <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
+                            <button id="delete-student-form" type="submit" class="deleteBtn" name="btn_delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+
+                    </tr>
+                    <?php
                     }
+                    ?>
+
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form action="" id="editForm">
+                                <input type="hidden" name="old_student_code" value="<?php echo $row['student_code'] ?>">
+                                <label>
+                                    <span style="margin-left: 26px;">Lớp:</span>
+                                    <input type="text" id="edit_class" name="new_class"
+                                        value="<?php echo $row['class'] ?>" placeholder="Lớp...">
+                                </label>
+                                <br>
+                                <label>
+                                    <span>Mã sinh viên:</span>
+                                    <input type="text" id="edit_student_code" value="<?php echo $row['student_code'] ?>"
+                                        readonly>
+                                </label>
+                                <br>
+                                <label>
+                                    <span>Tên:</span>
+                                    <input type="text" id="edit_name" name="new_name" value="<?php echo $row['name'] ?>"
+                                        placeholder="Tên...">
+                                </label>
+                                <br>
+                                <button name="btn_update" type="submit">Cập nhật</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <?php
                 }
                     ?>
-            </tbody>
-            <!-- End -->
-        </table>
+                </tbody>
+                <!-- End -->
+            </table>
+        </form>
         <!-- End -->
     </div>
 </section>
