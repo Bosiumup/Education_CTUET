@@ -34,7 +34,7 @@ a {
     color          : #000;
 }
 
-.education-program {
+.education_student {
     flex             : 1 0 auto;
     background-size  : cover;
     background-image : url(../assets/imgs/bg-main.jpg);
