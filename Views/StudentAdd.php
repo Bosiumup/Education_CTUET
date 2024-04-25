@@ -15,7 +15,9 @@ $(document).ready(function() {
                 class: class,
                 name: name
             },
-            success: function(response) {}
+            success: function(response) {
+
+            }
         });
     });
 });

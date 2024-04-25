@@ -1,7 +1,19 @@
 <script>
 $(document).ready(function() {
     $(".update-student-form").click(function() {
-        // Hiển thị modal lên.
+        // Lấy dữ liệu cần thiết từ hàng hiện tại
+        var $row = $(this).closest('.row-d');
+        var old_class = $row.find('.class').val();
+        var old_student_code = $row.find('.student_code').val();
+        var old_name = $row.find('.name').val();
+
+        // Thiết lập giá trị cho các ô input trong modal
+        $("#edit_class").val(old_class);
+        $("#old_student_code").val(old_student_code);
+        $("#edit_student_code").val(old_student_code);
+        $("#edit_name").val(old_name);
+
+        // Mở modal
         $("#myModal").css("display", "flex");
     });
 

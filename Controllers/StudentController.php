@@ -7,6 +7,10 @@ class StudentController {
             $class = $_POST['class'];
             $name = $_POST['name'];
 
+            $_SESSION['ss_name'] = $_POST['name'];
+            $_SESSION['ss_student_code'] = $_POST['student_code'];
+            $_SESSION['ss_class'] = $_POST['class'];
+
             // Kiểm tra xem tất cả các trường đã được nhập chưa
             if (empty($student_code) || empty($class) || empty($name)) {
                 echo "<script>
@@ -41,18 +45,23 @@ class StudentController {
                 } 
                 else {
                     $studentModel->AddStudent($conn, $name, $student_code, $class);
-                    echo "<script>
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: 'Thêm sinh viên thành công',
-                            showConfirmButton: false,
-                            timer: 2000,
-                            customClass: {
-                                title: 'custom-alert-title'
-                            }
-                        });
-                        </script>";
+                    if($studentModel) {
+                        unset($_SESSION['ss_class']);
+                        unset($_SESSION['ss_student_code']);
+                        unset($_SESSION['ss_name']);
+                        echo "<script>
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Thêm sinh viên thành công',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                customClass: {
+                                    title: 'custom-alert-title'
+                                }
+                            });
+                            </script>";
+                    } 
                 }
             }
         }

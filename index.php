@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "configs/conn.php";
 require "configs/functions.php";
 ?>
