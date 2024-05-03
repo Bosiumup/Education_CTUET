@@ -34,7 +34,7 @@ class StudentController {
                         Swal.fire({
                             position: 'center',
                             icon: 'error',
-                            title: 'Mã sinh viên $student_code đã tồn tại',
+                            title: 'Mã giảng viên $student_code đã tồn tại',
                             showConfirmButton: false,
                             timer: 2000,
                             customClass: {
@@ -53,7 +53,7 @@ class StudentController {
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
-                                title: 'Thêm sinh viên thành công',
+                                title: 'Thêm giảng viên thành công',
                                 showConfirmButton: false,
                                 timer: 2000,
                                 customClass: {
@@ -121,7 +121,7 @@ class StudentController {
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
-                            title: 'Xóa sinh viên $name thành công',
+                            title: 'Xóa giảng viên $name thành công',
                             showConfirmButton: false,
                             timer: 2000,
                             customClass: {

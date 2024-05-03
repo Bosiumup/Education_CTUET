@@ -10,7 +10,7 @@ require "configs/functions.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinh viên CTUET</title>
+    <title>Education CTUET</title>
 
     <!-- logo website -->
     <link rel="icon" href="Public/imgs/logo.png" type="image/x-icon" />
@@ -49,13 +49,18 @@ require "configs/functions.php";
         ?>
     </header>
 
-    <!-- Thêm sinh viên -->
     <main class="education_student">
         <?php
-            require "Views/main_students.php";
+        if(isset($_GET["page"]))
+        {
+            $p = $_GET["page"]; 
+            require "Views/".$p.".php";
+        }
+        else {
+            require "Views/main_student.php";
+        }
         ?>
     </main>
-    <!-- End -->
 
     <!-- Footer -->
     <footer>

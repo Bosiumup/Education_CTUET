@@ -7,7 +7,7 @@
 ?>
 
 <section class="container-students">
-    <h1 class="heading-main-shared">Sinh Viên CTUET</h1>
+    <h1 class="heading-main-shared">Giảng viên CTUET</h1>
     <div class="grid wide majors-full">
         <!-- Events -->
         <section class="events">
@@ -15,25 +15,24 @@
                 <div class="event-left">
                     <!-- Add student -->
                     <form id="add-student-form" action="" method="POST">
-                        <input type="text" id="class" name="class" placeholder="Lớp..."
+                        <input type="text" id="class" name="class" placeholder="Khoa..."
                             value="<?php echo isset($_SESSION['ss_class']) ? $_SESSION['ss_class'] : '' ?>">
-                        <input type="text" id="student_code" name="student_code" placeholder="MSSV..."
+                        <input type="text" id="student_code" name="student_code" placeholder="Mã giảng viên..."
                             value="<?php echo isset($_SESSION['ss_student_code']) ? $_SESSION['ss_student_code'] : '' ?>">
                         <input type="text" id="name" name="name" placeholder="Tên..."
                             value="<?php echo isset($_SESSION['ss_name']) ? $_SESSION['ss_name'] : '' ?>">
-                        <button class="btn_student" name="btn_add" type="submit">Thêm sinh viên</button>
+                        <button class="btn_student" name="btn_add" type="submit">Thêm giảng viên</button>
                         <?php 
-                            require "StudentAdd.php"
+                            require "Students/StudentAdd.php"
                         ?>
                     </form>
-
                 </div>
 
                 <div class="event-right">
                     <!-- Search -->
                     <form action="" method="post">
                         <div class="search-form">
-                            <input type="text" placeholder="Sinh viên..." name="search_student">
+                            <input type="text" placeholder="Giảng viên..." name="search_student">
                             <button type="button">Tra cứu</button>
                         </div>
                     </form>
@@ -48,8 +47,8 @@
                 <!-- Heading table -->
                 <thead id="table-head">
                     <tr class="row-h">
-                        <th class="col-h">Lớp</th>
-                        <th class="col-h">Mã sinh viên</th>
+                        <th class="col-h">Khoa</th>
+                        <th class="col-h">Mã giảng viên</th>
                         <th class="col-h">Tên</th>
                         <th class="col-h">Sửa</th>
                         <th class="col-h">Xóa</th>
@@ -70,7 +69,7 @@
                         <td class="col-d"><?php echo $row['name'] ?></td>
                         <td class="col-d">
                             <?php 
-                                require "StudentUpdate.php";
+                                require "Students/StudentUpdate.php";
                             ?>
                             <input type="hidden" class="class" value="<?php echo $row['class'] ?>">
                             <input type="hidden" class="student_code" value="<?php echo $row['student_code'] ?>">
@@ -81,7 +80,7 @@
                         </td>
                         <td class="col-d">
                             <?php 
-                                require "StudentDelete.php";
+                                require "Students/StudentDelete.php";
                             ?>
                             <input type="hidden" name="student_code" id="student_code"
                                 value="<?php echo $row['student_code'] ?>">
@@ -100,12 +99,12 @@
                             <form action="" id="editForm">
                                 <input type="hidden" name="old_student_code" id="old_student_code">
                                 <label>
-                                    <span style="margin-left: 26px;">Lớp:</span>
-                                    <input type="text" id="edit_class" name="new_class" placeholder="Lớp...">
+                                    <span style="margin-left: 26px;">Khoa:</span>
+                                    <input type="text" id="edit_class" name="new_class" placeholder="Khoa...">
                                 </label>
                                 <br>
                                 <label>
-                                    <span>Mã sinh viên:</span>
+                                    <span>Mã giảng viên:</span>
                                     <input type="text" id="edit_student_code" readonly>
                                 </label>
                                 <br>
