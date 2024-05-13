@@ -1,0 +1,115 @@
+.main-sideBar-admin {
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    width           : 18rem;
+    height          : 100%;
+    background-color: #fbfbfb;
+    box-shadow      : 1px 0 12px rgba(0, 0, 0, 0.8);
+    z-index         : 1;
+}
+
+/* Phần thanh cuộn */
+.container-sideBar-admin::-webkit-scrollbar {
+    width: 2px;
+    /* Độ rộng của thanh cuộn */
+}
+
+/* Phần đường ray của thanh cuộn */
+.container-sideBar-admin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Màu nền */
+}
+
+/* Phần con trỏ cuộn */
+.container-sideBar-admin::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #9f78ff, #32cafe);
+    /* Màu của con trỏ */
+}
+
+.navbar-header-img {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    padding        : 20px 0;
+}
+
+.navbar-header-img img {
+    width: 36%;
+}
+
+.nav-list>li {
+    position     : relative;
+    border-bottom: 0.5px solid #d4d4d4;
+}
+
+.nav-list>.nav-list-item:hover {
+    background-color: #ffeded;
+    transition      : all 0.2s ease-in-out;
+}
+
+.nav-list .nav-list-item a {
+    display    : flex;
+    align-items: center;
+    width      : 100%;
+    padding    : 30px 10px;
+    color      : #fff;
+    opacity    : 0.9;
+}
+
+.nav-list .nav-list-item a i {
+    width     : 35px;
+    font-size : large;
+    color     : #000;
+    text-align: start;
+}
+
+.nav-list .nav-list-item a span {
+    font-size: larger;
+    color    : #000;
+    opacity  : 0.8;
+}
+
+.nav-list .nav-list-item a .down-arrow {
+    width      : 0;
+    margin-left: 10px;
+}
+
+.nav-list .subnav {
+    position        : absolute;
+    top             : 100%;
+    left            : 5%;
+    display         : none;
+    animation       : fadeIn linear 0.2s;
+    background-color: #e4e4e4;
+    border-radius   : 10px;
+    z-index         : 10;
+}
+
+.nav-list>li:hover .subnav {
+    display: block;
+}
+
+.subnav .nav-list-item {
+    border-bottom: 0.5px solid #d4d4d4;
+}
+
+.subnav a {
+    padding   : 20px 30px 20px 10px !important;
+    color     : #666;
+    transition: all 0.2s ease-in-out;
+}
+
+.subnav a:hover {
+    transform: translateX(5px);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

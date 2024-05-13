@@ -1,30 +1,33 @@
 footer {
-  background: var(--primary-color);
+  background : var(--primary-color);
   flex-shrink: 0;
 }
+
 footer .footer {
-  width: 100%;
-  margin: auto;
+  width  : 100%;
+  margin : auto;
   padding: 31px 0px;
 }
+
 footer .footer .block-footer {
   text-align: center;
 }
+
 footer .footer .block-footer .text-footer span {
-  display: block;
-  font-size: larger;
-  color: #fff;
+  display       : block;
+  font-size     : large;
+  color         : #fff;
   padding-bottom: 15px;
 }
 
 footer .footer .block-footer .button-footer .bg-fb {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 footer .footer .block-footer .button-footer .bg-fb i,
 footer .footer .block-footer .button-footer .bg-yu i {
-  color: var(--secondary-color);
-  font-size: 30px;
+  color     : var(--secondary-color);
+  font-size : x-large;
   transition: all 0.1s linear;
 }
 

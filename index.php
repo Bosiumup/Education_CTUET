@@ -1,9 +1,3 @@
-<?php
-session_start();
-require "configs/conn.php";
-require "configs/functions.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +7,14 @@ require "configs/functions.php";
     <title>Education CTUET</title>
 
     <!-- logo website -->
-    <link rel="icon" href="Public/imgs/logo.png" type="image/x-icon" />
+    <link rel="icon" href="public/imgs/logo.png" type="image/x-icon" />
 
     <!-- font icons -->
-    <link rel="stylesheet" href="Public/icon/fontawesome-free-6.2.1-web/fontawesome-free-6.2.1-web/css/all.min.css">
+    <link rel="stylesheet" href="public/icons/fontawesome-free-6.2.1-web/fontawesome-free-6.2.1-web/css/all.min.css">
 
     <!-- sweetalert2 -->
-    <link rel="stylesheet" href="Public/sweetalert2/sweetalert2.min.css">
-    <script src="Public/sweetalert2/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="public/sweetalert2/sweetalert2.min.css">
+    <script src="public/sweetalert2/sweetalert2.all.min.js"></script>
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -30,45 +24,17 @@ require "configs/functions.php";
         rel="stylesheet" />
 
     <!-- Css general link -->
-    <link rel="stylesheet" href="Public/styles/base.css">
-    <link rel="stylesheet" href="Public/styles/grid.css">
+    <link rel="stylesheet" href="public/styles/base.css">
+    <link rel="stylesheet" href="public/styles/grid.css">
 
-    <!-- Css link chương trình đào tạo -->
-    <link rel="stylesheet" href="Public/styles/header.css">
-    <link rel="stylesheet" href="Public/styles/footer.css">
-    <link rel="stylesheet" href="Public/styles/events.css">
-    <link rel="stylesheet" href="Public/styles/table.css">
-    <link rel="stylesheet" href="Public/styles/modal.css">
+    <link rel="stylesheet" href="public/styles/login_register.css">
+
 </head>
 
-<body>
-    <!-- Header -->
-    <header>
-        <?php
-        require "Views/header.php";
-        ?>
-    </header>
-
-    <main class="education_student">
-        <?php
-        if(isset($_GET["page"]))
-        {
-            $p = $_GET["page"]; 
-            require "Views/".$p.".php";
-        }
-        else {
-            require "Views/main_student.php";
-        }
-        ?>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <?php
-        require "Views/footer.php";
-        ?>
-    </footer>
-
+<body class="body">
+    <?php 
+        require "log_in.php";
+    ?>
 </body>
 
 </html>

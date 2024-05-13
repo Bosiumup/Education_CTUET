@@ -1,5 +1,5 @@
 <?php 
-    require "Controllers/StudentController.php";
+    require "app/controllers/teacher_controller.php";
     $studentController = new StudentController();
     $studentController->add();
     $studentController->delete();
@@ -23,7 +23,7 @@
                             value="<?php echo isset($_SESSION['ss_name']) ? $_SESSION['ss_name'] : '' ?>">
                         <button class="btn_student" name="btn_add" type="submit">Thêm giảng viên</button>
                         <?php 
-                            require "Students/StudentAdd.php"
+                            require "teachers/add.php"
                         ?>
                     </form>
                 </div>
@@ -69,7 +69,7 @@
                         <td class="col-d"><?php echo $row['name'] ?></td>
                         <td class="col-d">
                             <?php 
-                                require "Students/StudentUpdate.php";
+                                require "teachers/update.php";
                             ?>
                             <input type="hidden" class="class" value="<?php echo $row['class'] ?>">
                             <input type="hidden" class="student_code" value="<?php echo $row['student_code'] ?>">
@@ -80,7 +80,7 @@
                         </td>
                         <td class="col-d">
                             <?php 
-                                require "Students/StudentDelete.php";
+                                require "teachers/delete.php";
                             ?>
                             <input type="hidden" name="student_code" id="student_code"
                                 value="<?php echo $row['student_code'] ?>">
