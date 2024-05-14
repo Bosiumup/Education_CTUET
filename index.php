@@ -33,7 +33,7 @@
 
 <body class="body">
     <?php 
-        require "log_in.php";
+        require "app/views/log_in.php";
     ?>
 </body>
 

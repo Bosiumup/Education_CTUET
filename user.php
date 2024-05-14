@@ -43,20 +43,13 @@ require "app/configs/functions.php";
     <link rel="stylesheet" href="public/styles/footer.css">
 </head>
 
-<body>
+<body style="padding: 0;">
     <!-- Header -->
     <header>
         <?php
         require "app/views/layouts/header.php";
         ?>
     </header>
-
-    <!-- Nav SideBar -->
-    <nav class="container-sideBar-admin">
-        <?php
-            require "app/views/admin/layouts/sidebar.php"; 
-        ?>
-    </nav>
 
     <main class="education_student">
         <?php
