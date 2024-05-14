@@ -1,8 +1,12 @@
 <?php
-// ------------------ Teachers --------------------
-// Hàm render students
-function Students($conn)
-{
-    $query = "SELECT * FROM student";
-    return $conn->query($query);
-}
+    // inf account
+    function account($conn, $username) {
+        $query = "SELECT * FROM account WHERE Username = '$username'";
+        return $conn->query($query);
+    }
+    // check login
+    function checkLogin($conn, $username)
+    {
+        $query = "SELECT * FROM account WHERE Username = '$username'";
+        return $conn->query($query);
+    }

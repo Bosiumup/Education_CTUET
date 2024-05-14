@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    require "app/configs/database.php";
+    require "app/configs/functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

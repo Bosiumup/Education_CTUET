@@ -21,3 +21,38 @@
   font-weight: 500;
   color      : var(--secondary-color);
 }
+
+.header-main-l .inf-log_out {
+  display       : flex;
+  flex-direction: column;
+}
+
+.inf-log_out .inf {
+  font-size    : larger;
+  color        : var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.inf-log_out .log_out button {
+  font-size       : 14px;
+  font-weight     : 600;
+  background-color: var(--primary-hover-color);
+  color           : #fff;
+  border          : none;
+  outline         : none;
+  padding         : 10px 20px;
+  margin-left     : 10px;
+  border-radius   : 10px;
+  transition      : all ease 0.1s;
+  box-shadow      : 0px 5px 0px 0px #fed09b;
+}
+
+.inf-log_out .log_out button:hover {
+  opacity: 0.9;
+  cursor : pointer;
+}
+
+.inf-log_out .log_out button:active {
+  transform : translateY(5px);
+  box-shadow: 0px 0px 0px 0px #fed09b;
+}
