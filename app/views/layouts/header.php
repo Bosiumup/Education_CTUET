@@ -1,5 +1,6 @@
 <?php 
-    require "app/views/log_out.php"
+    require "app/views/log_out.php";
+    require "app/views/role.php";
 ?>
 
 <header class="header">

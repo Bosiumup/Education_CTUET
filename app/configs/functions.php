@@ -10,3 +10,9 @@
         $query = "SELECT * FROM account WHERE Username = '$username'";
         return $conn->query($query);
     }
+    // render faculty
+    function Faculty($conn)
+    {
+        $sql = "SELECT * FROM khoa";
+        return $conn->query($sql);
+    }

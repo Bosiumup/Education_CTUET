@@ -1,26 +1,26 @@
 <?php
-class StudentModel {
-    public function AddStudent($conn, $name, $student_code, $class)
+class Faculty_Model {
+    public function add($conn, $id, $name)
     {
-        $sql = "INSERT INTO student (name, student_code, class) VALUES ('$name', '$student_code', '$class')";
+        $sql = "INSERT INTO khoa (KhoaID, TenKhoa) VALUES ('$id', '$name')";
         return $conn->query($sql);
     }
-    public function CheckStudentID($conn, $student_code) {
-        $sql = "SELECT * FROM student WHERE student_code = '$student_code'";
+    public function checkAdd($conn, $id, $name) {
+        $sql = "SELECT * FROM khoa WHERE KhoaID = '$id' OR TenKhoa = '$name'";
         return $conn->query($sql);
     }
-    public function CheckUpdateStudentID($conn, $new_student_code) {
-        $sql = "SELECT * FROM student WHERE student_code = '$new_student_code'";
+    public function checkUpdate($conn, $newName) {
+        $sql = "SELECT * FROM khoa WHERE TenKhoa = '$newName'";
         return $conn->query($sql);
     }
-    function UpdateStudent($conn, $new_name, $new_class, $old_student_code)
+    function update($conn, $newName, $oldID)
     {
-        $sql = "UPDATE student SET name = '$new_name', class = '$new_class' WHERE student_code = '$old_student_code'";
+        $sql = "UPDATE khoa SET TenKhoa = '$newName' WHERE KhoaID = '$oldID'";
         return $conn->query($sql);
     }
-    public function DeteleStudent($conn, $student_code)
+    public function delete($conn, $id)
     {
-        $sql = "DELETE FROM student WHERE student_code = '$student_code'";
+        $sql = "DELETE FROM khoa WHERE KhoaID = '$id'";
         return $conn->query($sql);
     }
 }

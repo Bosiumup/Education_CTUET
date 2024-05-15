@@ -17,20 +17,30 @@
 
 /* Style cho modal content */
 .modal-content {
+    position        : relative;
     text-align      : center;
     background-color: #fefefe;
-    padding         : 20px;
+    padding         : 25px;
     border          : 1px solid #888;
-    width           : 50%;
+    width           : 35%;
     line-height     : 35px;
-    border-radius   : 5px;
+    border-radius   : 35px;
+    /* chuyển động từ trên xuống của modal */
+    animation       : modalFaceIn linear 0.15s;
+}
+
+.modal-content img {
+    width        : 11%;
+    margin-bottom: 5px;
 }
 
 /* Nút close */
 .close {
+    position   : absolute;
+    top        : 8px;
+    right      : 16px;
     font-size  : xxx-large;
     color      : #aaa;
-    float      : right;
     font-weight: bold;
 }
 
@@ -43,7 +53,13 @@
 
 .modal-content label {
     display: inline-block;
+    width  : 100%;
     padding: 10px 0;
+}
+
+.modal-content label:focus-visible,
+.modal-content label:focus {
+    outline: none !important;
 }
 
 .modal-content label span {
@@ -52,6 +68,33 @@
     text-align: left;
 }
 
+.modal-content label .readonly {
+    background-color: #ececec !important;
+    cursor          : default;
+}
+
+.modal-content label .readonly:focus {
+    background-color   : #ececec !important;
+    padding            : 0.2rem 0 0 0.6rem !important;
+    border             : 2px solid transparent !important;
+    border-bottom-color: #333 !important;
+    border-radius      : 0 !important;
+    outline            : none !important;
+}
+
 .modal-content button {
     margin-top: 20px;
+}
+
+/* animation xuất hiện từ trên xuống của modal */
+@keyframes modalFaceIn {
+    from {
+        transform: translateX(-250px);
+        opacity  : 0.3;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity  : 1;
+    }
 }

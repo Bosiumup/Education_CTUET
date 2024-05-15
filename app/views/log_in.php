@@ -87,7 +87,7 @@
     
                     setTimeout(function() {
                         window.location.href='index.php';
-                    }, 2000);
+                    }, 1500);
                 </script>";
             }
         }
@@ -106,7 +106,7 @@
     
                     setTimeout(function() {
                         window.location.href='index.php';
-                    }, 2000);
+                    }, 1500);
                 </script>";
         }
     }

@@ -25,6 +25,7 @@
 .header-main-l .inf-log_out {
   display       : flex;
   flex-direction: column;
+  align-items   : center;
 }
 
 .inf-log_out .inf {

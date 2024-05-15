@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="">
+                <a href="?page=faculty">
                     <i class="fa-solid fa-list fa-fw"></i>
                     <span>Khoa</span>
                 </a>
@@ -52,7 +52,7 @@
                 </a>
                 <ul class="subnav">
                     <li class="nav-list-item">
-                        <a href="?page=teacher">
+                        <a href="">
                             <i class="fa-solid fa-user-tie"></i>
                             <span>Giảng viên</span>
                         </a>
