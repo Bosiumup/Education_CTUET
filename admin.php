@@ -22,9 +22,6 @@ require "app/configs/functions.php";
     <link rel="stylesheet" href="public/sweetalert2/sweetalert2.min.css">
     <script src="public/sweetalert2/sweetalert2.all.min.js"></script>
 
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- Font text-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
         rel="stylesheet" />

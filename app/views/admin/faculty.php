@@ -4,6 +4,7 @@
     $facultyController->add();              
     $facultyController->update(); 
     $facultyController->delete();
+    // $facultyController->search();
 
 ?>
 
@@ -16,7 +17,7 @@
                     <!-- Add student -->
                     <form action="?page=faculty" method="POST">
                         <input type="text" name="facultyID" placeholder="Mã khoa..." required
-                            value="<?php echo isset($_SESSION['facultyID']) ? $_SESSION['ss_student_code'] : '' ?>">
+                            value="<?php echo isset($_SESSION['facultyID']) ? $_SESSION['facultyID'] : '' ?>">
                         <input type="text" name="facultyName" placeholder="Tên khoa..." required
                             value="<?php echo isset($_SESSION['facultyName']) ? $_SESSION['facultyName'] : '' ?>">
                         <button name="facultyAdd" type="submit">Thêm Khoa</button>
@@ -25,10 +26,10 @@
 
                 <div class="event-right">
                     <!-- Search -->
-                    <form action="" method="post">
+                    <form action="?page=faculty" method="post">
                         <div class="search-form">
-                            <input type="text" placeholder="Khoa..." name="search_student">
-                            <button type="button">Tra cứu</button>
+                            <input type="text" placeholder="Tên khoa..." name="facultyNameSearch" required>
+                            <button name="facultySearch" type="submit">Tra cứu</button>
                         </div>
                     </form>
                 </div>
@@ -61,7 +62,6 @@
                     <td class="col-d"><?php echo $row['TenKhoa'] ?></td>
                     <td class="col-d">
                         <!-- Button open modal update -->
-                        <?php require "facultys/update.php" ?>
                         <input class="facultyPresentID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
                         <input class="facultyPresentName" type="hidden" value="<?php echo $row['TenKhoa'] ?>">
                         <button class="facultyOpenFormUpdate updateBtn" type="button" name="btn_update">
@@ -112,3 +112,4 @@
         <!-- End -->
     </div>
 </section>
+<script src="public/js/facultys/update.js"></script>

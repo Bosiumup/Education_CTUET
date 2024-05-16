@@ -1,3 +1,18 @@
+<?php 
+if (isset($_SESSION["Username"])) {
+    $username = $_SESSION["Username"];
+    $check_login = checkLogin($conn, $username);
+    if ($check_login->num_rows > 0) {
+        $account_data = $check_login->fetch_assoc();
+        if ($account_data["LoaiTaiKhoan"] == "admin") {
+            header("location: admin.php");
+        }
+        else {
+            header("location: user.php");
+        }
+    }
+}
+?>
 <main class="container-main-login">
     <section class="form-handle">
         <div class="container-handle">

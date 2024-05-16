@@ -39,7 +39,7 @@
 
 <body class="body">
     <?php 
-        require "app/views/log_in.php";
+        require "app/components/log_in.php";
     ?>
 </body>
 
