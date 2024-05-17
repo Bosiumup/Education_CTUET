@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="">
+                <a href="#">
                     <i class="fa-solid fa-user"></i>
                     <span>Người dùng</span>
                     <i class="fa-solid fa-caret-down fa-fw down-arrow"></i>
@@ -35,9 +35,8 @@
                             <span>Giảng viên</span>
                         </a>
                     </li>
-
                     <li class="nav-list-item">
-                        <a href="">
+                        <a href="#">
                             <i class="fa-solid fa-user-graduate"></i>
                             <span>Sinh viên</span>
                         </a>
@@ -45,53 +44,54 @@
                 </ul>
             </li>
             <li class="nav-list-item">
-                <a href="">
+                <a href="#">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <span>Cấp tài khoản</span>
                     <i class="fa-solid fa-caret-down fa-fw down-arrow"></i>
                 </a>
                 <ul class="subnav">
                     <li class="nav-list-item">
-                        <a href="">
+                        <a href="#">
                             <i class="fa-solid fa-user-tie"></i>
                             <span>Giảng viên</span>
                         </a>
                     </li>
-
                     <li class="nav-list-item">
-                        <a href="">
+                        <a href="#">
                             <i class="fa-solid fa-user-graduate"></i>
                             <span>Sinh viên</span>
                         </a>
                     </li>
                 </ul>
             </li>
+        </ul>
     </div>
 </nav>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Lấy danh sách các item
     const items = document.querySelectorAll(".nav-list-item");
+    const storageKey = "activeItem";
 
-    // biến lưu trữ slide hiện tại. ban đầu = 0
-    let currentItem = 0;
+    // Lấy trạng thái active từ session storage (nếu có)
+    let activeIndex = sessionStorage.getItem(storageKey);
+    if (activeIndex !== null) {
+        items.forEach((item) => {
+            item.classList.remove("active");
+        });
+        items[activeIndex].classList.add("active");
+    }
 
-    // Điều hướng đến slide khi click vào box tương ứng
     items.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            // Chuyển đến slide được nhấp vào
-            goToItem(index);
+        item.addEventListener("click", (event) => {
+            items.forEach((item) => {
+                item.classList.remove("active");
+            });
+            event.currentTarget.classList.add("active");
+
+            // Lưu trạng thái active vào session storage
+            sessionStorage.setItem(storageKey, index);
         });
     });
-
-    let goToItem = (index) => {
-        // Ẩn item hiện tại và hiển thị item mới
-        items[currentItem].classList.remove("active");
-        items[index].classList.add("active");
-
-        // Cập nhật vị trí item hiện tại
-        currentItem = index;
-    };
 });
 </script>
