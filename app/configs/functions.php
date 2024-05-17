@@ -16,3 +16,15 @@
         $sql = "SELECT * FROM khoa";
         return $conn->query($sql);
     }
+    // render EP
+    function EP($conn)
+    {
+        $sql = "SELECT * FROM chuongtrinhdaotao";
+        return $conn->query($sql);
+    }
+    // render EP follow KhoaID
+    function EP_KhoaID($conn, $idkhoa)
+    {
+        $sql = "SELECT * FROM chuongtrinhdaotao WHERE KhoaID = '$idkhoa'";
+        return $conn->query($sql);
+    }

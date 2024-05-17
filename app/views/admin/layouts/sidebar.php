@@ -4,7 +4,7 @@
     </header>
     <div class="navbar-container">
         <ul class="nav-list">
-            <li class="nav-list-item">
+            <li class="nav-list-item active">
                 <a href="admin.php">
                     <i class="fa-solid fa-house fa-fw"></i>
                     <span>Trang chủ</span>
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="">
+                <a href="?page=ep">
                     <i class="fa-solid fa-school"></i>
                     <span>Chương trình đạo tạo</span>
                 </a>
@@ -68,3 +68,30 @@
             </li>
     </div>
 </nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Lấy danh sách các item
+    const items = document.querySelectorAll(".nav-list-item");
+
+    // biến lưu trữ slide hiện tại. ban đầu = 0
+    let currentItem = 0;
+
+    // Điều hướng đến slide khi click vào box tương ứng
+    items.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            // Chuyển đến slide được nhấp vào
+            goToItem(index);
+        });
+    });
+
+    let goToItem = (index) => {
+        // Ẩn item hiện tại và hiển thị item mới
+        items[currentItem].classList.remove("active");
+        items[index].classList.add("active");
+
+        // Cập nhật vị trí item hiện tại
+        currentItem = index;
+    };
+});
+</script>

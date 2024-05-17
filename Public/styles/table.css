@@ -26,6 +26,10 @@
   border    : 1px solid #bebebe;
 }
 
+.col-d a:hover {
+  color: var(--primary-hover-color);
+}
+
 .branch-item {
   font-size      : 17px;
   color          : #000;

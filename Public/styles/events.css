@@ -23,6 +23,12 @@
     align-items: center;
 }
 
+.events-list .event-left select {
+    font-size    : medium;
+    border-radius: 5px;
+    padding      : 5px 10px;
+}
+
 .events-list .event-left .export .export-output {
     display    : flex;
     align-items: center;
