@@ -14,7 +14,7 @@
         <section class="events">
             <div class="events-list">
                 <div class="event-left">
-                    <!-- Add student -->
+                    <!-- Add EP -->
                     <form action="?page=ep" method="POST">
                         <input type="text" name="EPID" placeholder="Mã chương trình..." required
                             value="<?php echo isset($_SESSION['EPID']) ? $_SESSION['EPID'] : '' ?>">
@@ -48,7 +48,7 @@
         </section>
         <!-- End -->
 
-        <!-- Table majors -->
+        <!-- Table -->
         <table id="table-majors">
             <!-- Heading table -->
             <thead id="table-head">
@@ -64,7 +64,22 @@
 
             <!-- Body table -->
             <tbody id="table-body">
+                <!-- CÂU REQUIRE LÀ ĐỂ IMPORT FILE SEARCH VỚI HIỂN THỊ BÊN FOLDER COMPONENTS -->
                 <?php require "app/components/ep_search_render.php"; ?>
+
+                <!-- NÀY LÀ POP UP CẬP NHẬT LẠI THÔNG TIN -->
+                <!-- ĐỔI MẤY CÁI NÀY LẠI ĐỂ LÀM BÊN FILE UPDATE JAVASCRIPT -->
+                <!-- 
+                    MẤY CÁI NÀO CÓ CHỮ ep -> student (student.php), teacher (teacher.php), subjec (subject.php)
+                    
+                    VÍ DỤ:
+                    epMyModal -> studentMyModal (student.php), teacherMyModal (teacher.php), subjectMyModal (subject.php)
+                    epOldID -> studentOldID (student.php), teacherOldID (teacher.php), subjectOldID (subject.php)
+                    epFormselectOption -> studentFormselectOption (student.php), teacherFormselectOption (teacher.php), subjectFormselectOption (subject.php)
+                    ...
+                    ...
+                    ...
+                 -->
                 <div id="epMyModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -105,4 +120,4 @@
         <!-- End -->
     </div>
 </section>
-<script src="public/js/ep/update.js"></script>
+<script src="public/js/ep_update.js"></script>

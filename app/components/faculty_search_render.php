@@ -1,4 +1,5 @@
 <?php
+    // NẾU CÓ TRA CỨU KHOA THÌ SẼ HIỂN THỊ RA KẾT QUẢ TRA CỨU 
     if(isset($_GET['facultyNameSearch'])) {
         $search = $_GET['facultyNameSearch'];
         $result = Faculty_Search($conn, $search);
@@ -38,6 +39,7 @@
             }
         }
     }
+    // NẾU KHÔNG CÓ TRA CỨU THÌ SẼ HIỂN THỊ RA TOÀN BỘ KHOA
     else {
         $result = Faculty($conn);
         if ($result->num_rows > 0) {  

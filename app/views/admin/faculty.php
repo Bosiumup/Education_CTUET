@@ -14,7 +14,7 @@
         <section class="events">
             <div class="events-list">
                 <div class="event-left">
-                    <!-- Add student -->
+                    <!-- Add faculty -->
                     <form action="?page=faculty" method="POST">
                         <input type="text" name="facultyID" placeholder="Mã khoa..." required
                             value="<?php echo isset($_SESSION['facultyID']) ? $_SESSION['facultyID'] : '' ?>">
@@ -38,7 +38,7 @@
         </section>
         <!-- End -->
 
-        <!-- Table majors -->
+        <!-- Table -->
         <table id="table-majors">
             <!-- Heading table -->
             <thead id="table-head">

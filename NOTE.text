@@ -1,0 +1,17 @@
+<!-- 
+
+    (
+        TẤT CẢ CÁC CMT THIỆN LƯU Ý ĐỂ BÊN FILE: 
+        app/configs/functions.php
+        app/components/ep_search_render.php
+        app/views/admin/ep.php 
+    )
+
+    (
+        XỬ LÝ CHỨC NĂNG ADD, UPDATE, DELETE SẼ NẰM Ở app/controllers/ep_controller.php (dựa theo mà làm nhe)
+        XỬ LÝ CHỨC NĂNG SEARCH HÀM SẼ NẰM Ở app/configs/functions.php (dựa theo mà làm nhe)
+    )
+
+    CÒN GIAO DIỆN THÌ TẠM THỜI COPY TRONG FILE app/views/admin/ep.php đem qua sau đó -> tùy chỉnh lại theo từng đối tượng vì các đối tượng sẽ có  thể thêm cột gì đó nữa và cập nhật tương tự nhé...
+
+-->

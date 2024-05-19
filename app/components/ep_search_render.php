@@ -1,4 +1,5 @@
 <?php
+    // NẾU TỪ TRANG KHOA TRONG BẢNG KHOA NHẤP VÀO MÃ KHOA HOẶC TÊN KHOA THÌ SẼ BAY QUA TRANG CHƯƠNG TRÌNH ĐÀO TẠO THUỘC KHOA ĐÓ
     if (isset($_GET['KhoaID'])) {
         $khoaID = $_GET['KhoaID'];
         $result = EP_KhoaID($conn, $khoaID); // Gọi hàm EP_KhoaID() nếu có mã khoa được nhận
@@ -31,7 +32,10 @@
 <?php
             }
         }
-    } else {
+    }
+    // NẾU NHẤP VÀO THẲNG TRANG CHƯƠNG TRÌNH ĐÀO TẠO THÌ CODE SẼ CHẠY TRONG ELSE
+    else {
+        // NẾU CÓ TRA CỨU THÌ CHỈ RA KẾT QUẢ TRA CỨU
         if(isset($_GET['epNameSearch'])) {
             $search = $_GET['epNameSearch'];
             $result = EP_Search($conn, $search);
@@ -65,6 +69,7 @@
                 }
             }
         }
+        // NẾU KHÔNG CÓ TRA CỨU THÌ MẶC ĐỊNH SẼ HIỂN THỊ RA HẾT TẤT CẢ CHƯƠNG TRÌNH ĐÀO TẠO
         else {
             $result = EP($conn);
             if ($result->num_rows > 0) {  

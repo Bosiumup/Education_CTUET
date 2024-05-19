@@ -1,4 +1,5 @@
 <?php
+// ------------------- Account --------------------------
     // inf account
     function account($conn, $username) {
         $query = "SELECT * FROM account WHERE Username = '$username'";
@@ -10,6 +11,8 @@
         $query = "SELECT * FROM account WHERE Username = '$username'";
         return $conn->query($query);
     }
+
+// ------------------- Faculty (Khoa) --------------------------
     // render faculty
     function Faculty($conn)
     {
@@ -22,6 +25,8 @@
         $sql = "SELECT * FROM khoa WHERE TenKhoa LIKE '%$search%'";
         return $conn->query($sql);
     }
+
+// ------------------- EP (Chuong trinh dao tao) --------------------------
     // render EP
     function EP($conn)
     {
@@ -40,3 +45,12 @@
         $sql = "SELECT * FROM chuongtrinhdaotao WHERE KhoaID = '$idkhoa'";
         return $conn->query($sql);
     }
+
+// ------------------- Teacher (Giang vien) --------------------------
+    // viết các hàm liên quan đến giảng viên dựa vào ở trên 
+
+// ------------------- Student (Sinh vien) --------------------------
+    // viết các hàm liên quan đến sinh viên dựa vào ở trên 
+    
+// ------------------- Subject (Môn học) --------------------------
+    // viết các hàm liên quan đến môn học dựa vào ở trên 
