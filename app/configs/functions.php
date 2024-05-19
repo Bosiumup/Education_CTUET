@@ -16,10 +16,22 @@
         $sql = "SELECT * FROM khoa";
         return $conn->query($sql);
     }
+    // render faculty follow search
+    function Faculty_Search($conn, $search)
+    {
+        $sql = "SELECT * FROM khoa WHERE TenKhoa LIKE '%$search%'";
+        return $conn->query($sql);
+    }
     // render EP
     function EP($conn)
     {
         $sql = "SELECT * FROM chuongtrinhdaotao";
+        return $conn->query($sql);
+    }
+    // render EP follow search
+    function EP_Search($conn, $search)
+    {
+        $sql = "SELECT * FROM chuongtrinhdaotao WHERE TenChuongTrinh LIKE '%$search%'";
         return $conn->query($sql);
     }
     // render EP follow KhoaID

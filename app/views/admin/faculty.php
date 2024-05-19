@@ -26,10 +26,11 @@
 
                 <div class="event-right">
                     <!-- Search -->
-                    <form action="?page=faculty" method="post">
+                    <form action="?" method="get">
                         <div class="search-form">
+                            <input type="hidden" name="page" value="faculty">
                             <input type="text" placeholder="Tên khoa..." name="facultyNameSearch" required>
-                            <button name="facultySearch" type="submit">Tra cứu</button>
+                            <button type="submit">Tra cứu</button>
                         </div>
                     </form>
                 </div>
@@ -52,43 +53,7 @@
 
             <!-- Body table -->
             <tbody id="table-body">
-                <?php
-                    $result = Faculty($conn);
-                    if ($result->num_rows > 0) {  
-                        while ($row = $result->fetch_assoc()) {
-                        ?>
-                <tr class="row-d">
-                    <td class="col-d">
-                        <a href="?page=ep&KhoaID=<?php echo $row['KhoaID'] ?>">
-                            <?php echo $row['KhoaID'] ?>
-                        </a>
-                    </td>
-                    <td class="col-d">
-                        <a href="?page=ep&KhoaID=<?php echo $row['KhoaID'] ?>">
-                            <?php echo $row['TenKhoa'] ?>
-                        </a>
-                    </td>
-                    <td class="col-d">
-                        <!-- Button open modal update -->
-                        <input class="facultyPresentID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
-                        <input class="facultyPresentName" type="hidden" value="<?php echo $row['TenKhoa'] ?>">
-                        <button class="facultyOpenFormUpdate updateBtn" type="button">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                    </td>
-                    <td class="col-d">
-                        <!-- Delete -->
-                        <form action="?page=faculty" method="post">
-                            <input name="facultyID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
-                            <button name="facultyDelete" type="submit" class="deleteBtn">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-                <?php
-                    }
-                    ?>
+                <?php require "app/components/faculty_search_render.php"; ?>
                 <div id="facultyMyModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -97,22 +62,18 @@
                             <input type="hidden" name="facultyOldID" id="facultyOldID">
                             <label>
                                 <span>Mã khoa:</span>
-                                <input class="readonly" type="text" id="facultyFormID" readonly>
+                                <input type="text" id="facultyFormID" required>
                             </label>
                             <br>
                             <label>
                                 <span>Tên khoa:</span>
-                                <input type="text" id="facultyFormName" name="facultyNewName" placeholder="Tên khoa..."
-                                    required>
+                                <input type="text" id="facultyFormName" name="facultyNewName" required>
                             </label>
                             <br>
                             <button name="facultyUpdate" type="submit">Cập nhật</button>
                         </form>
                     </div>
                 </div>
-                <?php
-                }
-                    ?>
             </tbody>
             <!-- End -->
         </table>

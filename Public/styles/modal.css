@@ -54,7 +54,7 @@
 .modal-content label {
     display: inline-block;
     width  : 100%;
-    padding: 10px 0;
+    padding: 18px 0;
 }
 
 .modal-content label:focus-visible,
@@ -68,9 +68,20 @@
     text-align: left;
 }
 
+.modal-content label select,
+.modal-content label input {
+    width: 33.5%;
+}
+
 .modal-content label .readonly {
     background-color: #ececec !important;
     cursor          : default;
+}
+
+.modal-content label .select_style {
+    font-size    : medium;
+    border-radius: 5px;
+    padding      : 5px 10px;
 }
 
 .modal-content label .readonly:focus {

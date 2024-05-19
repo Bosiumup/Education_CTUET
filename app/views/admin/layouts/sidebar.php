@@ -23,13 +23,13 @@
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="?page=ep">
+                <a href="">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Môn học</span>
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="#">
+                <a href="">
                     <i class="fa-solid fa-user"></i>
                     <span>Người dùng</span>
                     <i class="fa-solid fa-caret-down fa-fw down-arrow"></i>

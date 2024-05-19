@@ -25,7 +25,7 @@
                                 $result = Faculty($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
-                                        echo '<option value="' . $row["KhoaID"] . '">' . $row["TenKhoa"] . '</option>';
+                                        echo '<option value="' . $row["KhoaID"] . '">' . $row["KhoaID"] . '</option>';
                                     }
                                 }
                             ?>
@@ -36,10 +36,11 @@
 
                 <div class="event-right">
                     <!-- Search -->
-                    <form action="?page=ep" method="post">
+                    <form action="?" method="get">
                         <div class="search-form">
-                            <input type="text" placeholder="Tên chương trình..." name="facultyNameSearch" required>
-                            <button name="facultySearch" type="submit">Tra cứu</button>
+                            <input type="hidden" name="page" value="ep">
+                            <input type="text" placeholder="Tên chương trình..." name="epNameSearch" required>
+                            <button type="submit">Tra cứu</button>
                         </div>
                     </form>
                 </div>
@@ -63,42 +64,7 @@
 
             <!-- Body table -->
             <tbody id="table-body">
-                <?php
-                    if (isset($_GET['KhoaID'])) {
-                        $khoaID = $_GET['KhoaID'];
-                        $result = EP_KhoaID($conn, $khoaID); // Gọi hàm EP_KhoaID() nếu có mã khoa được nhận
-                    } else {
-                        $result = EP($conn); // Gọi hàm EP() nếu không có mã khoa được nhận
-                    }
-                    if ($result->num_rows > 0) {  
-                        while ($row = $result->fetch_assoc()) {
-                        ?>
-                <tr class="row-d">
-                    <td class="col-d"><?php echo $row['KhoaID'] ?></td>
-                    <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
-                    <td class="col-d"><?php echo $row['TenChuongTrinh'] ?></td>
-                    <td class="col-d">
-                        <!-- Button open modal update -->
-                        <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
-                        <input class="epPresentID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
-                        <input class="epPresentName" type="hidden" value="<?php echo $row['TenChuongTrinh'] ?>">
-                        <button class="EPOpenFormUpdate updateBtn" type="button">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                    </td>
-                    <td class="col-d">
-                        <!-- Delete -->
-                        <form action="?page=ep" method="post">
-                            <input name="EPID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
-                            <button name="EPDelete" type="submit" class="deleteBtn">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-                <?php
-                    }
-                    ?>
+                <?php require "app/components/ep_search_render.php"; ?>
                 <div id="epMyModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -106,36 +72,33 @@
                         <form action="?page=ep" method="post">
                             <input type="hidden" name="epOldID" id="epOldID">
                             <label>
-                                <span>Mã chương trình đào tạo:</span>
-                                <input class="readonly" type="text" id="epFormID" name="epNewID" required>
-                            </label>
-                            <br>
-                            <label>
-                                <span>Tên chương trình đào tạo:</span>
-                                <input type="text" id="epFormName" name="epNewName" placeholder="Tên khoa..." required>
-                            </label>
-                            <br>
-                            <label>
                                 <span>Mã khoa:</span>
-                                <select id="epFormselectOption" name="epNewselectOption">
+                                <select class="select_style" id="epFormselectOption" name="epNewselectOption">
                                     <?php
                                         $result = Faculty($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
                                         if ($result->num_rows > 0) {
                                             while($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row["KhoaID"] . '">' . $row["TenKhoa"] . '</option>';
+                                                echo '<option value="' . $row["KhoaID"] . '">' . $row["KhoaID"] . '</option>';
                                             }
                                         }
                                     ?>
                                 </select>
                             </label>
                             <br>
+                            <label>
+                                <span>Mã chương trình đào tạo:</span>
+                                <input type="text" id="epFormID" name="epNewID" required>
+                            </label>
+                            <br>
+                            <label>
+                                <span>Tên chương trình đào tạo:</span>
+                                <input type="text" id="epFormName" name="epNewName" required>
+                            </label>
+                            <br>
                             <button name="EPUpdate" type="submit">Cập nhật</button>
                         </form>
                     </div>
                 </div>
-                <?php
-                }
-                    ?>
             </tbody>
             <!-- End -->
         </table>
