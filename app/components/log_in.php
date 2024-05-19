@@ -51,40 +51,15 @@ if (isset($_SESSION["Username"])) {
                     $_SESSION['Username'] = $_POST['username'];
                     // Chuyển hướng đến trang admin
                     echo "<script>
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Đăng nhập thành công',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    customClass: {
-                        title: 'custom-alert-title'
-                    }
-                  });
-    
-                    setTimeout(function() {
-                        window.location.href='admin.php';
-                    }, 1500);
-                </script>";
+                            window.location.href='admin.php';
+                        </script>";
                 } 
                 elseif ($account_data["LoaiTaiKhoan"] == "giangvien" || $account_data["LoaiTaiKhoan"] == "sinhvien") {
                     $_SESSION['Username'] = $_POST['username'];
+                    // Chuyển hướng đến trang user
                     echo "<script>
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Đăng nhập thành công',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    customClass: {
-                        title: 'custom-alert-title'
-                    }
-                  });
-    
-                    setTimeout(function() {
-                        window.location.href='user.php';
-                    }, 1500);
-                </script>";
+                            window.location.href='user.php';
+                        </script>";
                 }
             }
             else {

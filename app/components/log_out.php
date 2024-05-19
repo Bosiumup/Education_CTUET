@@ -6,39 +6,13 @@ if (isset($_POST['Logout'])) {
         if ($row["LoaiTaiKhoan"] == "admin") {
             session_destroy();
             echo "<script>
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Đăng xuất thành công',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    customClass: {
-                        title: 'custom-alert-title'
-                    }
-                  });
-    
-                    setTimeout(function() {
-                        window.location.href='index.php';
-                    }, 1500);
+                    window.location.href='index.php';
                 </script>";
         } 
         else {
             session_destroy();
             echo "<script>
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Đăng xuất thành công',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    customClass: {
-                        title: 'custom-alert-title'
-                    }
-                  });
-    
-                    setTimeout(function() {
-                        window.location.href='index.php';
-                    }, 1500);
+                    window.location.href='index.php';
                 </script>";
         }
     }

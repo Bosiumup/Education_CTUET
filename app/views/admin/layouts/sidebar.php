@@ -23,6 +23,12 @@
                 </a>
             </li>
             <li class="nav-list-item">
+                <a href="?page=ep">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Môn học</span>
+                </a>
+            </li>
+            <li class="nav-list-item">
                 <a href="#">
                     <i class="fa-solid fa-user"></i>
                     <span>Người dùng</span>
@@ -30,7 +36,7 @@
                 </a>
                 <ul class="subnav">
                     <li class="nav-list-item">
-                        <a href="?page=teacher">
+                        <a href="">
                             <i class="fa-solid fa-user-tie"></i>
                             <span>Giảng viên</span>
                         </a>
