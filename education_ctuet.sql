@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2024 at 10:42 PM
+-- Generation Time: May 19, 2024 at 06:34 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,6 +58,15 @@ CREATE TABLE `chuongtrinhdaotao` (
   `TenChuongTrinh` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `chuongtrinhdaotao`
+--
+
+INSERT INTO `chuongtrinhdaotao` (`CTDaoTaoID`, `KhoaID`, `TenChuongTrinh`) VALUES
+('CNTT0121', 'CNTT ', 'Công nghệ thông tin 2021'),
+('KTPM0121', 'CNTT ', 'Kỹ thuật phần mềm 2021'),
+('NNA2022', 'NNA', 'Ngôn ngữ anh 2022');
+
 -- --------------------------------------------------------
 
 --
@@ -82,6 +91,14 @@ CREATE TABLE `khoa` (
   `KhoaID` varchar(11) NOT NULL,
   `TenKhoa` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `khoa`
+--
+
+INSERT INTO `khoa` (`KhoaID`, `TenKhoa`) VALUES
+('CNTT ', 'Công nghệ thông tin'),
+('NNA', 'Ngôn ngữ anh');
 
 -- --------------------------------------------------------
 
