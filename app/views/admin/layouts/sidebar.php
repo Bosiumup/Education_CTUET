@@ -50,25 +50,10 @@
                 </ul>
             </li>
             <li class="nav-list-item">
-                <a href="#">
+                <a href="?page=register">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <span>Cấp tài khoản</span>
-                    <i class="fa-solid fa-caret-down fa-fw down-arrow"></i>
                 </a>
-                <ul class="subnav">
-                    <li class="nav-list-item">
-                        <a href="#">
-                            <i class="fa-solid fa-user-tie"></i>
-                            <span>Giảng viên</span>
-                        </a>
-                    </li>
-                    <li class="nav-list-item">
-                        <a href="#">
-                            <i class="fa-solid fa-user-graduate"></i>
-                            <span>Sinh viên</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
         </ul>
     </div>
