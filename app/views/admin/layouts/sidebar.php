@@ -36,7 +36,7 @@
                 </a>
                 <ul class="subnav">
                     <li class="nav-list-item">
-                        <a href="">
+                        <a href="?page=teacher">
                             <i class="fa-solid fa-user-tie"></i>
                             <span>Giảng viên</span>
                         </a>

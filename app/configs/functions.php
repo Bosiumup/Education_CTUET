@@ -73,7 +73,19 @@ function EP_KhoaID($conn, $idkhoa)
 }
 
 // ------------------- Teacher (Giang vien) --------------------------
-// viết các hàm liên quan đến giảng viên dựa vào ở trên 
+// viết các hàm liên quan đến giảng viên dựa vào ở trên \
+function teacher($conn)
+{
+    $sql = "SELECT * FROM giangvien";
+    return $conn->query($sql);
+}
+function TC_Search($conn, $search)
+{
+    $sql = "SELECT * FROM giangvien WHERE TenGiangVien LIKE '%$search%'";
+    return $conn->query($sql);
+}
+
+
 
 // ------------------- Student (Sinh vien) --------------------------
 function SJ($conn)
