@@ -32,6 +32,7 @@ require "app/configs/functions.php";
 
     <!-- Css link chương trình đào tạo -->
     <link rel="stylesheet" href="public/styles/header.css">
+    <link rel="stylesheet" href="public/styles/login_register.css">
     <link rel="stylesheet" href="public/styles/sidebar.css">
     <link rel="stylesheet" href="public/styles/events.css">
     <link rel="stylesheet" href="public/styles/table.css">
