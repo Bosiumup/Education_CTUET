@@ -60,36 +60,19 @@
         public function update() {
             global $conn;
             if (isset($_POST['SJUpdate'])) {
-                $SJID = $_POST['SjID'];
-                $SJNAME = $_POST['Sjname'];
-                $SJTERM = $_POST['Sjterm'];
-                $SJTinChi = $_POST['Sjcredit'];
-                $SJLyThuyet = $_POST['Sjlythuyet'];
-                $SJThucHanh = $_POST['Sjthuchanh'];
-                $SJselectOption = $_POST['SjselectOption'];
+                $SJID = $_POST['SJNewID'];
+                $SJOldID = $_POST['SJOldID'];
+                $SJNAME = $_POST['SJNewName'];
+                $SJTERM = $_POST['SJNewHocKy'];
+                $SJTinChi = $_POST['SJNewTinChi'];
+                $SJLyThuyet = $_POST['SJNewLyThuyet'];
+                $SJThucHanh = $_POST['SJNewThucHanh'];
+                $SJselectOption = $_POST['SJNewselectOption'];
 
                 require "app/models/subject_model.php";
                 $SJModel = new SJ_Model();
-                if ($SJModel->checkUpdate($conn, $SJNAME)->num_rows > 0) {
-                    echo "<script>
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'error',
-                                title: 'Chương trình đào tạo $SJNAME đã có',
-                                showConfirmButton: false,
-                                timer: 2500,
-                                customClass: {
-                                    title: 'custom-alert-title'
-                                }
-                            });
-
-                            setTimeout(function() {
-                                window.location.href='?page=subject';
-                            }, 1500);
-                            </script>";    
-                } 
-                else {
-                    $SJModel->update($conn, $SJID, $SJselectOption, $SJNAME,$SJTERM,$SJTinChi,$SJLyThuyet,$SJThucHanh);
+                
+                    $SJModel->update($conn, $SJID,$SJOldID, $SJselectOption, $SJNAME,$SJTERM,$SJTinChi,$SJLyThuyet,$SJThucHanh);
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
@@ -106,7 +89,7 @@
                                 window.location.href='?page=subject';
                             }, 1500);
                             </script>";    
-                }
+                
             }
         }
         public function delete() {

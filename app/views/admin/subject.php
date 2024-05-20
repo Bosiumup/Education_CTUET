@@ -97,9 +97,9 @@
                         <span class="close">&times;</span>
                         <img src="public/imgs/logo.png" alt="logo">
                         <form action="?page=subject" method="post">
-                            <input type="hidden" name="SJOldID" id="epOldID">
+                            <input type="hidden" name="SJOldID" id="SJOldID">
                             <label>
-                                <span>Mã khoa:</span>
+                                <span>Mã chương trình đào tạo:</span>
                                 <select class="select_style" id="SJFormselectOption" name="SJNewselectOption">
                                     <?php
                                     $result = EP($conn); 
@@ -113,14 +113,31 @@
                             </label>
                             <br>
                             <label>
-                                <span>Mã chương trình đào tạo:</span>
+                                <span>Mã môn:</span>
                                 <input type="text" id="SJFormID" name="SJNewID" required>
                             </label>
                             <br>
                             <label>
-                                <span>Tên chương trình đào tạo:</span>
+                                <span>Tên môn:</span>
                                 <input type="text" id="SJFormName" name="SJNewName" required>
                             </label>
+                            <label>
+                                <span>Học kỳ:</span>
+                                <input type="text" id="SJFormHocKy" name="SJNewHocKy" required>
+                            </label>
+                            <label>
+                                <span>TÍn chỉ:</span>
+                                <input type="text" id="SJFormTinChi" name="SJNewTinChi" required>
+                            </label>
+                            <label>
+                                <span>Tiết lý thuyết:</span>
+                                <input type="text" id="SJFormLyThuyet" name="SJNewLyThuyet" required>
+                            </label>
+                            <label>
+                                <span>Thực hành:</span>
+                                <input type="text" id="SJFormThucHanh" name="SJNewThucHanh" required>
+                            </label>
+
                             <br>
                             <button name="SJUpdate" type="submit">Cập nhật</button>
                         </form>

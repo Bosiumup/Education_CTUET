@@ -14,14 +14,11 @@ class SJ_Model {
         $sql = "SELECT * FROM monhoc WHERE TenMonHoc = '$newName'";
         return $conn->query($sql);
     }
-    function update($conn, $newid, $newidctdt, $newname,$newhocky,$newtinchi,$newlythuyet,$newthuchanh)
+    function update($conn, $newid,$oldid, $newidctdt, $newname,$newhocky,$newtinchi,$newlythuyet,$newthuchanh)
     {
-        $conn->query('SET FOREIGN_KEY_CHECKS=0');
 
-        $sql = "UPDATE monhoc SET MonHocID = '$newid', CTDaoTaoID = '$newidctdt', TenMonHoc = '$newname', HocKy ='$newhocky', SoTinChi = '$newtinchi',SoTietLyThuyet ='$newlythuyet',SoTietThucHanh='$newthuchanh' WHERE MonHocID = '$newid'";
+        $sql = "UPDATE monhoc SET MonHocID = '$newid', CTDaoTaoID = '$newidctdt', TenMonHoc = '$newname', HocKy ='$newhocky', SoTinChi = '$newtinchi',SoTietLyThuyet ='$newlythuyet',SoTietThucHanh='$newthuchanh' WHERE MonHocID = '$oldid'";
         return $conn->query($sql);
-
-        $conn->query('SET FOREIGN_KEY_CHECKS=1');
     }
     public function delete($conn, $id)
     {
