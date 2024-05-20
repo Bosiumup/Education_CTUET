@@ -4,7 +4,7 @@
     $studentController->add();              
     $studentController->update(); 
     $studentController->delete();
-    // $facultyController->search();
+    // $StudentController->search();
 
 ?>
 
@@ -14,13 +14,13 @@
         <section class="events">
             <div class="events-list">
                 <div class="event-left">
-                    <!-- Add faculty -->
+                    <!-- Add Student -->
                     <form action="?page=student" method="POST">
                         <input type="text" name="StudentID" placeholder="Mã sinh viên" required
                             value="<?php echo isset($_SESSION['studentID']) ? $_SESSION['studentID'] : '' ?>">
                             <select name="StudentselectOption">
                             <?php
-                                $result = EP($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
+                                $result = EP($conn); // Gọi hàm Student() và lưu kết quả trả về vào biến $result
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
                                         echo '<option value="' . $row["CTDaoTaoID"] . '">' . $row["CTDaoTaoID"] . '</option>';

@@ -1,5 +1,5 @@
 <?php
-    // NẾU CÓ TRA CỨU KHOA THÌ SẼ HIỂN THỊ RA KẾT QUẢ TRA CỨU 
+    // NẾU CÓ TRA CỨU SINH VIÊN THÌ SẼ HIỂN THỊ RA KẾT QUẢ TRA CỨU 
     if(isset($_GET['StudentNameSearch'])) {
         $search = $_GET['StudentNameSearch'];
         $result = Student_Search($conn, $search);
@@ -51,7 +51,7 @@
             }
         }
     }
-    // NẾU KHÔNG CÓ TRA CỨU THÌ SẼ HIỂN THỊ RA TOÀN BỘ KHOA
+    // NẾU KHÔNG CÓ TRA CỨU THÌ SẼ HIỂN THỊ RA TOÀN BỘ Sinh Viên
     else {
         $result = Student($conn);
         if ($result->num_rows > 0) {  
