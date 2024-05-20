@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="">
+                <a href="?page=subject">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Môn học</span>
                 </a>
