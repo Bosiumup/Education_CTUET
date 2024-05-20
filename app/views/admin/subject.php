@@ -32,7 +32,7 @@
                             $result = EP($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-                                    echo '<option value="' . $row["CTDaoTaoID"] . '">' . $row["TenChuongTrinh"] . '</option>';
+                                    echo '<option value="' . $row["CTDaoTaoID"] . '">' . $row["CTDaoTaoID"] . '</option>';
                                 }
                             }
                             ?>
