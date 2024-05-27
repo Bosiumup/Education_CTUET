@@ -14,21 +14,15 @@
             <div class="events-list">
                 <div class="event-left">
                     <!-- Add EP -->
-                    <form action="?page=subject" method="POST">
-                        <input type="text" name="SjID" placeholder="Mã Môn..." required
-                            value="">
-                        <input type="text" name="Sjname" placeholder="Tên Môn..." required
-                            value="">
-                        <input type="text" name="Sjterm" placeholder="Học kỳ..-" required
-                            value="">
-                        <input type="text" name="Sjcredit" placeholder="Số tín chỉ..." required
-                            value="">
-                        <input type="text" name="Sjlythuyet" placeholder="Tiết lý thuyết..." required
-                            value="">
-                        <input type="text" name="Sjthuchanh" placeholder="Tiết thực hành..." required
-                            value="">
-                        <select name="SjselectOption">
-                            <?php
+                    <button id="SJOpenFormAdd" type="button">Thêm</button>
+                    <div id="SJMyModalAdd" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="public/imgs/logo.png" alt="logo">
+                            <form style="width: 100%; display: inline-block;" action="?page=subject" method="POST">
+                                <label>
+                                    <select name="SjselectOption">
+                                        <?php
                             $result = EP($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
@@ -36,9 +30,30 @@
                                 }
                             }
                             ?>
-                        </select>
-                        <button name="SJAdd" type="submit">Thêm</button>
-                    </form>
+                                    </select>
+                                </label>
+                                <label>
+                                    <input type="text" name="Sjname" placeholder="Tên Môn..." required value="">
+                                </label>
+                                <label>
+                                    <input type="text" name="Sjterm" placeholder="Học kỳ..." required value="">
+                                </label>
+                                <label>
+                                    <input type="text" name="Sjcredit" placeholder="Số tín chỉ..." required value="">
+                                </label>
+                                <label>
+                                    <input type="text" name="Sjlythuyet" placeholder="Tiết lý thuyết..." required
+                                        value="">
+                                </label>
+                                <label>
+                                    <input type="text" name="Sjthuchanh" placeholder="Tiết thực hành..." required
+                                        value="">
+                                </label>
+                                <button name="SJAdd" type="submit">Thêm</button>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="event-right">
@@ -150,20 +165,22 @@
     </div>
 </section>
 <style>
-    .container-students input[type="text"],
-    .container-students select {
-        font-size: 12px;
-    }
+.container-students input[type="text"],
+.container-students select {
+    font-size: 12px;
+}
 
-    .container-students .event-left form {
-        display: flex;
-        flex-wrap: wrap;
-        width: 800px;
-        gap: 10px;
-    }
-    .container-students .event-left{
-        height: 70px;
-    }
+.container-students .event-left form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    gap: 10px;
+}
+
+.container-students .event-left {
+    height: 70px;
+}
 </style>
 
 <script src="public/js/subject_update.js"></script>
+<script src="public/js/subject_add.js"></script>

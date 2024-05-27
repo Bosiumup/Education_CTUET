@@ -3,7 +3,9 @@
         public function add() {
             global $conn;
             if(isset($_POST['SJAdd'])){
-                $SJID = $_POST['SjID'];
+                $prefix = "CTUT";
+                $random_number = mt_rand(1000, 9999);
+                $SJID = $prefix . $random_number;
                 $SJNAME = $_POST['Sjname'];
                 $SJTERM = $_POST['Sjterm'];
                 $SJTinChi = $_POST['Sjcredit'];
@@ -11,17 +13,14 @@
                 $SJThucHanh = $_POST['Sjthuchanh'];
                 $SJselectOption = $_POST['SjselectOption'];
 
-                // $_SESSION['EPID'] = $_POST['EPID'];
-                // $_SESSION['EPName'] = $_POST['EPName'];
-
                 require "app/models/subject_model.php";
                 $SubjectModel = new SJ_Model();
-                if ($SubjectModel->checkAdd($conn, $SJID, $SJNAME)->num_rows > 0) {
+                if ($SubjectModel->checkAdd($conn, $SJNAME)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Mã khoa $SJID hoặc khoa $SJNAME đã có',
+                                title: 'Khoa $SJNAME đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {

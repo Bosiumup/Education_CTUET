@@ -8,8 +8,16 @@
                 ?>
 <tr class="row-d">
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
-    <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
-    <td class="col-d"><?php echo $row['TenChuongTrinh'] ?></td>
+    <td class="col-d">
+        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+            <?php echo $row['CTDaoTaoID'] ?>
+        </a>
+    </td>
+    <td class="col-d">
+        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+            <?php echo $row['TenChuongTrinh'] ?>
+        </a>
+    </td>
     <td class="col-d">
         <!-- Button open modal update -->
         <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
@@ -44,8 +52,16 @@
                     ?>
 <tr class="row-d">
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
-    <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
-    <td class="col-d"><?php echo $row['TenChuongTrinh'] ?></td>
+    <td class="col-d">
+        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+            <?php echo $row['CTDaoTaoID'] ?>
+        </a>
+    </td>
+    <td class="col-d">
+        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+            <?php echo $row['TenChuongTrinh'] ?>
+        </a>
+    </td>
     <td class="col-d">
         <!-- Button open modal update -->
         <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
@@ -77,8 +93,16 @@
                     ?>
 <tr class="row-d">
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
-    <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
-    <td class="col-d"><?php echo $row['TenChuongTrinh'] ?></td>
+    <td class="col-d">
+        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+            <?php echo $row['CTDaoTaoID'] ?>
+        </a>
+    </td>
+    <td class="col-d">
+        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+            <?php echo $row['TenChuongTrinh'] ?>
+        </a>
+    </td>
     <td class="col-d">
         <!-- Button open modal update -->
         <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">

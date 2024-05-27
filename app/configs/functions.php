@@ -113,3 +113,8 @@ function SJ_Search($conn, $search)
     $sql = "SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search%'";
     return $conn->query($sql);
 }
+function SJ_EpID($conn, $idEp)
+{
+    $sql = "SELECT * FROM monhoc WHERE CTDaoTaoID = '$idEp'";
+    return $conn->query($sql);
+}

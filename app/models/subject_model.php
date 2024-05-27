@@ -6,8 +6,8 @@ class SJ_Model {
          VALUES ('$id', '$idctdt', '$name','$hocky','$tinchi','$lythuyet','$thuchanh')";
         return $conn->query($sql);
     }
-    public function checkAdd($conn, $id, $name) {
-        $sql = "SELECT * FROM monhoc WHERE MonHocID = '$id' OR TenMonHoc = '$name'";
+    public function checkAdd($conn, $name) {
+        $sql = "SELECT * FROM monhoc WHERE TenMonHoc = '$name'";
         return $conn->query($sql);
     }
     public function checkUpdate($conn, $newName) {
