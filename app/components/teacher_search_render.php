@@ -33,7 +33,6 @@
             }
         }
     }
-    // NẾU NHẤP VÀO THẲNG TRANG CHƯƠNG TRÌNH ĐÀO TẠO THÌ CODE SẼ CHẠY TRONG ELSE
     else {
         // NẾU CÓ TRA CỨU THÌ CHỈ RA KẾT QUẢ TRA CỨU
         if(isset($_GET['teacherSearch'])) {
@@ -43,9 +42,11 @@
                 while ($row = $result->fetch_assoc()) {
                     ?>
 <tr class="row-d">
-    <td class="col-d"><?php echo $row['GiangVienID'] ?></td>
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
+    <td class="col-d"><?php echo $row['GiangVienID'] ?></td>
     <td class="col-d"><?php echo $row['TenGiangVien'] ?></td>
+    <td class="col-d"><?php echo $row['Email'] ?></td>
+    <td class="col-d"><?php echo $row['SoDienThoai'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
         <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
@@ -76,9 +77,11 @@
                 while ($row = $result->fetch_assoc()) {
                     ?>
 <tr class="row-d">
-    <td class="col-d"><?php echo $row['GiangVienID'] ?></td>
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
+    <td class="col-d"><?php echo $row['GiangVienID'] ?></td>
     <td class="col-d"><?php echo $row['TenGiangVien'] ?></td>
+    <td class="col-d"><?php echo $row['Email'] ?></td>
+    <td class="col-d"><?php echo $row['SoDienThoai'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
         <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">

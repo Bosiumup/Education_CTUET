@@ -13,30 +13,23 @@
         return $conn->query($query);
     }
     // Create account student
-    function registerStudent($conn, $KhoaID, $ChuongTrinhDaoTaoID, $SinhVienID, $Username, $Password, $LoaiTaiKhoan)
+    function registerStudent($conn, $SinhVienID, $Username, $Password, $LoaiTaiKhoan)
     {
-        $query = "INSERT INTO account (KhoaID, ChuongTrinhDaoTaoID, SinhVienID, Username, Password, LoaiTaiKhoan) VALUES ('$KhoaID', '$ChuongTrinhDaoTaoID', '$SinhVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
+        $query = "INSERT INTO account (SinhVienID, Username, Password, LoaiTaiKhoan) VALUES ('$SinhVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
         return $conn->query($query);
     }
     // Create account teacher
-    function registerTeacher($conn, $KhoaID, $ChuongTrinhDaoTaoID, $GiangVienID, $Username, $Password, $LoaiTaiKhoan)
+    function registerTeacher($conn, $GiangVienID, $Username, $Password, $LoaiTaiKhoan)
     {
-        $query = "INSERT INTO account (KhoaID, ChuongTrinhDaoTaoID, GiangVienID, Username, Password, LoaiTaiKhoan) VALUES ('$KhoaID', '$ChuongTrinhDaoTaoID', '$GiangVienID', '$Username', '$Password', $LoaiTaiKhoan)";
+        $query = "INSERT INTO account (GiangVienID, Username, Password, LoaiTaiKhoan) VALUES ('$GiangVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
         return $conn->query($query);
     }
     // Kiểm tra có trùng ID và Username không
-    function checkRegisterStudent($conn, $SinhVienID, $Username)
+    function checkRegister($conn, $Username)
     {
-        $query = "SELECT * FROM account WHERE SinhVienID = '$SinhVienID' OR Username = '$Username'";
+        $query = "SELECT * FROM account WHERE Username = '$Username'";
         return $conn->query($query);
     }
-    // Kiểm tra có trùng ID và Username không
-    function checkRegisterTeacher($conn, $GiangVienID, $Username)
-    {
-        $query = "SELECT * FROM account WHERE GiangVienID = '$GiangVienID' OR Username = '$Username'";
-        return $conn->query($query);
-    }
-
 
 // ------------------- Faculty (Khoa) --------------------------
 // render faculty
@@ -91,7 +84,6 @@ function TC_Search($conn, $search)
 function Student($conn)
 {
     $sql = "SELECT * from sinhvien";
-
     return $conn->query($sql);
 }
 function Student_Search($conn, $search)

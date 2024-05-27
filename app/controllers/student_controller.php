@@ -3,7 +3,9 @@
         public function add() {
             global $conn;
             if(isset($_POST['studentAdd'])){
-                $SinhVienID = $_POST['StudentID'];
+                $prefix = "21";
+                $random_number = mt_rand(10000, 99999);
+                $SinhVienID = $prefix . $random_number;
                 $CTDaoTaoID = $_POST['StudentselectOption'];
                 $StudentName = $_POST['StudentName'];
                 $Email = $_POST['Email'];
@@ -11,12 +13,12 @@
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                if ($StudentModel->checkAdd($conn, $SinhVienID)->num_rows > 0) {
+                if ($StudentModel->checkAdd($conn, $CTDaoTaoID, $StudentName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Mã sinh viên $SinhVienID đã có',
+                                title: 'Sinh viên $SinhVienID đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {

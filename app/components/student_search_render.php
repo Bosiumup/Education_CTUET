@@ -8,23 +8,19 @@
             ?>
 <tr class="row-d">
     <td class="col-d">
+        <?php echo $row['CTDaoTaoID'] ?>
+    </td>
+    <td class="col-d">
         <?php echo $row['SinhVienID'] ?>
     </td>
     <td class="col-d">
-            <?php echo $row['CTDaoTaoID'] ?>
-        </a>
+        <?php echo $row['TenSinhVien'] ?>
     </td>
     <td class="col-d">
-            <?php echo $row['TenSinhVien'] ?>
-        </a>
+        <?php echo $row['Email'] ?>
     </td>
     <td class="col-d">
-            <?php echo $row['Email'] ?>
-        </a>
-    </td>
-    <td class="col-d">
-            <?php echo $row['SoDienThoai'] ?>
-        </a>
+        <?php echo $row['SoDienThoai'] ?>
     </td>
     <td class="col-d">
         <!-- Button open modal update -->
@@ -58,24 +54,20 @@
             while ($row = $result->fetch_assoc()) {
             ?>
 <tr class="row-d">
-<td class="col-d">
+    <td class="col-d">
+        <?php echo $row['CTDaoTaoID'] ?>
+    </td>
+    <td class="col-d">
         <?php echo $row['SinhVienID'] ?>
     </td>
     <td class="col-d">
-            <?php echo $row['CTDaoTaoID'] ?>
-        </a>
+        <?php echo $row['TenSinhVien'] ?>
     </td>
     <td class="col-d">
-            <?php echo $row['TenSinhVien'] ?>
-        </a>
+        <?php echo $row['Email'] ?>
     </td>
     <td class="col-d">
-            <?php echo $row['Email'] ?>
-        </a>
-    </td>
-    <td class="col-d">
-            <?php echo $row['SoDienThoai'] ?>
-        </a>
+        <?php echo $row['SoDienThoai'] ?>
     </td>
     <td class="col-d">
         <!-- Button open modal update -->

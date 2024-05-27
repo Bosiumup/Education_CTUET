@@ -1,12 +1,12 @@
 <?php
 class Student_Model {
-    public function add($conn, $id, $name, $tensinhvien, $email, $sdt)
+    public function add($conn, $studentID, $EPID, $tensinhvien, $email, $sdt)
     {
-        $sql = "INSERT INTO sinhvien (SinhVienID, CTDaoTaoID, TenSinhVien, Email, SoDienThoai) VALUES ('$id', '$name', '$tensinhvien', '$email', $sdt)";
+        $sql = "INSERT INTO sinhvien (SinhVienID, CTDaoTaoID, TenSinhVien, Email, SoDienThoai) VALUES ('$studentID', '$EPID', '$tensinhvien', '$email', $sdt)";
         return $conn->query($sql);
     }
-    public function checkAdd($conn, $id) {
-        $sql = "SELECT * FROM sinhvien WHERE SinhVienID = '$id'";
+    public function checkAdd($conn, $epID, $name) {
+        $sql = "SELECT * FROM sinhvien WHERE CTDaoTaoID = '$epID' AND TenSinhVien = '$name'";
         return $conn->query($sql);
     }
     public function checkUpdate($conn, $newName) {

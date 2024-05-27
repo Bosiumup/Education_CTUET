@@ -3,22 +3,22 @@
         public function add() {
             global $conn;
             if(isset($_POST['teacherAdd'])){
-                $teacherID = $_POST['GiangVienID'];
+                $prefix = "GV";
+                $random_number = mt_rand(10000, 99999);
+                $teacherID = $prefix . $random_number;
+                $teacherKhoa = $_POST['TCselectOption'];
                 $teacherName = $_POST['TenGiangVien'];
-                $teacherKhoa = $_POST['KhoaID'];
                 $emailTeacher = $_POST['Email'];
                 $sdtTeacher = $_POST['SoDienThoai'];
-            
-
-                     require "app/models/teacher_model.php";
-                     $teacherModel = new Teacher_Model();
-
-                     if ($teacherModel->checkAdd($conn, $teacherID, $teacherName)->num_rows > 0) {
-                         echo "<script>
+                
+                require "app/models/teacher_model.php";
+                    $teacherModel = new Teacher_Model();
+                    if ($teacherModel->checkAdd($conn, $teacherName)->num_rows > 0) {
+                        echo "<script>
                              Swal.fire({
                                  position: 'center',
                                  icon: 'error',
-                                 title: 'Mã giảng viên $teacherID hoặc tên giảng viên $teacherName đã tồn tại',
+                                 title: 'Giảng viên $teacherName đã có',
                                  showConfirmButton: false,
                                  timer: 2500,
                                  customClass: {
@@ -30,20 +30,20 @@
                                  window.location.href='?page=teacher';
                              }, 1500);
                          </script>";
-                     } else {
-                         $teacherModel->add($conn, $teacherID, $teacherName, $teacherKhoa,$emailTeacher, $sdtTeacher);
+                    } 
+                    else {
+                        $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
                          
-                         unset($_SESSION['GiangVienID']);
-                         unset($_SESSION['TenGiangVien']);
-                         unset($_SESSION['KhoaID']);
-                         unset($_SESSION['Email']);
-                         unset($_SESSION['SoDienThoai']);
+                        //  unset($_SESSION['KhoaID']);
+                        //  unset($_SESSION['TenGiangVien']);
+                        //  unset($_SESSION['Email']);
+                        //  unset($_SESSION['SoDienThoai']);
                          
                          echo "<script>
                              Swal.fire({
                                  position: 'center',
                                  icon: 'success',
-                                 title: 'Thêm giảng viên thành công',
+                                 title: 'Thêm thành công',
                                  showConfirmButton: false,
                                  timer: 2500,
                                  customClass: {
@@ -55,9 +55,9 @@
                                  window.location.href='?page=teacher';
                              }, 1500);
                          </script>";
-                     }
-                }
+                    }
             }
+        }
         public function update() {
             global $conn;
             if (isset($_POST['EPUpdate'])) {

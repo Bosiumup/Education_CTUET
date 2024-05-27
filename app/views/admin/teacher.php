@@ -15,29 +15,40 @@
             <div class="events-list">
                 <div class="event-left">
                     <!-- Add EP -->
-                    <form action="?page=teacher" method="POST">
-                            <input type="text" name="GiangVienID" placeholder="Mã Giảng Viên..." required
-                            value="<?php echo isset($_SESSION['GiangVienID']) ? $_SESSION['GiangVienID'] : '' ?>">
-                            <input type="text" name="TenGiangVien" placeholder="Tên Giảng Viên..." required
-                            value="<?php echo isset($_SESSION['TenGiangVien']) ? $_SESSION['TenGiangVien'] : '' ?>">
-                            <input type="text" name="KhoaID" placeholder="Khoa Giảng Viên..." required
-                            value="<?php echo isset($_SESSION['KhoaID']) ? $_SESSION['KhoaID'] : '' ?>">
-                            <input type="text" name="Email" placeholder="Email Giảng Viên..." required
-                            value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : '' ?>">
-                            <input type="text" name="SoDienThoai" placeholder="Số Điện Thoại Giảng Viên..." required
-                            value="<?php echo isset($_SESSION['SoDienThoai']) ? $_SESSION['SoDienThoai'] : '' ?>">
-                        <!-- <select name="EPselectOption">
-                            <?php
-                                // $result = Faculty($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
-                                // if ($result->num_rows > 0) {
-                                //     while($row = $result->fetch_assoc()) {
-                                //         echo '<option value="' . $row["KhoaID"] . '">' . $row["KhoaID"] . '</option>';
-                                //     }
-                                // }
-                            ?> -->
-                        </select>
-                        <button name="teacherAdd" type="submit">Thêm</button>
-                    </form>
+                    <button id="TCOpenFormAdd" type="button">Thêm</button>
+                    <div id="TCMyModalAdd" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="public/imgs/logo.png" alt="logo">
+                            <form style="width: 100%; display: inline-block;" action="?page=teacher" method="POST">
+                                <label>
+                                    <select name="TCselectOption">
+                                        <?php
+                                $result = Faculty($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo '<option value="' . $row["KhoaID"] . '">' . $row["KhoaID"] . '</option>';
+                                    }
+                                }
+                            ?>
+                                    </select>
+                                </label>
+                                <label>
+                                    <input type="text" name="TenGiangVien" placeholder="Thiện Phạm,..." required
+                                        value="<?php echo isset($_SESSION['TenGiangVien']) ? $_SESSION['TenGiangVien'] : '' ?>">
+                                </label>
+                                <label>
+                                    <input type="text" name="Email" placeholder="email@gmail.com" required
+                                        value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : '' ?>">
+                                </label>
+                                <label>
+                                    <input type="text" name="SoDienThoai" placeholder="0999991111" required
+                                        value="<?php echo isset($_SESSION['SoDienThoai']) ? $_SESSION['SoDienThoai'] : '' ?>">
+                                </label>
+                                <button name="teacherAdd" type="submit">Thêm</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="event-right">
@@ -45,7 +56,7 @@
                     <form action="?" method="get">
                         <div class="search-form">
                             <input type="hidden" name="page" value="teacher">
-                            <input type="text" placeholder="Tên Giảng Viên..." name="teacherSearch" required>
+                            <input type="text" placeholder="Tên giảng viên..." name="teacherSearch" required>
                             <button type="submit">Tra cứu</button>
                         </div>
                     </form>
@@ -59,9 +70,11 @@
             <!-- Heading table -->
             <thead id="table-head">
                 <tr class="row-h">
-                    <th class="col-h">Mã Giảng Viên</th>
-                    <th class="col-h">Mã Khoa Giảng Viên</th>
-                    <th class="col-h">Tên Giảng Viên</th>
+                    <th class="col-h">Mã Khoa</th>
+                    <th class="col-h">Mã giảng viên</th>
+                    <th class="col-h">Tên giảng viên</th>
+                    <th class="col-h">Email</th>
+                    <th class="col-h">Số điện thoại</th>
                     <th class="col-h">Sửa</th>
                     <th class="col-h">Xóa</th>
                 </tr>
@@ -126,4 +139,5 @@
         <!-- End -->
     </div>
 </section>
-<script src="public/js/ep_update.js"></script>
+<script src="public/js/teacher_update.js"></script>
+<script src="public/js/teacher_add.js"></script>

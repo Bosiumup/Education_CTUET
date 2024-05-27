@@ -15,11 +15,15 @@
             <div class="events-list">
                 <div class="event-left">
                     <!-- Add Student -->
-                    <form action="?page=student" method="POST">
-                        <input type="text" name="StudentID" placeholder="Mã sinh viên" required
-                            value="<?php echo isset($_SESSION['studentID']) ? $_SESSION['studentID'] : '' ?>">
-                            <select name="StudentselectOption">
-                            <?php
+                    <button id="SdOpenFormAdd" type="button">Thêm</button>
+                    <div id="SdMyModalAdd" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="public/imgs/logo.png" alt="logo">
+                            <form style="width: 100%; display: inline-block;" action="?page=student" method="POST">
+                                <label>
+                                    <select name="StudentselectOption">
+                                        <?php
                                 $result = EP($conn); // Gọi hàm Student() và lưu kết quả trả về vào biến $result
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
@@ -27,15 +31,24 @@
                                     }
                                 }
                             ?>
-                        </select>
-                         <input type="text" name="StudentName" placeholder="Tên sinh viên" required
-                            value="<?php echo isset($_SESSION['StudentName']) ? $_SESSION['StudentName'] : '' ?>">
-                         <input type="text" name="Email" placeholder="Email" required
-                            value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : '' ?>">
-                         <input type="text" name="SoDienThoai" placeholder="Số Điện Thoại" required
-                            value="<?php echo isset($_SESSION['SDT']) ? $_SESSION['SDT'] : '' ?>">
-                        <button name="studentAdd" type="submit">Thêm</button>
-                    </form>
+                                    </select>
+                                </label>
+                                <label>
+                                    <input type="text" name="StudentName" placeholder="Tên sinh viên" required
+                                        value="<?php echo isset($_SESSION['StudentName']) ? $_SESSION['StudentName'] : '' ?>">
+                                </label>
+                                <label>
+                                    <input type="text" name="Email" placeholder="Email" required
+                                        value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : '' ?>">
+                                </label>
+                                <label>
+                                    <input type="text" name="SoDienThoai" placeholder="Số Điện Thoại" required
+                                        value="<?php echo isset($_SESSION['SDT']) ? $_SESSION['SDT'] : '' ?>">
+                                </label>
+                                <button name="studentAdd" type="submit">Thêm</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="event-right">
@@ -43,7 +56,7 @@
                     <form action="?" method="get">
                         <div class="search-form">
                             <input type="hidden" name="page" value="student">
-                            <input type="text" placeholder="Tên sinh viên" name="StudentNameSearch" required>
+                            <input type="text" placeholder="Tên sinh viên..." name="StudentNameSearch" required>
                             <button type="submit">Tra cứu</button>
                         </div>
                     </form>
@@ -57,11 +70,11 @@
             <!-- Heading table -->
             <thead id="table-head">
                 <tr class="row-h">
-                    <th class="col-h">Mã Sinh Viên</th>
-                    <th class="col-h">Tên Chương Trình Đào Tạo</th>
-                    <th class="col-h">Tên Sinh Viên</th>
+                    <th class="col-h">Mã chương trình đào tạo</th>
+                    <th class="col-h">Mã sinh viên</th>
+                    <th class="col-h">Tên sinh viên</th>
                     <th class="col-h">Email</th>
-                    <th class="col-h">Số Điện Thoại</th>
+                    <th class="col-h">Số điện thoại</th>
                     <th class="col-h">Sửa</th>
                     <th class="col-h">Xóa</th>
                 </tr>
@@ -102,8 +115,6 @@
                                 <input type="text" id="studentFormName" name="studentNewName" required>
                             </label>
                             <br>
-
-
                             <button name="facultyUpdate" type="submit">Cập nhật</button>
                         </form>
                     </div>
@@ -114,4 +125,5 @@
         <!-- End -->
     </div>
 </section>
-<script src="public/js/facultys/update.js"></script>
+<script src="public/js/student_update.js"></script>
+<script src="public/js/student_add.js"></script>
