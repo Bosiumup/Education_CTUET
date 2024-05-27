@@ -76,6 +76,20 @@ function EP_KhoaID($conn, $idkhoa)
 // viết các hàm liên quan đến giảng viên dựa vào ở trên 
 
 // ------------------- Student (Sinh vien) --------------------------
+function Student($conn)
+{
+    $sql = "SELECT * from sinhvien";
+
+    return $conn->query($sql);
+}
+function Student_Search($conn, $search)
+{
+    $sql = "SELECT * FROM sinhvien WHERE TenSinhVien LIKE '%$search%'";
+    return $conn->query($sql);
+}
+
+// ------------------- Subject (Môn học) --------------------------
+// viết các hàm liên quan đến môn học dựa vào ở trên 
 function SJ($conn)
 {
     $sql = "SELECT * from monhoc";
@@ -87,6 +101,3 @@ function SJ_Search($conn, $search)
     $sql = "SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search%'";
     return $conn->query($sql);
 }
-
-// ------------------- Subject (Môn học) --------------------------
-// viết các hàm liên quan đến môn học dựa vào ở trên 

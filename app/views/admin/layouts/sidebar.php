@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="#">
+                        <a href="?page=student">
                             <i class="fa-solid fa-user-graduate"></i>
                             <span>Sinh viên</span>
                         </a>
