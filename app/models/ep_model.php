@@ -9,8 +9,8 @@ class EP_Model {
         $sql = "SELECT * FROM chuongtrinhdaotao WHERE CTDaoTaoID = '$id' OR TenChuongTrinh = '$name'";
         return $conn->query($sql);
     }
-    public function checkUpdate($conn, $newName) {
-        $sql = "SELECT * FROM chuongtrinhdaotao WHERE TenChuongTrinh = '$newName'";
+    public function checkUpdate($conn, $id, $newName) {
+        $sql = "SELECT * FROM chuongtrinhdaotao WHERE CTDaoTaoID != '$id' AND TenChuongTrinh = '$newName'";
         return $conn->query($sql);
     }
     function update($conn, $newID, $newKhoaID, $newName, $oldID)

@@ -65,7 +65,7 @@
 
                 require "app/models/ep_model.php";
                 $epModel = new EP_Model();
-                if ($epModel->checkUpdate($conn, $epNewName)->num_rows > 0) {
+                if ($epModel->checkUpdate($conn, $epOldID, $epNewName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',

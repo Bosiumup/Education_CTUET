@@ -6,8 +6,8 @@
             while ($row = $result->fetch_assoc()) {
                 ?>
 <tr class="row-d">
-    <td class="col-d"><?php echo $row['MonHocID'] ?></td>
     <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
+    <td class="col-d"><?php echo $row['MonHocID'] ?></td>
     <td class="col-d"><?php echo $row['TenMonHoc'] ?></td>
     <td class="col-d"><?php echo $row['HocKy'] ?></td>
     <td class="col-d"><?php echo $row['SoTinChi'] ?></td>
@@ -51,8 +51,8 @@
             while ($row = $result->fetch_assoc()) {
                 ?>
 <tr class="row-d">
-    <td class="col-d"><?php echo $row['MonHocID'] ?></td>
     <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
+    <td class="col-d"><?php echo $row['MonHocID'] ?></td>
     <td class="col-d"><?php echo $row['TenMonHoc'] ?></td>
     <td class="col-d"><?php echo $row['HocKy'] ?></td>
     <td class="col-d"><?php echo $row['SoTinChi'] ?></td>
@@ -94,8 +94,8 @@
             while ($row = $result->fetch_assoc()) {
                 ?>
 <tr class="row-d">
-    <td class="col-d"><?php echo $row['MonHocID'] ?></td>
     <td class="col-d"><?php echo $row['CTDaoTaoID'] ?></td>
+    <td class="col-d"><?php echo $row['MonHocID'] ?></td>
     <td class="col-d"><?php echo $row['TenMonHoc'] ?></td>
     <td class="col-d"><?php echo $row['HocKy'] ?></td>
     <td class="col-d"><?php echo $row['SoTinChi'] ?></td>

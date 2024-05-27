@@ -62,7 +62,7 @@
 
                 require "app/models/faculty_model.php";
                 $facultyModel = new Faculty_Model();
-                if ($facultyModel->checkUpdate($conn, $facultyNewName)->num_rows > 0) {
+                if ($facultyModel->checkUpdate($conn, $facultyOldID, $facultyNewName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
@@ -105,7 +105,6 @@
             global $conn;
             if (isset($_POST['facultyDelete'])) {
                 $facultyID = $_POST['facultyID'];
-                $facultyName = $_POST['facultyName'];
                 
                 require "app/models/faculty_model.php";
                 $facultyModel = new Faculty_Model();

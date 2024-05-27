@@ -9,8 +9,8 @@ class Faculty_Model {
         $sql = "SELECT * FROM khoa WHERE KhoaID = '$id' OR TenKhoa = '$name'";
         return $conn->query($sql);
     }
-    public function checkUpdate($conn, $newName) {
-        $sql = "SELECT * FROM khoa WHERE TenKhoa = '$newName'";
+    public function checkUpdate($conn, $id, $newName) {
+        $sql = "SELECT * FROM khoa WHERE KhoaID != '$id' AND TenKhoa = '$newName'";
         return $conn->query($sql);
     }
     function update($conn, $newName, $oldID)

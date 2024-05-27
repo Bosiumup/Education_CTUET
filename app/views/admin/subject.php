@@ -75,8 +75,8 @@
             <!-- Heading table -->
             <thead id="table-head">
                 <tr class="row-h">
-                    <th class="col-h">Mã Môn</th>
                     <th class="col-h">Mã chương trình đào tạo</th>
+                    <th class="col-h">Mã Môn</th>
                     <th class="col-h">Tên môn</th>
                     <th class="col-h">Học Kỳ</th>
                     <th class="col-h">Tín chỉ</th>

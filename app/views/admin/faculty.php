@@ -80,4 +80,4 @@
         <!-- End -->
     </div>
 </section>
-<script src="public/js/facultys/update.js"></script>
+<script src="public/js/faculty_update.js"></script>
