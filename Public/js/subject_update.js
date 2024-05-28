@@ -8,23 +8,18 @@ document.addEventListener("DOMContentLoaded", function () {
         SJOpenFormUpdateButtons[i].addEventListener("click", function () {
             // Lấy dữ liệu cần thiết từ hàng hiện tại
             var row = this.closest(".row-d");
-            var SJPresentMonHocID = row.querySelector(".SJPresentMonHocID").value;
             var SJPresentID = row.querySelector(".SJPresentID").value;
             var SJPresentName = row.querySelector(".SJPresentName").value;
             var SJPresentHocKy = row.querySelector(".SJPresentHocKy").value;
             var SJPresentTinChi = row.querySelector(".SJPresentTinChi").value;
-            var SJPresentLyThuyet = row.querySelector(".SJPresentLyThuyet").value;
-            var SJPresentThucHanh = row.querySelector(".SJPresentThucHanh").value;
+            var SJPresentLyThuyet =
+                row.querySelector(".SJPresentLyThuyet").value;
+            var SJPresentThucHanh =
+                row.querySelector(".SJPresentThucHanh").value;
             var SJOldID = row.querySelector(".SJOldMonHocID").value;
 
-
-
-
-
             // Thiết lập giá trị cho các ô input trong modal
-            document.getElementById("SJFormselectOption").value =
-            SJPresentID;
-            document.getElementById("SJFormID").value = SJPresentMonHocID;
+            document.getElementById("SJFormselectOption").value = SJPresentID;
             document.getElementById("SJOldID").value = SJOldID;
             document.getElementById("SJFormName").value = SJPresentName;
             document.getElementById("SJFormHocKy").value = SJPresentHocKy;
@@ -32,13 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("SJFormLyThuyet").value = SJPresentLyThuyet;
             document.getElementById("SJFormThucHanh").value = SJPresentThucHanh;
 
-
             // Mở modal
-        SJModal.style.display = "flex";
-
+            SJModal.style.display = "flex";
         });
-
-
     }
 
     SJModalCloseButton.addEventListener("click", function () {

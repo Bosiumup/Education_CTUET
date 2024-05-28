@@ -61,7 +61,7 @@
                     <form action="?" method="get">
                         <div class="search-form">
                             <input type="hidden" name="page" value="subject">
-                            <input type="text" placeholder="Tên chương trình..." name="SJNameSearch" required>
+                            <input type="text" placeholder="Tên môn học..." name="SJNameSearch" required>
                             <button type="submit">Tra cứu</button>
                         </div>
                     </form>
@@ -125,11 +125,6 @@
                                     }
                                     ?>
                                 </select>
-                            </label>
-                            <br>
-                            <label>
-                                <span>Mã môn:</span>
-                                <input type="text" id="SJFormID" name="SJNewID" required>
                             </label>
                             <br>
                             <label>

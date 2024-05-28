@@ -29,11 +29,11 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button name="register" type="submit">Đăng ký</button>
+                    <button name="register" type="submit">Tạo</button>
                 </div>
             </form>
             <div class="handle_link">
-                <a href="?page=teacher_register">Đăng ký giảng viên</a>
+                <a href="?page=teacher_register">Cấp tài khoản giảng viên</a>
             </div>
         </div>
     </div>
@@ -52,10 +52,10 @@ if (isset($_POST['register'])) {
         echo "<script>
             Swal.fire({
                 position: 'center',
-                icon: 'warning',
+                icon: 'error',
                 title: 'Tài khoản $username đã có',
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 2000,
                 customClass: {
                     title: 'custom-alert-title'
                 }
@@ -63,7 +63,7 @@ if (isset($_POST['register'])) {
 
                 setTimeout(function() {
                     window.location.href='admin.php?page=student_register';
-                }, 2500);
+                }, 1500);
             </script>";
     } else {
         $sql_signUP = registerStudent($conn, $username, $username, $password, $role);
@@ -75,7 +75,7 @@ if (isset($_POST['register'])) {
                 icon: 'success',
                 title: 'Cấp tài khoản thành công',
                 showConfirmButton: false,
-                timer: 2500,
+                timer: 2000,
                 customClass: {
                     title: 'custom-alert-title'
                 }
@@ -83,7 +83,7 @@ if (isset($_POST['register'])) {
 
                 setTimeout(function() {
                     window.location.href='admin.php?page=student_register';
-                }, 2000);
+                }, 1500);
             </script>";
         } 
     }

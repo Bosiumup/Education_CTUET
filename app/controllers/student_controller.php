@@ -13,12 +13,12 @@
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                if ($StudentModel->checkAdd($conn, $CTDaoTaoID, $StudentName)->num_rows > 0) {
+                if ($StudentModel->checkAdd($conn, $StudentName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Sinh viên $SinhVienID đã có',
+                                title: 'Sinh viên $StudentName đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {
@@ -120,7 +120,7 @@
                                 icon: 'success',
                                 title: 'Xóa thành công',
                                 showConfirmButton: false,
-                                timer: 2500,
+                                timer: 2000,
                                 customClass: {
                                     title: 'custom-alert-title'
                                 }

@@ -15,7 +15,6 @@
     <td class="col-d"><?php echo $row['SoTietThucHanh'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="SJPresentMonHocID" type="hidden" value="<?php echo $row['MonHocID'] ?>">
         <input class="SJOldMonHocID" type="hidden" value="<?php echo $row['MonHocID'] ?>">
         <input class="SJPresentID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
         <input class="SJPresentName" type="hidden" value="<?php echo $row['TenMonHoc'] ?>">
@@ -60,7 +59,6 @@
     <td class="col-d"><?php echo $row['SoTietThucHanh'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="SJPresentMonHocID" type="hidden" value="<?php echo $row['MonHocID'] ?>">
         <input class="SJOldMonHocID" type="hidden" value="<?php echo $row['MonHocID'] ?>">
         <input class="SJPresentID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
         <input class="SJPresentName" type="hidden" value="<?php echo $row['TenMonHoc'] ?>">
@@ -103,7 +101,6 @@
     <td class="col-d"><?php echo $row['SoTietThucHanh'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="SJPresentMonHocID" type="hidden" value="<?php echo $row['MonHocID'] ?>">
         <input class="SJOldMonHocID" type="hidden" value="<?php echo $row['MonHocID'] ?>">
         <input class="SJPresentID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
         <input class="SJPresentName" type="hidden" value="<?php echo $row['TenMonHoc'] ?>">

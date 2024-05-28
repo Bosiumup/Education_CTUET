@@ -77,8 +77,12 @@ function TC_Search($conn, $search)
     $sql = "SELECT * FROM giangvien WHERE TenGiangVien LIKE '%$search%'";
     return $conn->query($sql);
 }
-
-
+// render TC follow KhoaID
+function TC_KhoaID($conn, $idkhoa)
+{
+    $sql = "SELECT * FROM giangvien WHERE KhoaID = '$idkhoa'";
+    return $conn->query($sql);
+}
 
 // ------------------- Student (Sinh vien) --------------------------
 function Student($conn)
@@ -89,6 +93,11 @@ function Student($conn)
 function Student_Search($conn, $search)
 {
     $sql = "SELECT * FROM sinhvien WHERE TenSinhVien LIKE '%$search%'";
+    return $conn->query($sql);
+}
+function Student_EpID($conn, $idEp)
+{
+    $sql = "SELECT * FROM sinhvien WHERE CTDaoTaoID = '$idEp'";
     return $conn->query($sql);
 }
 

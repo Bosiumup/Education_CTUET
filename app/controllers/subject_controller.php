@@ -15,12 +15,12 @@
 
                 require "app/models/subject_model.php";
                 $SubjectModel = new SJ_Model();
-                if ($SubjectModel->checkAdd($conn, $SJNAME)->num_rows > 0) {
+                if ($SubjectModel->checkAdd($conn, $SJselectOption, $SJNAME)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Khoa $SJNAME đã có',
+                                title: 'Môn $SJNAME đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {
@@ -34,7 +34,7 @@
                             </script>";    
                 } 
                 else {
-                    $SubjectModel->add($conn, $SJID, $SJselectOption, $SJNAME,$SJTERM,$SJTinChi,$SJLyThuyet,$SJThucHanh);
+                    $SubjectModel->add($conn, $SJID, $SJselectOption, $SJNAME, $SJTERM, $SJTinChi, $SJLyThuyet, $SJThucHanh);
                     if($SubjectModel) {
                         echo "<script>
                             Swal.fire({
@@ -59,7 +59,6 @@
         public function update() {
             global $conn;
             if (isset($_POST['SJUpdate'])) {
-                $SJID = $_POST['SJNewID'];
                 $SJOldID = $_POST['SJOldID'];
                 $SJNAME = $_POST['SJNewName'];
                 $SJTERM = $_POST['SJNewHocKy'];
@@ -70,8 +69,26 @@
 
                 require "app/models/subject_model.php";
                 $SJModel = new SJ_Model();
-                
-                    $SJModel->update($conn, $SJID,$SJOldID, $SJselectOption, $SJNAME,$SJTERM,$SJTinChi,$SJLyThuyet,$SJThucHanh);
+                if ($SJModel->checkUpdate($conn, $SJOldID, $SJselectOption, $SJNAME)->num_rows > 0) {
+                    echo "<script>
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'error',
+                                title: 'Môn $SJNAME đã có',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                customClass: {
+                                    title: 'custom-alert-title'
+                                }
+                            });
+
+                            setTimeout(function() {
+                                window.location.href='?page=subject';
+                            }, 1500);
+                            </script>";    
+                } 
+                else {
+                    $SJModel->update($conn, $SJOldID, $SJselectOption, $SJNAME, $SJTERM, $SJTinChi, $SJLyThuyet, $SJThucHanh);
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
@@ -89,6 +106,7 @@
                             }, 1500);
                             </script>";    
                 
+                }
             }
         }
         public function delete() {

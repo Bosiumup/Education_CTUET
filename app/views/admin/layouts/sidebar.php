@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="">
+                <a href="?page=user_option">
                     <i class="fa-solid fa-user"></i>
                     <span>Người dùng</span>
                     <i class="fa-solid fa-caret-down fa-fw down-arrow"></i>

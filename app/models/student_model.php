@@ -5,8 +5,8 @@ class Student_Model {
         $sql = "INSERT INTO sinhvien (SinhVienID, CTDaoTaoID, TenSinhVien, Email, SoDienThoai) VALUES ('$studentID', '$EPID', '$tensinhvien', '$email', $sdt)";
         return $conn->query($sql);
     }
-    public function checkAdd($conn, $epID, $name) {
-        $sql = "SELECT * FROM sinhvien WHERE CTDaoTaoID = '$epID' AND TenSinhVien = '$name'";
+    public function checkAdd($conn, $name) {
+        $sql = "SELECT * FROM sinhvien WHERE TenSinhVien = '$name'";
         return $conn->query($sql);
     }
     public function checkUpdate($conn, $newName) {

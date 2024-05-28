@@ -1,6 +1,11 @@
+<?php 
+    if (isset($_GET['EpID'])) {
+        $EpID = $_GET['EpID'];
+    }
+?>
 <div class="main-register">
-    <a href="?page=teacher_register">Giảng viên</a>
-    <a href="?page=student_register">Sinh viên</a>
+    <a href="?page=subject&EpID=<?php echo $EpID ?>">Môn học</a>
+    <a href="?page=student&EpID=<?php echo $EpID ?>">Sinh viên</a>
 </div>
 <style>
 .main-register {

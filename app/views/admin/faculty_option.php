@@ -1,6 +1,11 @@
+<?php 
+    if (isset($_GET['KhoaID'])) {
+        $khoaID = $_GET['KhoaID']; 
+    }
+?>
 <div class="main-register">
-    <a href="?page=teacher_register">Giảng viên</a>
-    <a href="?page=student_register">Sinh viên</a>
+    <a href="?page=ep&KhoaID=<?php echo $khoaID ?>">Chương trình đào tạo</a>
+    <a href="?page=teacher&KhoaID=<?php echo $khoaID ?>">Giảng viên</a>
 </div>
 <style>
 .main-register {

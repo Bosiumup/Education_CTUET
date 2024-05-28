@@ -9,12 +9,12 @@
 <tr class="row-d">
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
     <td class="col-d">
-        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+        <a href="?page=ep_option&EpID=<?php echo $row['CTDaoTaoID'] ?>">
             <?php echo $row['CTDaoTaoID'] ?>
         </a>
     </td>
     <td class="col-d">
-        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+        <a href="?page=ep_option&EpID=<?php echo $row['CTDaoTaoID'] ?>">
             <?php echo $row['TenChuongTrinh'] ?>
         </a>
     </td>
@@ -53,12 +53,12 @@
 <tr class="row-d">
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
     <td class="col-d">
-        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+        <a href="?page=ep_option&EpID=<?php echo $row['CTDaoTaoID'] ?>">
             <?php echo $row['CTDaoTaoID'] ?>
         </a>
     </td>
     <td class="col-d">
-        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+        <a href="?page=ep_option&EpID=<?php echo $row['CTDaoTaoID'] ?>">
             <?php echo $row['TenChuongTrinh'] ?>
         </a>
     </td>
@@ -94,12 +94,12 @@
 <tr class="row-d">
     <td class="col-d"><?php echo $row['KhoaID'] ?></td>
     <td class="col-d">
-        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+        <a href="?page=ep_option&EpID=<?php echo $row['CTDaoTaoID'] ?>">
             <?php echo $row['CTDaoTaoID'] ?>
         </a>
     </td>
     <td class="col-d">
-        <a href="?page=subject&EpID=<?php echo $row['CTDaoTaoID'] ?>">
+        <a href="?page=ep_option&EpID=<?php echo $row['CTDaoTaoID'] ?>">
             <?php echo $row['TenChuongTrinh'] ?>
         </a>
     </td>

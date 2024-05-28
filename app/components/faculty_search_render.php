@@ -8,12 +8,12 @@
             ?>
 <tr class="row-d">
     <td class="col-d">
-        <a href="?page=ep&KhoaID=<?php echo $row['KhoaID'] ?>">
+        <a href="?page=faculty_option&KhoaID=<?php echo $row['KhoaID'] ?>">
             <?php echo $row['KhoaID'] ?>
         </a>
     </td>
     <td class="col-d">
-        <a href="?page=ep&KhoaID=<?php echo $row['KhoaID'] ?>">
+        <a href="?page=faculty_option&KhoaID=<?php echo $row['KhoaID'] ?>">
             <?php echo $row['TenKhoa'] ?>
         </a>
     </td>
@@ -47,12 +47,12 @@
             ?>
 <tr class="row-d">
     <td class="col-d">
-        <a href="?page=ep&KhoaID=<?php echo $row['KhoaID'] ?>">
+        <a href="?page=faculty_option&KhoaID=<?php echo $row['KhoaID'] ?>">
             <?php echo $row['KhoaID'] ?>
         </a>
     </td>
     <td class="col-d">
-        <a href="?page=ep&KhoaID=<?php echo $row['KhoaID'] ?>">
+        <a href="?page=faculty_option&KhoaID=<?php echo $row['KhoaID'] ?>">
             <?php echo $row['TenKhoa'] ?>
         </a>
     </td>
