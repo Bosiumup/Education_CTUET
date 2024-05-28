@@ -1,6 +1,6 @@
 <div class="main-register">
-    <a href="?page=teacher_register">Giảng viên</a>
-    <a href="?page=student_register">Sinh viên</a>
+    <a href="?page=teacher">Giảng viên</a>
+    <a href="?page=student">Sinh viên</a>
 </div>
 <style>
 .main-register {

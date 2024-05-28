@@ -1,33 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var studentOpenFormUpdateButtons = document.querySelectorAll(
-        ".StudentOpenFormUpdate"
-    );
-    var studentMyModal = document.getElementById("StudentMyModal");
-    var studentModalCloseButton = studentMyModal.querySelector(".close");
+    var SDOpenFormUpdateButtons =
+        document.querySelectorAll(".SDOpenFormUpdate");
+    var sdModal = document.getElementById("sdMyModal");
+    var sdModalCloseButton = sdModal.querySelector(".close");
 
-    for (var i = 0; i < studentOpenFormUpdateButtons.length; i++) {
-        studentOpenFormUpdateButtons[i].addEventListener("click", function () {
+    for (var i = 0; i < SDOpenFormUpdateButtons.length; i++) {
+        SDOpenFormUpdateButtons[i].addEventListener("click", function () {
             // Lấy dữ liệu cần thiết từ hàng hiện tại
             var row = this.closest(".row-d");
-            var studentPresentID = row.querySelector(
-                ".studentPresentID"
-            ).value;
-            var studentPresentName = row.querySelector(
-                ".studentPresentName"
-            ).value;
+            var sdPresentEPID = row.querySelector(".sdPresentEPID").value;
+            var sdPresentID = row.querySelector(".sdPresentID").value;
+            var sdPresentName = row.querySelector(".sdPresentName").value;
+            var sdPresentEmail = row.querySelector(".sdPresentEmail").value;
+            var sdPresentPhone = row.querySelector(".sdPresentPhone").value;
 
             // Thiết lập giá trị cho các ô input trong modal
-            document.getElementById("studentOldID").value = studentPresentID;
-            document.getElementById("studentFormID").value = studentPresentID;
-            document.getElementById("studentFormName").value = studentPresentName;
+            document.getElementById("sdFormselectOption").value = sdPresentEPID;
+            document.getElementById("sdOldID").value = sdPresentID;
+            document.getElementById("sdFormName").value = sdPresentName;
+            document.getElementById("sdFormEmail").value = sdPresentEmail;
+            document.getElementById("sdFormPhone").value = sdPresentPhone;
 
             // Mở modal
-            studentMyModal.style.display = "flex";
+            sdModal.style.display = "flex";
         });
     }
 
-    studentModalCloseButton.addEventListener("click", function () {
+    sdModalCloseButton.addEventListener("click", function () {
         // Tắt modal khi nhấn vào nút close.
-        studentMyModal.style.display = "none";
+        sdModal.style.display = "none";
     });
 });

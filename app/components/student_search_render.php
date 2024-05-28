@@ -23,9 +23,12 @@
     </td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="StudentPresentID" type="hidden" value="<?php echo $row['SinhVienID'] ?>">
-        <input class="StudentPresentName" type="hidden" value="<?php echo $row['TenSinhVien'] ?>">
-        <button class="StudentOpenFormUpdate updateBtn" type="button">
+        <input class="sdPresentEPID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
+        <input class="sdPresentID" type="hidden" value="<?php echo $row['SinhVienID'] ?>">
+        <input class="sdPresentName" type="hidden" value="<?php echo $row['TenSinhVien'] ?>">
+        <input class="sdPresentEmail" type="hidden" value="<?php echo $row['Email'] ?>">
+        <input class="sdPresentPhone" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
+        <button class="SDOpenFormUpdate updateBtn" type="button">
             <i class="fa-solid fa-pen"></i>
         </button>
     </td>
@@ -69,12 +72,12 @@
     </td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="StudentPresentID" type="hidden" value="<?php echo $row['SinhVienID'] ?>">
-        <input class="CTDaoTaoPresentID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
-        <input class="StudentNamePresent" type="hidden" value="<?php echo $row['TenSinhVien'] ?>">
-        <input class="EmailPresent" type="hidden" value="<?php echo $row['Email'] ?>">
-        <input class="SoDienThoaiPresent" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
-        <button class="studentOpenFormUpdate updateBtn" type="button">
+        <input class="sdPresentEPID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
+        <input class="sdPresentID" type="hidden" value="<?php echo $row['SinhVienID'] ?>">
+        <input class="sdPresentName" type="hidden" value="<?php echo $row['TenSinhVien'] ?>">
+        <input class="sdPresentEmail" type="hidden" value="<?php echo $row['Email'] ?>">
+        <input class="sdPresentPhone" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
+        <button class="SDOpenFormUpdate updateBtn" type="button">
             <i class="fa-solid fa-pen"></i>
         </button>
     </td>
@@ -116,9 +119,12 @@
     </td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="StudentPresentID" type="hidden" value="<?php echo $row['SinhVienID'] ?>">
-        <input class="StudentPresentName" type="hidden" value="<?php echo $row['TenSinhVien'] ?>">
-        <button class="StudentOpenFormUpdate updateBtn" type="button">
+        <input class="sdPresentEPID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
+        <input class="sdPresentID" type="hidden" value="<?php echo $row['SinhVienID'] ?>">
+        <input class="sdPresentName" type="hidden" value="<?php echo $row['TenSinhVien'] ?>">
+        <input class="sdPresentEmail" type="hidden" value="<?php echo $row['Email'] ?>">
+        <input class="sdPresentPhone" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
+        <button class="SDOpenFormUpdate updateBtn" type="button">
             <i class="fa-solid fa-pen"></i>
         </button>
     </td>

@@ -99,37 +99,42 @@
                     ...
                     ...
                  -->
-                <div id="epMyModal" class="modal">
+                <div id="tcMyModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <img src="public/imgs/logo.png" alt="logo">
                         <form action="?page=ep" method="post">
-                            <input type="hidden" name="epOldID" id="epOldID">
+                            <input type="hidden" name="tcOldID" id="tcOldID">
                             <label>
                                 <span>Mã khoa:</span>
-                                <select class="select_style" id="epFormselectOption" name="epNewselectOption">
+                                <select class="select_style" id="tcFormselectOption" name="tcNewselectOption">
                                     <?php
-                                        // $result = Faculty($conn); // Gọi hàm Faculty() và lưu kết quả trả về vào biến $result
-                                        // if ($result->num_rows > 0) {
-                                        //     while($row = $result->fetch_assoc()) {
-                                        //         echo '<option value="' . $row["KhoaID"] . '">' . $row["KhoaID"] . '</option>';
-                                        //     }
-                                        // }
+                                    $result = Faculty($conn); 
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<option value="' . $row["KhoaID"] . '">' . $row["KhoaID"] . '</option>';
+                                        }
+                                    }
                                     ?>
                                 </select>
                             </label>
                             <br>
                             <label>
-                                <span>Mã chương trình đào tạo:</span>
-                                <input type="text" id="epFormID" name="epNewID" required>
+                                <span>Tên giảng viên:</span>
+                                <input type="text" id="tcFormName" name="tcNewName" required>
                             </label>
                             <br>
                             <label>
-                                <span>Tên chương trình đào tạo:</span>
-                                <input type="text" id="epFormName" name="epNewName" required>
+                                <span>Email:</span>
+                                <input type="text" id="tcFormEmail" name="tcNewEmail" required>
                             </label>
                             <br>
-                            <button name="EPUpdate" type="submit">Cập nhật</button>
+                            <label>
+                                <span>Số điện thoại:</span>
+                                <input type="text" id="tcFormPhone" name="tcNewPhone" required>
+                            </label>
+                            <br>
+                            <button name="TCUpdate" type="submit">Cập nhật</button>
                         </form>
                     </div>
                 </div>

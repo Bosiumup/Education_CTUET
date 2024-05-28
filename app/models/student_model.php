@@ -5,17 +5,17 @@ class Student_Model {
         $sql = "INSERT INTO sinhvien (SinhVienID, CTDaoTaoID, TenSinhVien, Email, SoDienThoai) VALUES ('$studentID', '$EPID', '$tensinhvien', '$email', $sdt)";
         return $conn->query($sql);
     }
-    public function checkAdd($conn, $name) {
-        $sql = "SELECT * FROM sinhvien WHERE TenSinhVien = '$name'";
+    public function checkAdd($conn, $id, $name) {
+        $sql = "SELECT * FROM sinhvien WHERE CTDaoTaoID = '$id' AND TenSinhVien = '$name'";
         return $conn->query($sql);
     }
-    public function checkUpdate($conn, $newName) {
-        $sql = "SELECT * FROM sinhvien WHERE TenSinhVien = '$newName'";
+    public function checkUpdate($conn, $id, $idctdt, $newName) {
+        $sql = "SELECT * FROM sinhvien WHERE SinhVienID != '$id' AND CTDaoTaoID = '$idctdt' AND TenSinhVien = '$newName'";
         return $conn->query($sql);
     }
-    function update($conn, $newName, $oldID)
+    function update($conn, $newEPID, $newName, $newEmail, $newPhone, $oldID)
     {
-        $sql = "UPDATE sinhvien SET TenSinhVien = '$newName' WHERE SinhVienID = '$oldID'";
+        $sql = "UPDATE sinhvien SET CTDaoTaoID = '$newEPID', TenSinhVien = '$newName', Email = '$newEmail', SoDienThoai = '$newPhone' WHERE SinhVienID = '$oldID'";
         return $conn->query($sql);
     }
     public function delete($conn, $id)

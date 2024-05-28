@@ -13,7 +13,7 @@
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                if ($StudentModel->checkAdd($conn, $StudentName)->num_rows > 0) {
+                if ($StudentModel->checkAdd($conn, $CTDaoTaoID, $StudentName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
@@ -57,22 +57,21 @@
         }
         public function update() {
             global $conn;
-            if (isset($_POST['StudentUpdate'])) {
-                $StudentOldID = $_POST['StudentOldID'];
-                $StudentNewID = $_POST['StudentNewID'];
-                $StudentNewName = $_POST['StudentNewName'];
-                $StudentNewEmail = $_POST['StudentNewEmail'];
-                $StudentNewSDT = $_POST['StudentNewSDT'];
-                $StudentNewselectOption = $_POST['StudentNewselectOption'];
+            if (isset($_POST['SDUpdate'])) {
+                $sdOldID = $_POST['sdOldID'];
+                $sdNewName = $_POST['sdNewName'];
+                $sdNewEmail = $_POST['sdNewEmail'];
+                $sdNewPhone = $_POST['sdNewPhone'];
+                $sdNewselectOption = $_POST['sdNewselectOption'];
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                if ($StudentModel->checkUpdate($conn, $StudentNewName)->num_rows > 0) {
+                if ($StudentModel->checkUpdate($conn, $sdOldID, $sdNewselectOption, $sdNewName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Chương trình đào tạo $StudentNewName đã có',
+                                title: 'Sinh viên $sdNewName đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {
@@ -81,12 +80,12 @@
                             });
 
                             setTimeout(function() {
-                                window.location.href='?page=ep';
+                                window.location.href='?page=student';
                             }, 1500);
                             </script>";    
                 } 
                 else {
-                    $StudentModel->update($conn, $StudentNewID, $StudentNewselectOption, $StudentNewName,$StudentNewEmail,$StudentNewSDT, $StudentOldID);
+                    $StudentModel->update($conn, $sdNewselectOption, $sdNewName, $sdNewEmail, $sdNewPhone, $sdOldID);
                     echo "<script>
                             Swal.fire({
                                 position: 'center',

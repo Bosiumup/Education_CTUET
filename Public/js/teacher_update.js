@@ -1,31 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var EPOpenFormUpdateButtons =
-        document.querySelectorAll(".EPOpenFormUpdate");
-    var epModal = document.getElementById("epMyModal");
-    var epModalCloseButton = epModal.querySelector(".close");
+    var TCOpenFormUpdateButtons =
+        document.querySelectorAll(".TCOpenFormUpdate");
+    var tcModal = document.getElementById("tcMyModal");
+    var tcModalCloseButton = tcModal.querySelector(".close");
 
-    for (var i = 0; i < EPOpenFormUpdateButtons.length; i++) {
-        EPOpenFormUpdateButtons[i].addEventListener("click", function () {
+    for (var i = 0; i < TCOpenFormUpdateButtons.length; i++) {
+        TCOpenFormUpdateButtons[i].addEventListener("click", function () {
             // Lấy dữ liệu cần thiết từ hàng hiện tại
             var row = this.closest(".row-d");
-            var EPPresentKhoaID = row.querySelector(".epPresentKhoaID").value;
-            var EPPresentID = row.querySelector(".epPresentID").value;
-            var EPPresentName = row.querySelector(".epPresentName").value;
+            var tcPresentKhoaID = row.querySelector(".tcPresentKhoaID").value;
+            var tcPresentID = row.querySelector(".tcPresentID").value;
+            var tcPresentName = row.querySelector(".tcPresentName").value;
+            var tcPresentEmail = row.querySelector(".tcPresentEmail").value;
+            var tcPresentPhone = row.querySelector(".tcPresentPhone").value;
 
             // Thiết lập giá trị cho các ô input trong modal
-            document.getElementById("epFormselectOption").value =
-                EPPresentKhoaID;
-            document.getElementById("epOldID").value = EPPresentID;
-            document.getElementById("epFormID").value = EPPresentID;
-            document.getElementById("epFormName").value = EPPresentName;
+            document.getElementById("tcFormselectOption").value =
+                tcPresentKhoaID;
+            document.getElementById("tcOldID").value = tcPresentID;
+            document.getElementById("tcFormName").value = tcPresentName;
+            document.getElementById("tcFormEmail").value = tcPresentEmail;
+            document.getElementById("tcFormPhone").value = tcPresentPhone;
 
             // Mở modal
-            epModal.style.display = "flex";
+            tcModal.style.display = "flex";
         });
     }
 
-    epModalCloseButton.addEventListener("click", function () {
+    tcModalCloseButton.addEventListener("click", function () {
         // Tắt modal khi nhấn vào nút close.
-        epModal.style.display = "none";
+        tcModal.style.display = "none";
     });
 });

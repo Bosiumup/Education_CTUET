@@ -147,7 +147,6 @@
                                 <span>Thực hành:</span>
                                 <input type="text" id="SJFormThucHanh" name="SJNewThucHanh" required>
                             </label>
-
                             <br>
                             <button name="SJUpdate" type="submit">Cập nhật</button>
                         </form>
@@ -170,10 +169,6 @@
     flex-wrap: wrap;
     width: 800px;
     gap: 10px;
-}
-
-.container-students .event-left {
-    height: 70px;
 }
 </style>
 

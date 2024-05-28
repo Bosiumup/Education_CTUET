@@ -13,10 +13,12 @@
     <td class="col-d"><?php echo $row['SoDienThoai'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <!-- <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
-        <input class="epPresentID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>">
-        <input class="epPresentName" type="hidden" value="<?php echo $row['TenChuongTrinh'] ?>"> -->
-        <button class="EPOpenFormUpdate updateBtn" type="button">
+        <input class="tcPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
+        <input class="tcPresentID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
+        <input class="tcPresentName" type="hidden" value="<?php echo $row['TenGiangVien'] ?>">
+        <input class="tcPresentEmail" type="hidden" value="<?php echo $row['Email'] ?>">
+        <input class="tcPresentPhone" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
+        <button class="TCOpenFormUpdate updateBtn" type="button">
             <i class="fa-solid fa-pen"></i>
         </button>
     </td>
@@ -50,10 +52,12 @@
     <td class="col-d"><?php echo $row['SoDienThoai'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
-        <input class="epPresentID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
-        <input class="epPresentName" type="hidden" value="<?php echo $row['TenGiangVien'] ?>">
-        <button class="EPOpenFormUpdate updateBtn" type="button">
+        <input class="tcPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
+        <input class="tcPresentID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
+        <input class="tcPresentName" type="hidden" value="<?php echo $row['TenGiangVien'] ?>">
+        <input class="tcPresentEmail" type="hidden" value="<?php echo $row['Email'] ?>">
+        <input class="tcPresentPhone" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
+        <button class="TCOpenFormUpdate updateBtn" type="button">
             <i class="fa-solid fa-pen"></i>
         </button>
     </td>
@@ -84,10 +88,12 @@
     <td class="col-d"><?php echo $row['SoDienThoai'] ?></td>
     <td class="col-d">
         <!-- Button open modal update -->
-        <input class="epPresentKhoaID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
-        <input class="epPresentID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
-        <input class="epPresentName" type="hidden" value="<?php echo $row['TenGiangVien'] ?>">
-        <button class="EPOpenFormUpdate updateBtn" type="button">
+        <input class="tcPresentKhoaID" type="hidden" value="<?php echo $row['KhoaID'] ?>">
+        <input class="tcPresentID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
+        <input class="tcPresentName" type="hidden" value="<?php echo $row['TenGiangVien'] ?>">
+        <input class="tcPresentEmail" type="hidden" value="<?php echo $row['Email'] ?>">
+        <input class="tcPresentPhone" type="hidden" value="<?php echo $row['SoDienThoai'] ?>">
+        <button class="TCOpenFormUpdate updateBtn" type="button">
             <i class="fa-solid fa-pen"></i>
         </button>
     </td>

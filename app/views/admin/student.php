@@ -84,38 +84,42 @@
             <!-- Body table -->
             <tbody id="table-body">
                 <?php require "app/components/student_search_render.php"; ?>
-                <div id="studentMyModal" class="modal">
+                <div id="sdMyModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <img src="public/imgs/logo.png" alt="logo">
                         <form action="?page=student" method="post">
-                            <input type="hidden" name="studentOldID" id="studentOldID">
+                            <input type="hidden" name="sdOldID" id="sdOldID">
                             <label>
-                                <span>Mã sinh viên:</span>
-                                <input type="text" id="studentFormID" required>
+                                <span>Mã chương trình đào tạo:</span>
+                                <select class="select_style" id="sdFormselectOption" name="sdNewselectOption">
+                                    <?php
+                                    $result = EP($conn); 
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<option value="' . $row["CTDaoTaoID"] . '">' . $row["CTDaoTaoID"] . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
                             </label>
                             <br>
                             <label>
-                                <span>Tên Chương trình đào tạo:</span>
-                                <input type="text" id="studentFormName" name="studentNewName" required>
+                                <span>Tên sinh viên:</span>
+                                <input type="text" id="sdFormName" name="sdNewName" required>
                             </label>
                             <br>
                             <label>
-                                <span>Tên Sinh Viên</span>
-                                <input type="text" id="studentFormName" name="studentNewName" required>
+                                <span>Email:</span>
+                                <input type="text" id="sdFormEmail" name="sdNewEmail" required>
                             </label>
                             <br>
                             <label>
-                                <span>Tên Chương trình đào tạo:</span>
-                                <input type="text" id="studentFormName" name="studentNewName" required>
+                                <span>Số điện thoại:</span>
+                                <input type="text" id="sdFormPhone" name="sdNewPhone" required>
                             </label>
                             <br>
-                            <label>
-                                <span>Tên Chương trình đào tạo:</span>
-                                <input type="text" id="studentFormName" name="studentNewName" required>
-                            </label>
-                            <br>
-                            <button name="facultyUpdate" type="submit">Cập nhật</button>
+                            <button name="SDUpdate" type="submit">Cập nhật</button>
                         </form>
                     </div>
                 </div>

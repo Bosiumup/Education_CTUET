@@ -11,7 +11,7 @@
                                 $result = Student($conn);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
-                                        $selected = ($row["SinhVienID"] == $_SESSION['teacher_username']) ? 'selected' : '';
+                                        $selected = ($row["SinhVienID"] == $_SESSION['student_username']) ? 'selected' : '';
                                         echo '<option value="' . $row["SinhVienID"] . '" ' . $selected . '>' . $row["SinhVienID"] . '</option>';
                                     }
                                 }
