@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 tcPresentKhoaID;
             document.getElementById("tcOldID").value = tcPresentID;
             document.getElementById("tcFormName").value = tcPresentName;
-            document.getElementById("tcFormEmail").value = tcPresentEmail;
+            document.getElementById("tcOldEmail").value = tcPresentEmail;
             document.getElementById("tcFormPhone").value = tcPresentPhone;
 
             // Mở modal

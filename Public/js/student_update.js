@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("sdFormselectOption").value = sdPresentEPID;
             document.getElementById("sdOldID").value = sdPresentID;
             document.getElementById("sdFormName").value = sdPresentName;
-            document.getElementById("sdFormEmail").value = sdPresentEmail;
+            document.getElementById("sdOldEmail").value = sdPresentEmail;
             document.getElementById("sdFormPhone").value = sdPresentPhone;
 
             // Mở modal

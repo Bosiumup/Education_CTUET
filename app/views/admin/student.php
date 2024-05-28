@@ -38,10 +38,6 @@
                                         value="<?php echo isset($_SESSION['StudentName']) ? $_SESSION['StudentName'] : '' ?>">
                                 </label>
                                 <label>
-                                    <input type="text" name="Email" placeholder="Email" required
-                                        value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : '' ?>">
-                                </label>
-                                <label>
                                     <input type="text" name="SoDienThoai" placeholder="Số Điện Thoại" required
                                         value="<?php echo isset($_SESSION['SDT']) ? $_SESSION['SDT'] : '' ?>">
                                 </label>
@@ -90,6 +86,7 @@
                         <img src="public/imgs/logo.png" alt="logo">
                         <form action="?page=student" method="post">
                             <input type="hidden" name="sdOldID" id="sdOldID">
+                            <input type="hidden" name="sdOldEmail" id="sdOldEmail">
                             <label>
                                 <span>Mã chương trình đào tạo:</span>
                                 <select class="select_style" id="sdFormselectOption" name="sdNewselectOption">
@@ -107,11 +104,6 @@
                             <label>
                                 <span>Tên sinh viên:</span>
                                 <input type="text" id="sdFormName" name="sdNewName" required>
-                            </label>
-                            <br>
-                            <label>
-                                <span>Email:</span>
-                                <input type="text" id="sdFormEmail" name="sdNewEmail" required>
                             </label>
                             <br>
                             <label>

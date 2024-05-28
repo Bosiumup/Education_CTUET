@@ -24,8 +24,8 @@
     </td>
     <td class="col-d">
         <!-- Delete -->
-        <form action="?page=ep" method="post">
-            <!-- <input name="EPID" type="hidden" value="<?php echo $row['CTDaoTaoID'] ?>"> -->
+        <form action="?page=teacher" method="post">
+            <input name="TeacherID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
             <button name="EPDelete" type="submit" class="deleteBtn">
                 <i class="fa-solid fa-trash"></i>
             </button>
@@ -64,8 +64,8 @@
     <td class="col-d">
         <!-- Delete -->
         <form action="?page=teacher" method="post">
-            <input name="teacherID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
-            <button name="teacherbtn" type="submit" class="deleteBtn">
+            <input name="TeacherID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
+            <button name="EPDelete" type="submit" class="deleteBtn">
                 <i class="fa-solid fa-trash"></i>
             </button>
         </form>
@@ -100,8 +100,8 @@
     <td class="col-d">
         <!-- Delete -->
         <form action="?page=teacher" method="post">
-            <input name="teacherID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
-            <button name="teacherbtn" type="submit" class="deleteBtn">
+            <input name="TeacherID" type="hidden" value="<?php echo $row['GiangVienID'] ?>">
+            <button name="EPDelete" type="submit" class="deleteBtn">
                 <i class="fa-solid fa-trash"></i>
             </button>
         </form>

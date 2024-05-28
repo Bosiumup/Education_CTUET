@@ -8,12 +8,13 @@
                 $teacherID = $prefix . $random_number;
                 $teacherKhoa = $_POST['TCselectOption'];
                 $teacherName = $_POST['TenGiangVien'];
-                $emailTeacher = $_POST['Email'];
+                $suffix = "@ctuet.edu.vn";
+                $emailTeacher =  $teacherID . $suffix;
                 $sdtTeacher = $_POST['SoDienThoai'];
                 
                 require "app/models/teacher_model.php";
                     $teacherModel = new Teacher_Model();
-                    if ($teacherModel->checkAdd($conn, $teacherName)->num_rows > 0) {
+                    if ($teacherModel->checkAdd1($conn, $teacherName)->num_rows > 0) {
                         echo "<script>
                              Swal.fire({
                                  position: 'center',
@@ -30,10 +31,27 @@
                                  window.location.href='?page=teacher';
                              }, 1500);
                          </script>";
-                    } 
+                    }
+                    elseif ($teacherModel->checkAdd2($conn, $sdtTeacher)->num_rows > 0) {
+                        echo "<script>
+                             Swal.fire({
+                                 position: 'center',
+                                 icon: 'error',
+                                 title: 'SĐT $sdtTeacher đã có',
+                                 showConfirmButton: false,
+                                 timer: 2500,
+                                 customClass: {
+                                     title: 'custom-alert-title'
+                                 }
+                             });
+                     
+                             setTimeout(function() {
+                                 window.location.href='?page=teacher';
+                             }, 1500);
+                         </script>";
+                    }  
                     else {
                         $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
-                         
                         //  unset($_SESSION['KhoaID']);
                         //  unset($_SESSION['TenGiangVien']);
                         //  unset($_SESSION['Email']);
@@ -60,20 +78,21 @@
         }
         public function update() {
             global $conn;
-            if (isset($_POST['EPUpdate'])) {
-                $epOldID = $_POST['epOldID'];
-                $epNewID = $_POST['epNewID'];
-                $epNewName = $_POST['epNewName'];
-                $epNewselectOption = $_POST['epNewselectOption'];
+            if (isset($_POST['TCUpdate'])) {
+                $tcOldID = $_POST['tcOldID'];
+                $tcNewName = $_POST['tcNewName'];
+                $tcOldEmail = $_POST['tcOldEmail'];
+                $tcNewPhone = $_POST['tcNewPhone'];
+                $tcNewselectOption = $_POST['tcNewselectOption'];
 
                 require "app/models/teacher_model.php";
-                $epModel = new EP_Model();
-                if ($epModel->checkUpdate($conn, $epNewName)->num_rows > 0) {
+                $tcModel = new Teacher_Model();
+                if ($tcModel->checkUpdate1($conn, $tcOldID, $tcNewselectOption, $tcNewName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Chương trình đào tạo $epNewName đã có',
+                                title: 'Giảng viên $tcNewName đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {
@@ -82,12 +101,30 @@
                             });
 
                             setTimeout(function() {
-                                window.location.href='?page=ep';
+                                window.location.href='?page=teacher';
+                            }, 1500);
+                            </script>";    
+                }
+                elseif ($tcModel->checkUpdate2($conn, $tcOldID, $tcNewselectOption, $tcNewPhone)->num_rows > 0) {
+                    echo "<script>
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'error',
+                                title: 'SĐT $tcNewPhone đã có',
+                                showConfirmButton: false,
+                                timer: 2500,
+                                customClass: {
+                                    title: 'custom-alert-title'
+                                }
+                            });
+
+                            setTimeout(function() {
+                                window.location.href='?page=teacher';
                             }, 1500);
                             </script>";    
                 } 
                 else {
-                    $epModel->update($conn, $epNewID, $epNewselectOption, $epNewName, $epOldID);
+                    $tcModel->update($conn, $tcNewselectOption, $tcNewName, $tcOldEmail, $tcNewPhone, $tcOldID);
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
@@ -101,7 +138,7 @@
                             });
 
                             setTimeout(function() {
-                                window.location.href='?page=ep';
+                                window.location.href='?page=teacher';
                             }, 1500);
                             </script>";    
                 }
@@ -109,12 +146,12 @@
         }
         public function delete() {
             global $conn;
-            if (isset($_POST['teacherbtn'])) {
-                $TC = $_POST['teacherID'];
+            if (isset($_POST['EPDelete'])) {
+                $id = $_POST['TeacherID'];
                 
                 require "app/models/teacher_model.php";
                 $tcModel = new Teacher_Model();
-                $tcModel->delete($conn, $TC);
+                $tcModel->delete($conn, $id);
                 echo "<script>
                             Swal.fire({
                                 position: 'center',

@@ -38,10 +38,6 @@
                                         value="<?php echo isset($_SESSION['TenGiangVien']) ? $_SESSION['TenGiangVien'] : '' ?>">
                                 </label>
                                 <label>
-                                    <input type="text" name="Email" placeholder="email@gmail.com" required
-                                        value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : '' ?>">
-                                </label>
-                                <label>
                                     <input type="text" name="SoDienThoai" placeholder="0999991111" required
                                         value="<?php echo isset($_SESSION['SoDienThoai']) ? $_SESSION['SoDienThoai'] : '' ?>">
                                 </label>
@@ -103,8 +99,9 @@
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <img src="public/imgs/logo.png" alt="logo">
-                        <form action="?page=ep" method="post">
+                        <form action="?page=teacher" method="post">
                             <input type="hidden" name="tcOldID" id="tcOldID">
+                            <input type="hidden" name="tcOldEmail" id="tcOldEmail">
                             <label>
                                 <span>Mã khoa:</span>
                                 <select class="select_style" id="tcFormselectOption" name="tcNewselectOption">
@@ -122,11 +119,6 @@
                             <label>
                                 <span>Tên giảng viên:</span>
                                 <input type="text" id="tcFormName" name="tcNewName" required>
-                            </label>
-                            <br>
-                            <label>
-                                <span>Email:</span>
-                                <input type="text" id="tcFormEmail" name="tcNewEmail" required>
                             </label>
                             <br>
                             <label>

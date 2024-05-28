@@ -3,22 +3,41 @@
         public function add() {
             global $conn;
             if(isset($_POST['studentAdd'])){
-                $prefix = "21";
-                $random_number = mt_rand(10000, 99999);
+                $prefix = "2101";
+                $random_number = mt_rand(100, 999);
                 $SinhVienID = $prefix . $random_number;
                 $CTDaoTaoID = $_POST['StudentselectOption'];
                 $StudentName = $_POST['StudentName'];
-                $Email = $_POST['Email'];
+                $suffix = "@student.ctuet.edu.vn";
+                $Email = $SinhVienID . $suffix;
                 $SoDienThoai = $_POST['SoDienThoai'];          
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                if ($StudentModel->checkAdd($conn, $CTDaoTaoID, $StudentName)->num_rows > 0) {
+                if ($StudentModel->checkAdd1($conn, $StudentName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
                                 title: 'Sinh viên $StudentName đã có',
+                                showConfirmButton: false,
+                                timer: 2500,
+                                customClass: {
+                                    title: 'custom-alert-title'
+                                }
+                            });
+
+                            setTimeout(function() {
+                                window.location.href='?page=student';
+                            }, 1500);
+                            </script>";    
+                }
+                elseif ($StudentModel->checkAdd2($conn, $SoDienThoai)->num_rows > 0) {
+                    echo "<script>
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'error',
+                                title: 'SĐT $SoDienThoai đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {
@@ -60,13 +79,13 @@
             if (isset($_POST['SDUpdate'])) {
                 $sdOldID = $_POST['sdOldID'];
                 $sdNewName = $_POST['sdNewName'];
-                $sdNewEmail = $_POST['sdNewEmail'];
+                $sdOldEmail = $_POST['sdOldEmail'];
                 $sdNewPhone = $_POST['sdNewPhone'];
                 $sdNewselectOption = $_POST['sdNewselectOption'];
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                if ($StudentModel->checkUpdate($conn, $sdOldID, $sdNewselectOption, $sdNewName)->num_rows > 0) {
+                if ($StudentModel->checkUpdate1($conn, $sdOldID, $sdNewselectOption, $sdNewName)->num_rows > 0) {
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
@@ -83,9 +102,27 @@
                                 window.location.href='?page=student';
                             }, 1500);
                             </script>";    
+                }
+                elseif ($StudentModel->checkUpdate2($conn, $sdOldID, $sdNewselectOption, $sdNewPhone)->num_rows > 0) {
+                    echo "<script>
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'error',
+                                title: 'SĐT $sdNewPhone đã có',
+                                showConfirmButton: false,
+                                timer: 2500,
+                                customClass: {
+                                    title: 'custom-alert-title'
+                                }
+                            });
+
+                            setTimeout(function() {
+                                window.location.href='?page=student';
+                            }, 1500);
+                            </script>";    
                 } 
                 else {
-                    $StudentModel->update($conn, $sdNewselectOption, $sdNewName, $sdNewEmail, $sdNewPhone, $sdOldID);
+                    $StudentModel->update($conn, $sdNewselectOption, $sdNewName, $sdOldEmail, $sdNewPhone, $sdOldID);
                     echo "<script>
                             Swal.fire({
                                 position: 'center',
