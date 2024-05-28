@@ -24,6 +24,7 @@
                 <div class="inf">
                     <i class="fa-solid fa-circle-user fa-fw"></i>
                     <span><?php echo $row["Username"]; ?></span>
+                    <span><?php echo $row["LoaiTaiKhoan"]; ?></span>
                 </div>
                 <div class="log_out">
                     <form action="admin.php" method="post">
@@ -39,6 +40,7 @@
                 <div class="inf">
                     <i class="fa-solid fa-circle-user fa-fw"></i>
                     <span><?php echo $row["Username"]; ?></span>
+                    <span><?php echo $row["LoaiTaiKhoan"]; ?></span>
                 </div>
                 <div class="log_out">
                     <form action="user.php" method="post">
