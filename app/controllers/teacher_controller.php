@@ -159,7 +159,7 @@ class Teacher_Controller
             } else {
                 require "app/models/teacher_model.php";
                 $chagePass = new Teacher_Model();
-                $chagePass->ChangePass($conn, $new_pass_hash);
+                $chagePass->ChangePass($conn, $new_pass_hash,$username);
                 echo "<script>
                 Swal.fire({
                     position: 'sucses',
