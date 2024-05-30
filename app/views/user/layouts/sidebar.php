@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="?page=changePass">
+                        <a href="?page=changePass_teacher">
                             <i class="fa-solid fa-key"></i>
                             <span>Đổi Mật Khẩu</span>
                         </a>

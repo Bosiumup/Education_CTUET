@@ -100,13 +100,12 @@ $result = SJ($conn);
         <?php
         if (isset($_GET["page"])) {
             $p = $_GET["page"];
-            require "app/views/user/" . $p . ".php";
+            require "app/views/user/teacher/" . $p . ".php";
         } else {
             require "app/views/admin/layouts/dashboard.php";
         }
         ?>
     </main>
-
 <body>
 
 <main class="education_student">
