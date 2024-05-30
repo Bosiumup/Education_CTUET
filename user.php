@@ -75,8 +75,6 @@ $result = SJ($conn);
     <link rel="stylesheet" href="public/styles/footer.css">
     <link rel="stylesheet" href="public/styles/profile.css">
 </head>
-
-<<<<<<< HEAD
 <!-- Header -->
 <header>
     <?php
@@ -90,14 +88,7 @@ $result = SJ($conn);
     require "app/views/user/sidebar.php";
     ?>
 </nav>
-=======
 <body style="padding-left: 18rem;">
-    <!-- Header -->
-    <header>
-        <?php
-        require "app/views/layouts/header.php";
-        ?>
-    </header>
 
     <nav class="container-sideBar-admin">
         <?php
@@ -115,7 +106,6 @@ $result = SJ($conn);
         }
         ?>
     </main>
->>>>>>> michael
 
 <body>
 
