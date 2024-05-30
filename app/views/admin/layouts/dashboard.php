@@ -1,1 +1,1 @@
-<div>i'm dashboard</div>
+<div>Trang chủ</div>
