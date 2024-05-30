@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2024 at 06:34 AM
+-- Generation Time: May 30, 2024 at 04:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,8 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `AccountID` int(11) NOT NULL,
-  `KhoaID` varchar(11) DEFAULT NULL,
-  `ChuongTrinhDaoTaoID` varchar(11) DEFAULT NULL,
   `GiangVienID` varchar(11) DEFAULT NULL,
   `SinhVienID` varchar(11) DEFAULT NULL,
   `Username` varchar(255) DEFAULT NULL,
@@ -42,9 +40,8 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`AccountID`, `KhoaID`, `ChuongTrinhDaoTaoID`, `GiangVienID`, `SinhVienID`, `Username`, `Password`, `LoaiTaiKhoan`) VALUES
-(4, NULL, NULL, NULL, NULL, 'MinhThien', '$2y$10$WsTcD/En0oGEir.EJU.O5uDdC2Ytj9Mvf3pctegnHM4qg0TU8UsYe', 'admin'),
-(5, NULL, NULL, NULL, NULL, 'test', '$2y$10$6c3YSdn5TBzFIJYbqouWKefPJH0DteV7TwMqhbEZJXvw.q.hDTW9K', 'giangvien');
+INSERT INTO `account` (`AccountID`, `GiangVienID`, `SinhVienID`, `Username`, `Password`, `LoaiTaiKhoan`) VALUES
+(4, NULL, NULL, 'MinhThien', '$2y$10$WsTcD/En0oGEir.EJU.O5uDdC2Ytj9Mvf3pctegnHM4qg0TU8UsYe', 'admin');
 
 -- --------------------------------------------------------
 
@@ -65,7 +62,7 @@ CREATE TABLE `chuongtrinhdaotao` (
 INSERT INTO `chuongtrinhdaotao` (`CTDaoTaoID`, `KhoaID`, `TenChuongTrinh`) VALUES
 ('CNTT0121', 'CNTT ', 'Công nghệ thông tin 2021'),
 ('KTPM0121', 'CNTT ', 'Kỹ thuật phần mềm 2021'),
-('NNA2022', 'NNA', 'Ngôn ngữ anh 2022');
+('NNA0121', 'NNA', 'Ngôn ngữ anh 2021');
 
 -- --------------------------------------------------------
 
@@ -139,10 +136,8 @@ CREATE TABLE `sinhvien` (
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`AccountID`),
-  ADD KEY `fk_acc_khoa` (`KhoaID`),
-  ADD KEY `fk_acc_ctdt` (`ChuongTrinhDaoTaoID`),
-  ADD KEY `fk_acc_gv` (`GiangVienID`),
-  ADD KEY `fk_acc_sv` (`SinhVienID`);
+  ADD KEY `fk_ma_gv` (`GiangVienID`),
+  ADD KEY `fk_ma_sv` (`SinhVienID`);
 
 --
 -- Indexes for table `chuongtrinhdaotao`
@@ -186,7 +181,7 @@ ALTER TABLE `sinhvien`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `AccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
@@ -196,10 +191,8 @@ ALTER TABLE `account`
 -- Constraints for table `account`
 --
 ALTER TABLE `account`
-  ADD CONSTRAINT `fk_acc_ctdt` FOREIGN KEY (`ChuongTrinhDaoTaoID`) REFERENCES `chuongtrinhdaotao` (`CTDaoTaoID`),
-  ADD CONSTRAINT `fk_acc_gv` FOREIGN KEY (`GiangVienID`) REFERENCES `giangvien` (`GiangVienID`),
-  ADD CONSTRAINT `fk_acc_khoa` FOREIGN KEY (`KhoaID`) REFERENCES `khoa` (`KhoaID`),
-  ADD CONSTRAINT `fk_acc_sv` FOREIGN KEY (`SinhVienID`) REFERENCES `sinhvien` (`SinhVienID`);
+  ADD CONSTRAINT `fk_ma_gv` FOREIGN KEY (`GiangVienID`) REFERENCES `giangvien` (`GiangVienID`),
+  ADD CONSTRAINT `fk_ma_sv` FOREIGN KEY (`SinhVienID`) REFERENCES `sinhvien` (`SinhVienID`);
 
 --
 -- Constraints for table `chuongtrinhdaotao`
