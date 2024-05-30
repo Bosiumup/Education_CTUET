@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 04:33 PM
+-- Generation Time: May 30, 2024 at 09:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,9 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`AccountID`, `GiangVienID`, `SinhVienID`, `Username`, `Password`, `LoaiTaiKhoan`) VALUES
-(4, NULL, NULL, 'MinhThien', '$2y$10$WsTcD/En0oGEir.EJU.O5uDdC2Ytj9Mvf3pctegnHM4qg0TU8UsYe', 'admin');
+(4, NULL, NULL, 'MinhThien', '$2y$10$WsTcD/En0oGEir.EJU.O5uDdC2Ytj9Mvf3pctegnHM4qg0TU8UsYe', 'admin'),
+(30, NULL, '21011743', '21011743', '$2y$10$chMbszUpnYXembSM9p6a7..OeenxOvRJ6/qjzYQDcpZPdqP/KBdXa', 'student'),
+(31, 'GV05557', NULL, 'GV05557', '$2y$10$EcBlFrs13nK0FwD0CsbyY..//MT.hOXFjFBp2/FZxQoPdsCf0xjcK', 'teacher');
 
 -- --------------------------------------------------------
 
@@ -60,8 +62,8 @@ CREATE TABLE `chuongtrinhdaotao` (
 --
 
 INSERT INTO `chuongtrinhdaotao` (`CTDaoTaoID`, `KhoaID`, `TenChuongTrinh`) VALUES
-('CNTT0121', 'CNTT ', 'Công nghệ thông tin 2021'),
-('KTPM0121', 'CNTT ', 'Kỹ thuật phần mềm 2021'),
+('KTPM0121', 'KTXD', 'Kỹ thuật phần mềm 2021'),
+('KTXD2021', 'KTXD', 'Kỹ thuật xây dựng 2021'),
 ('NNA0121', 'NNA', 'Ngôn ngữ anh 2021');
 
 -- --------------------------------------------------------
@@ -77,6 +79,13 @@ CREATE TABLE `giangvien` (
   `Email` varchar(255) DEFAULT NULL,
   `SoDienThoai` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `giangvien`
+--
+
+INSERT INTO `giangvien` (`GiangVienID`, `KhoaID`, `TenGiangVien`, `Email`, `SoDienThoai`) VALUES
+('GV05557', 'KTXD', 'Thiện phạm', 'GV05557@ctuet.edu.vn', 939204336);
 
 -- --------------------------------------------------------
 
@@ -94,7 +103,7 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`KhoaID`, `TenKhoa`) VALUES
-('CNTT ', 'Công nghệ thông tin'),
+('KTXD', 'Kỹ thuật xây dựng'),
 ('NNA', 'Ngôn ngữ anh');
 
 -- --------------------------------------------------------
@@ -113,6 +122,13 @@ CREATE TABLE `monhoc` (
   `SoTietThucHanh` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `monhoc`
+--
+
+INSERT INTO `monhoc` (`MonHocID`, `CTDaoTaoID`, `TenMonHoc`, `HocKy`, `SoTinChi`, `SoTietLyThuyet`, `SoTietThucHanh`) VALUES
+('CTUT5210', 'KTXD2021', 'hello', 1, 3, 12, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +142,13 @@ CREATE TABLE `sinhvien` (
   `Email` varchar(255) DEFAULT NULL,
   `SoDienThoai` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sinhvien`
+--
+
+INSERT INTO `sinhvien` (`SinhVienID`, `CTDaoTaoID`, `TenSinhVien`, `Email`, `SoDienThoai`) VALUES
+('21011743', 'KTPM0121', 'Tấn hưng ', '21011743@student.ctuet.edu.vn', 704834555);
 
 --
 -- Indexes for dumped tables
@@ -181,7 +204,7 @@ ALTER TABLE `sinhvien`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `AccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
