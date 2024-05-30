@@ -55,59 +55,23 @@ class Teacher_Controller
 
             require "app/models/teacher_model.php";
             $tcModel = new Teacher_Model();
-            if ($tcModel->checkUpdate1($conn, $tcOldID, $tcNewselectOption, $tcNewName)->num_rows > 0) {
-                echo "<script>
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'error',
-                                title: 'Giảng viên $tcNewName đã có',
-                                showConfirmButton: false,
-                                timer: 2500,
-                                customClass: {
-                                    title: 'custom-alert-title'
-                                }
-                            });
+            $tcModel->update($conn, $tcNewselectOption, $tcNewName, $tcOldEmail, $tcNewPhone, $tcOldID);
+            echo "<script>
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Cập nhật thành công',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        customClass: {
+                            title: 'custom-alert-title'
+                        }
+                    });
 
-                            setTimeout(function() {
-                                window.location.href='?page=teacher';
-                            }, 1500);
-                            </script>";
-            } elseif ($tcModel->checkUpdate2($conn, $tcOldID, $tcNewselectOption, $tcNewPhone)->num_rows > 0) {
-                echo "<script>
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'error',
-                                title: 'SĐT $tcNewPhone đã có',
-                                showConfirmButton: false,
-                                timer: 2500,
-                                customClass: {
-                                    title: 'custom-alert-title'
-                                }
-                            });
-
-                            setTimeout(function() {
-                                window.location.href='?page=teacher';
-                            }, 1500);
-                            </script>";
-            } else {
-                $tcModel->update($conn, $tcNewselectOption, $tcNewName, $tcOldEmail, $tcNewPhone, $tcOldID);
-                echo "<script>
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'success',
-                                title: 'Cập nhật thành công',
-                                showConfirmButton: false,
-                                timer: 2000,
-                                customClass: {
-                                    title: 'custom-alert-title'
-                                }
-                            });
-
-                            setTimeout(function() {
-                                window.location.href='?page=teacher';
-                            }, 1500);
-                            </script>";
-            }
+                    setTimeout(function() {
+                        window.location.href='?page=teacher';
+                    }, 1500);        
+                </script>";
         }
     }
     public function delete()
