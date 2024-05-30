@@ -6,74 +6,41 @@ class Teacher_Controller
         global $conn;
         if (isset($_POST['teacherAdd'])) {
             $prefix = "GV";
-            $random_number = mt_rand(10000, 99999);
-            $teacherID = $prefix . $random_number;
+            $teacherID = $prefix . str_pad(crc32(uniqid()) % 10000, 5, '0', STR_PAD_LEFT);
+            $password = "1";
+            $role = "teacher";
+
             $teacherKhoa = $_POST['TCselectOption'];
             $teacherName = $_POST['TenGiangVien'];
+
             $suffix = "@ctuet.edu.vn";
             $emailTeacher = $teacherID . $suffix;
+
             $sdtTeacher = $_POST['SoDienThoai'];
 
             require "app/models/teacher_model.php";
             $teacherModel = new Teacher_Model();
-            if ($teacherModel->checkAdd1($conn, $teacherName)->num_rows > 0) {
-                echo "<script>
-                             Swal.fire({
-                                 position: 'center',
-                                 icon: 'error',
-                                 title: 'Giảng viên $teacherName đã có',
-                                 showConfirmButton: false,
-                                 timer: 2500,
-                                 customClass: {
-                                     title: 'custom-alert-title'
-                                 }
-                             });
-                     
-                             setTimeout(function() {
-                                 window.location.href='?page=teacher';
-                             }, 1500);
-                         </script>";
-            } elseif ($teacherModel->checkAdd2($conn, $sdtTeacher)->num_rows > 0) {
-                echo "<script>
-                             Swal.fire({
-                                 position: 'center',
-                                 icon: 'error',
-                                 title: 'SĐT $sdtTeacher đã có',
-                                 showConfirmButton: false,
-                                 timer: 2500,
-                                 customClass: {
-                                     title: 'custom-alert-title'
-                                 }
-                             });
-                     
-                             setTimeout(function() {
-                                 window.location.href='?page=teacher';
-                             }, 1500);
-                         </script>";
-            } else {
-                $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
-                //  unset($_SESSION['KhoaID']);
-                //  unset($_SESSION['TenGiangVien']);
-                //  unset($_SESSION['Email']);
-                //  unset($_SESSION['SoDienThoai']);
-
-                echo "<script>
-                             Swal.fire({
-                                 position: 'center',
-                                 icon: 'success',
-                                 title: 'Thêm thành công',
-                                 showConfirmButton: false,
-                                 timer: 2500,
-                                 customClass: {
-                                     title: 'custom-alert-title'
-                                 }
-                             });
-                             
-                             setTimeout(function() {
-                                 window.location.href='?page=teacher';
-                             }, 1500);
-                         </script>";
+            $result_add = $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
+            if($result_add) {
+                $sql_register = registerTeacher($conn, $teacherID, $teacherID, $password, $role);
             }
+            echo "<script>
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Thêm thành công',
+                        showConfirmButton: false,
+                        timer: 2500,
+                        customClass: {
+                            title: 'custom-alert-title'
+                        }
+                    });
+                    
+                    setTimeout(function() {
+                        window.location.href='?page=teacher';
+                    }, 1500);
+                </script>";
+
         }
     }
     public function update()

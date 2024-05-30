@@ -30,14 +30,19 @@ class Faculty_Model
     {
         $conn->query('SET FOREIGN_KEY_CHECKS=0');
         $sql = "DELETE FROM khoa WHERE KhoaID = '$id'";
-
         if ($sql) {
             $sql_teacher = "DELETE FROM giangvien WHERE KhoaID = '$id'";
+            $conn->query($sql_teacher);
             $sql_CTDT = "DELETE FROM chuongtrinhdaotao WHERE KhoaID = '$id'";
             if ($sql_CTDT) {
-                $sql_CTDTm = "SELECT CTDaoTaoID FROM chuongtrinhdaotao WHERE KhoaID = '$id'";
-                $result_CTDT = $sql_CTDTm;
-                $sql_DLTm = "DELETE FROM monhoc WHERE CTDaoTaoID = '$result_CTDT'";
+                $sql_ctdtID = "SELECT CTDaoTaoID FROM chuongtrinhdaotao WHERE KhoaID = '$id'";
+                $result_ctdtID = $sql_ctdtID;
+                if($result_ctdtID) {
+                    $sql_subject = "DELETE FROM monhoc WHERE CTDaoTaoID = '$result_ctdtID'";
+                    $conn->query($sql_subject);
+                    $sql_student = "DELETE FROM sinhvien WHERE CTDaoTaoID = '$result_ctdtID'";
+                    $conn->query($sql_student);
+                }
             }
         }
         return $conn->query($sql);

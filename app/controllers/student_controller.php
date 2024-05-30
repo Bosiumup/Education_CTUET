@@ -4,16 +4,24 @@
             global $conn;
             if(isset($_POST['studentAdd'])){
                 $prefix = "2101";
-                $SinhVienID = $prefix . substr(time(), -7);
+                $SinhVienID = $prefix . str_pad(crc32(uniqid()) % 10000, 4, '0', STR_PAD_LEFT);
+                $PassWord = "1";
+                $Role = "student";
+
                 $CTDaoTaoID = $_POST['StudentselectOption'];
                 $StudentName = $_POST['StudentName'];
+
                 $suffix = "@student.ctuet.edu.vn";
                 $Email = $SinhVienID . $suffix;
+
                 $SoDienThoai = $_POST['SoDienThoai'];          
 
                 require "app/models/student_model.php";
                 $StudentModel = new Student_Model();
-                $StudentModel->add($conn, $SinhVienID, $CTDaoTaoID, $StudentName, $Email, $SoDienThoai);
+                $result_add = $StudentModel->add($conn, $SinhVienID, $CTDaoTaoID, $StudentName, $Email, $SoDienThoai);
+                if($result_add) {
+                    $sql_register = registerStudent($conn, $SinhVienID, $SinhVienID, $PassWord, $Role);
+                }
                 echo "<script>
                         Swal.fire({
                             position: 'center',
