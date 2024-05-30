@@ -28,7 +28,15 @@ class EP_Model {
     }
     public function delete($conn, $id)
     {
+        $conn->query('SET FOREIGN_KEY_CHECKS=0');
         $sql = "DELETE FROM chuongtrinhdaotao WHERE CTDaoTaoID = '$id'";
+        if($sql) {
+            $sql_monhoc = "DELETE FROM monhoc WHERE CTDaoTaoID = '$id'";
+            $conn->query($sql_monhoc);
+            $sql_sinhvien = "DELETE FROM sinhvien WHERE CTDaoTaoID = '$id'";
+            $conn->query($sql_sinhvien);
+        }
+        $conn->query('SET FOREIGN_KEY_CHECKS=1');
         return $conn->query($sql);
     }
 }

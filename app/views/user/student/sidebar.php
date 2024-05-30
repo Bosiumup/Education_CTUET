@@ -1,17 +1,27 @@
+<?php
+    $resultStudent = Student($conn);
+    $student = $resultStudent->fetch_assoc();
+    $resultSJ = SJ($conn);
+    $SJ = $resultSJ->fetch_assoc();
+    $resultEP = Ep($conn);
+    $EP = $resultEP->fetch_assoc();
+    $resultFaculty = Faculty($conn);
+    $faculty = $resultFaculty->fetch_assoc();
+?>
 <nav class="main-sideBar-admin">
     <header class="navbar-header-img">
         <img src="public/imgs/logo.png" alt="logo-education">
     </header>
     <div class="navbar-container">
         <ul class="nav-list">
-            <li class="nav-list-item no-hover">
-                <a href="#">
+            <li class="nav-list-item">
+                <a class="no-hover" href="#">
                     <i class="fa-solid fa-school"></i>
                     <span><?php echo $EP["TenChuongTrinh"] ?></span>
                 </a>
             </li>
-            <li class="nav-list-item no-hover">
-                <a href="#">
+            <li class="nav-list-item">
+                <a class="no-hover" href="#">
                     <i class="fa-solid fa-house fa-fw"></i>
                     <span>Khoa <?php echo $faculty["TenKhoa"] ?></span>
                 </a>
@@ -48,29 +58,29 @@
 </nav>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const items = document.querySelectorAll(".nav-list-item");
-        const storageKey = "activeItem";
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".nav-list-item");
+    const storageKey = "activeItem";
 
-        // Lấy trạng thái active từ session storage (nếu có)
-        let activeIndex = sessionStorage.getItem(storageKey);
-        if (activeIndex !== null) {
+    // Lấy trạng thái active từ session storage (nếu có)
+    let activeIndex = sessionStorage.getItem(storageKey);
+    if (activeIndex !== null) {
+        items.forEach((item) => {
+            item.classList.remove("active");
+        });
+        items[activeIndex].classList.add("active");
+    }
+
+    items.forEach((item, index) => {
+        item.addEventListener("click", (event) => {
             items.forEach((item) => {
                 item.classList.remove("active");
             });
-            items[activeIndex].classList.add("active");
-        }
+            event.currentTarget.classList.add("active");
 
-        items.forEach((item, index) => {
-            item.addEventListener("click", (event) => {
-                items.forEach((item) => {
-                    item.classList.remove("active");
-                });
-                event.currentTarget.classList.add("active");
-
-                // Lưu trạng thái active vào session storage
-                sessionStorage.setItem(storageKey, index);
-            });
+            // Lưu trạng thái active vào session storage
+            sessionStorage.setItem(storageKey, index);
         });
     });
+});
 </script>

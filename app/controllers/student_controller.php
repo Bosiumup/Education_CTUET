@@ -4,7 +4,7 @@
             global $conn;
             if(isset($_POST['studentAdd'])){
                 $prefix = "2101";
-                $SinhVienID = $prefix . str_pad(crc32(uniqid()) % 10000, 3, '0', STR_PAD_LEFT);
+                $SinhVienID = $prefix . str_pad(crc32(uniqid()) % 1000, 3, '0', STR_PAD_LEFT);
 
                 $PassWord = "1";
                 $PassWord_hash = password_hash($PassWord, PASSWORD_DEFAULT);
