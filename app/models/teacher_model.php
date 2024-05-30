@@ -37,5 +37,11 @@ class Teacher_Model {
         $sql = "DELETE FROM giangvien WHERE GiangVienID = '$id'";
         return $conn->query($sql);
     }
+
+    public function ChangePass($conn, $new_pass)
+    {
+        $sql = "UPDATE account set password = '$new_pass'";
+        return $conn->query($sql);
+    }
 }
 ?>

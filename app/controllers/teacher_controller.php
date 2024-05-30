@@ -1,21 +1,23 @@
-<?php    
-    class Teacher_Controller {
-        public function add() {
-            global $conn;
-            if(isset($_POST['teacherAdd'])){
-                $prefix = "GV";
-                $random_number = mt_rand(10000, 99999);
-                $teacherID = $prefix . $random_number;
-                $teacherKhoa = $_POST['TCselectOption'];
-                $teacherName = $_POST['TenGiangVien'];
-                $suffix = "@ctuet.edu.vn";
-                $emailTeacher =  $teacherID . $suffix;
-                $sdtTeacher = $_POST['SoDienThoai'];
-                
-                require "app/models/teacher_model.php";
-                    $teacherModel = new Teacher_Model();
-                    if ($teacherModel->checkAdd1($conn, $teacherName)->num_rows > 0) {
-                        echo "<script>
+<?php
+class Teacher_Controller
+{
+    public function add()
+    {
+        global $conn;
+        if (isset($_POST['teacherAdd'])) {
+            $prefix = "GV";
+            $random_number = mt_rand(10000, 99999);
+            $teacherID = $prefix . $random_number;
+            $teacherKhoa = $_POST['TCselectOption'];
+            $teacherName = $_POST['TenGiangVien'];
+            $suffix = "@ctuet.edu.vn";
+            $emailTeacher = $teacherID . $suffix;
+            $sdtTeacher = $_POST['SoDienThoai'];
+
+            require "app/models/teacher_model.php";
+            $teacherModel = new Teacher_Model();
+            if ($teacherModel->checkAdd1($conn, $teacherName)->num_rows > 0) {
+                echo "<script>
                              Swal.fire({
                                  position: 'center',
                                  icon: 'error',
@@ -31,9 +33,8 @@
                                  window.location.href='?page=teacher';
                              }, 1500);
                          </script>";
-                    }
-                    elseif ($teacherModel->checkAdd2($conn, $sdtTeacher)->num_rows > 0) {
-                        echo "<script>
+            } elseif ($teacherModel->checkAdd2($conn, $sdtTeacher)->num_rows > 0) {
+                echo "<script>
                              Swal.fire({
                                  position: 'center',
                                  icon: 'error',
@@ -49,15 +50,14 @@
                                  window.location.href='?page=teacher';
                              }, 1500);
                          </script>";
-                    }  
-                    else {
-                        $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
-                        //  unset($_SESSION['KhoaID']);
-                        //  unset($_SESSION['TenGiangVien']);
-                        //  unset($_SESSION['Email']);
-                        //  unset($_SESSION['SoDienThoai']);
-                         
-                         echo "<script>
+            } else {
+                $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
+                //  unset($_SESSION['KhoaID']);
+                //  unset($_SESSION['TenGiangVien']);
+                //  unset($_SESSION['Email']);
+                //  unset($_SESSION['SoDienThoai']);
+
+                echo "<script>
                              Swal.fire({
                                  position: 'center',
                                  icon: 'success',
@@ -73,22 +73,23 @@
                                  window.location.href='?page=teacher';
                              }, 1500);
                          </script>";
-                    }
             }
         }
-        public function update() {
-            global $conn;
-            if (isset($_POST['TCUpdate'])) {
-                $tcOldID = $_POST['tcOldID'];
-                $tcNewName = $_POST['tcNewName'];
-                $tcOldEmail = $_POST['tcOldEmail'];
-                $tcNewPhone = $_POST['tcNewPhone'];
-                $tcNewselectOption = $_POST['tcNewselectOption'];
+    }
+    public function update()
+    {
+        global $conn;
+        if (isset($_POST['TCUpdate'])) {
+            $tcOldID = $_POST['tcOldID'];
+            $tcNewName = $_POST['tcNewName'];
+            $tcOldEmail = $_POST['tcOldEmail'];
+            $tcNewPhone = $_POST['tcNewPhone'];
+            $tcNewselectOption = $_POST['tcNewselectOption'];
 
-                require "app/models/teacher_model.php";
-                $tcModel = new Teacher_Model();
-                if ($tcModel->checkUpdate1($conn, $tcOldID, $tcNewselectOption, $tcNewName)->num_rows > 0) {
-                    echo "<script>
+            require "app/models/teacher_model.php";
+            $tcModel = new Teacher_Model();
+            if ($tcModel->checkUpdate1($conn, $tcOldID, $tcNewselectOption, $tcNewName)->num_rows > 0) {
+                echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
@@ -103,10 +104,9 @@
                             setTimeout(function() {
                                 window.location.href='?page=teacher';
                             }, 1500);
-                            </script>";    
-                }
-                elseif ($tcModel->checkUpdate2($conn, $tcOldID, $tcNewselectOption, $tcNewPhone)->num_rows > 0) {
-                    echo "<script>
+                            </script>";
+            } elseif ($tcModel->checkUpdate2($conn, $tcOldID, $tcNewselectOption, $tcNewPhone)->num_rows > 0) {
+                echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
@@ -121,11 +121,10 @@
                             setTimeout(function() {
                                 window.location.href='?page=teacher';
                             }, 1500);
-                            </script>";    
-                } 
-                else {
-                    $tcModel->update($conn, $tcNewselectOption, $tcNewName, $tcOldEmail, $tcNewPhone, $tcOldID);
-                    echo "<script>
+                            </script>";
+            } else {
+                $tcModel->update($conn, $tcNewselectOption, $tcNewName, $tcOldEmail, $tcNewPhone, $tcOldID);
+                echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
@@ -140,19 +139,20 @@
                             setTimeout(function() {
                                 window.location.href='?page=teacher';
                             }, 1500);
-                            </script>";    
-                }
+                            </script>";
             }
         }
-        public function delete() {
-            global $conn;
-            if (isset($_POST['EPDelete'])) {
-                $id = $_POST['TeacherID'];
-                
-                require "app/models/teacher_model.php";
-                $tcModel = new Teacher_Model();
-                $tcModel->delete($conn, $id);
-                echo "<script>
+    }
+    public function delete()
+    {
+        global $conn;
+        if (isset($_POST['EPDelete'])) {
+            $id = $_POST['TeacherID'];
+
+            require "app/models/teacher_model.php";
+            $tcModel = new Teacher_Model();
+            $tcModel->delete($conn, $id);
+            echo "<script>
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
@@ -168,7 +168,84 @@
                                 window.location.href='?page=teacher';
                             }, 1500);
                         </script>";
-            }
         }
     }
+
+    public function ChangePass()
+    {
+        global $conn;
+        if (isset($_POST['changePass'])) {
+            $username = $_SESSION['Username'];
+            $result = checkLogin($conn, $username);
+            $row = $result->fetch_assoc();
+            $pass_db = $row['Password'];
+
+
+            $cur_pass = $_POST['current-password'];
+            // $cur_pass_hash = password_hash($cur_pass, PASSWORD_DEFAULT);
+            // echo $cur_pass_hash;
+
+            $new_pass = $_POST['new-password'];
+            $new_pass_hash = password_hash($new_pass, PASSWORD_DEFAULT);
+            $confirm_password = $_POST['confirm-password'];
+            if ($new_pass !== $confirm_password) {
+                echo "<script>
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'error',
+                                    title: 'Mật khẩu không khớp',
+                                    showConfirmButton: false,
+                                    timer: 2500,
+                                    customClass: {
+                                        title: 'custom-alert-title'
+                                    }
+                                });
+    
+                                setTimeout(function() {
+                                    // window.location.href='?page=ChangePass';
+                                }, 1500);
+                            </script>";
+            } else if (!password_verify($cur_pass, $pass_db)) {
+                echo "<script>
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Sai Mật Khẩu',
+                    showConfirmButton: false,
+                    timer: 2500,
+                    customClass: {
+                        title: 'custom-alert-title'
+                    }
+                });
+
+                setTimeout(function() {
+                    // window.location.href='?page=ChangePass';
+                }, 1500);
+            </script>";
+            } else {
+                require "app/models/teacher_model.php";
+                $chagePass = new Teacher_Model();
+                $chagePass->ChangePass($conn, $new_pass_hash);
+                echo "<script>
+                Swal.fire({
+                    position: 'sucses',
+                    icon: 'success',
+                    title: 'Đổi Mật Khẩu Thành Công',
+                    showConfirmButton: false,
+                    timer: 2500,
+                    customClass: {
+                        title: 'custom-alert-title'
+                    }
+                });
+
+                setTimeout(function() {
+                    // window.location.href='index.php';
+                }, 1500);
+            </script>";
+            }
+
+
+        }
+    }
+}
 ?>

@@ -35,15 +35,15 @@ require "app/configs/functions.php";
 
     <!-- Css link chương trình đào tạo -->
     <link rel="stylesheet" href="public/styles/header.css">
-    <link rel="stylesheet" href="public/styles/sidebar.css">
     <link rel="stylesheet" href="public/styles/login_register.css">
+    <link rel="stylesheet" href="public/styles/sidebar.css">
     <link rel="stylesheet" href="public/styles/events.css">
     <link rel="stylesheet" href="public/styles/table.css">
     <link rel="stylesheet" href="public/styles/modal.css">
     <link rel="stylesheet" href="public/styles/footer.css">
 </head>
 
-<body style="padding: 0;">
+<body style="padding-left: 18rem;">
     <!-- Header -->
     <header>
         <?php
@@ -51,14 +51,18 @@ require "app/configs/functions.php";
         ?>
     </header>
 
-    <main class="education_student">
+    <nav class="container-sideBar-admin">
         <?php
-        if(isset($_GET["page"]))
-        {
-            $p = $_GET["page"]; 
-            require "app/views/admin/".$p.".php";
-        }
-        else {
+        require "app/views/user/layouts/sidebar.php";
+        ?>
+    </nav>
+
+    <main style="padding: 50px;" class="education_student">
+        <?php
+        if (isset($_GET["page"])) {
+            $p = $_GET["page"];
+            require "app/views/user/" . $p . ".php";
+        } else {
             require "app/views/admin/layouts/dashboard.php";
         }
         ?>
