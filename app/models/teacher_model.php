@@ -28,9 +28,9 @@ class Teacher_Model {
         return $conn->query($sql);
     }
 
-    public function ChangePass($conn, $new_pass)
+    public function ChangePass($conn, $new_pass,$username)
     {
-        $sql = "UPDATE account set password = '$new_pass'";
+        $sql = "UPDATE account set password = '$new_pass' where Username = '$username'";
         return $conn->query($sql);
     }
 }
