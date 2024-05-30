@@ -2,6 +2,38 @@
 session_start();
 require "app/configs/database.php";
 require "app/configs/functions.php";
+$resultStudent = Student($conn);
+$student = $resultStudent->fetch_assoc();
+//echo $student['SinhVienID'] . "<br>";
+//echo $student['CTDaoTaoID'] . "<br>";
+//echo $student['TenSinhVien'] . "<br>";
+//echo $student['Email'] . "<br>";
+//echo $student['SoDienThoai'] . "<br>";
+//
+//echo "<br> " . "<h1>CTDT</h1>" . "<br>";
+$resultEP = Ep($conn);
+$EP = $resultEP->fetch_assoc();
+//echo $EP['CTDaoTaoID'] . "<br>";
+//echo $EP['KhoaID'] . "<br>";
+//echo $EP['TenChuongTrinh'] . "<br>";
+//
+//echo "<br> " . "<h1>khoa</h1>" . "<br>";
+$resultFaculty = Faculty($conn);
+$faculty = $resultFaculty->fetch_assoc();
+//echo $faculty['KhoaID'] . "<br>";
+//echo $faculty['TenKhoa'] . "<br>";
+//
+//echo "<br> " . "<h1>monhoc</h1>" . "<br>";
+$resultSJ = SJ($conn);
+$SJ = $resultSJ->fetch_assoc();
+//echo $SJ['MonHocID'] . "<br>";
+//echo $SJ['CTDaoTaoID'] . "<br>";
+//echo $SJ['TenMonHoc'] . "<br>";
+//echo $SJ['HocKy'] . "<br>";
+//echo $SJ['SoTinChi'] . "<br>";
+//echo $SJ['SoTietLyThuyet'] . "<br>";
+//echo $SJ['SoTietThucHanh'] . "<br>";
+$result = SJ($conn);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +45,7 @@ require "app/configs/functions.php";
     <title>Education CTUET</title>
 
     <!-- logo website -->
-    <link rel="icon" href="public/imgs/logo.png" type="image/x-icon" />
+    <link rel="icon" href="public/imgs/logo.png" type="image/x-icon"/>
 
     <!-- font icons -->
     <link rel="stylesheet" href="public/icons/fontawesome-free-6.2.1-web/fontawesome-free-6.2.1-web/css/all.min.css">
@@ -27,7 +59,7 @@ require "app/configs/functions.php";
 
     <!-- Font text-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet" />
+          rel="stylesheet"/>
 
     <!-- Css general link -->
     <link rel="stylesheet" href="public/styles/base.css">
@@ -41,35 +73,42 @@ require "app/configs/functions.php";
     <link rel="stylesheet" href="public/styles/table.css">
     <link rel="stylesheet" href="public/styles/modal.css">
     <link rel="stylesheet" href="public/styles/footer.css">
+    <link rel="stylesheet" href="public/styles/profile.css">
 </head>
 
-<body style="padding: 0;">
-    <!-- Header -->
-    <header>
-        <?php
-        require "app/views/layouts/header.php";
-        ?>
-    </header>
+<!-- Header -->
+<header>
+    <?php
+    require "app/views/layouts/header.php";
+    ?>
+</header>
 
-    <main class="education_student">
-        <?php
-        if(isset($_GET["page"]))
-        {
-            $p = $_GET["page"]; 
-            require "app/views/admin/".$p.".php";
-        }
-        else {
-            require "app/views/admin/layouts/dashboard.php";
-        }
-        ?>
-    </main>
+<!-- Nav SideBar -->
+<nav class="container-sideBar-admin">
+    <?php
+    require "app/views/user/sidebar.php";
+    ?>
+</nav>
 
-    <!-- Footer -->
-    <footer>
-        <?php
-        require "app/views/layouts/footer.php";
-        ?>
-    </footer>
+<body>
+
+<main class="education_student">
+    <?php
+    if (isset($_GET["page"])) {
+        $p = $_GET["page"];
+        require "app/views/user/" . $p . ".php";
+    } else {
+        require "app/views/user/student.php";
+    }
+    ?>
+</main>
+
+<!-- Footer -->
+<footer>
+    <?php
+    require "app/views/layouts/footer.php";
+    ?>
+</footer>
 
 </body>
 

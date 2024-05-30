@@ -1,35 +1,46 @@
 <?php
 // ------------------- Account --------------------------
 
-    // inf account
-    function account($conn, $username) {
-        $query = "SELECT * FROM account WHERE Username = '$username'";
-        return $conn->query($query);
-    }
-    // check login
-    function checkLogin($conn, $username)
-    {
-        $query = "SELECT * FROM account WHERE Username = '$username'";
-        return $conn->query($query);
-    }
-    // Create account student
-    function registerStudent($conn, $SinhVienID, $Username, $Password, $LoaiTaiKhoan)
-    {
-        $query = "INSERT INTO account (SinhVienID, Username, Password, LoaiTaiKhoan) VALUES ('$SinhVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
-        return $conn->query($query);
-    }
-    // Create account teacher
-    function registerTeacher($conn, $GiangVienID, $Username, $Password, $LoaiTaiKhoan)
-    {
-        $query = "INSERT INTO account (GiangVienID, Username, Password, LoaiTaiKhoan) VALUES ('$GiangVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
-        return $conn->query($query);
-    }
-    // Kiểm tra có trùng ID và Username không
-    function checkRegister($conn, $Username)
-    {
-        $query = "SELECT * FROM account WHERE Username = '$Username'";
-        return $conn->query($query);
-    }
+// inf account
+function account($conn, $username)
+{
+    $query = "SELECT * FROM account WHERE Username = '$username'";
+    return $conn->query($query);
+}
+
+function updatePass($conn, $username, $hash_new_pass)
+{
+    $query = "UPDATE account SET password = '$hash_new_pass' WHERE username = '$username'";
+    return $conn->query($query);
+}
+
+// check login
+function checkLogin($conn, $username)
+{
+    $query = "SELECT * FROM account WHERE Username = '$username'";
+    return $conn->query($query);
+}
+
+// Create account student
+function registerStudent($conn, $SinhVienID, $Username, $Password, $LoaiTaiKhoan)
+{
+    $query = "INSERT INTO account (SinhVienID, Username, Password, LoaiTaiKhoan) VALUES ('$SinhVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
+    return $conn->query($query);
+}
+
+// Create account teacher
+function registerTeacher($conn, $GiangVienID, $Username, $Password, $LoaiTaiKhoan)
+{
+    $query = "INSERT INTO account (GiangVienID, Username, Password, LoaiTaiKhoan) VALUES ('$GiangVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
+    return $conn->query($query);
+}
+
+// Kiểm tra có trùng ID và Username không
+function checkRegister($conn, $Username)
+{
+    $query = "SELECT * FROM account WHERE Username = '$Username'";
+    return $conn->query($query);
+}
 
 // ------------------- Faculty (Khoa) --------------------------
 // render faculty
@@ -38,6 +49,7 @@ function Faculty($conn)
     $sql = "SELECT * FROM khoa";
     return $conn->query($sql);
 }
+
 // render faculty follow search
 function Faculty_Search($conn, $search)
 {
@@ -52,12 +64,14 @@ function EP($conn)
     $sql = "SELECT * FROM chuongtrinhdaotao";
     return $conn->query($sql);
 }
+
 // render EP follow search
 function EP_Search($conn, $search)
 {
     $sql = "SELECT * FROM chuongtrinhdaotao WHERE TenChuongTrinh LIKE '%$search%'";
     return $conn->query($sql);
 }
+
 // render EP follow KhoaID
 function EP_KhoaID($conn, $idkhoa)
 {
@@ -72,11 +86,13 @@ function teacher($conn)
     $sql = "SELECT * FROM giangvien";
     return $conn->query($sql);
 }
+
 function TC_Search($conn, $search)
 {
     $sql = "SELECT * FROM giangvien WHERE TenGiangVien LIKE '%$search%'";
     return $conn->query($sql);
 }
+
 // render TC follow KhoaID
 function TC_KhoaID($conn, $idkhoa)
 {
@@ -90,11 +106,13 @@ function Student($conn)
     $sql = "SELECT * from sinhvien";
     return $conn->query($sql);
 }
+
 function Student_Search($conn, $search)
 {
     $sql = "SELECT * FROM sinhvien WHERE TenSinhVien LIKE '%$search%'";
     return $conn->query($sql);
 }
+
 function Student_EpID($conn, $idEp)
 {
     $sql = "SELECT * FROM sinhvien WHERE CTDaoTaoID = '$idEp'";
@@ -109,11 +127,13 @@ function SJ($conn)
 
     return $conn->query($sql);
 }
+
 function SJ_Search($conn, $search)
 {
     $sql = "SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search%'";
     return $conn->query($sql);
 }
+
 function SJ_EpID($conn, $idEp)
 {
     $sql = "SELECT * FROM monhoc WHERE CTDaoTaoID = '$idEp'";
