@@ -48,6 +48,10 @@
     transition      : all 0.2s ease-in-out;
 }
 
+.no-hover{
+    pointer-events: none;
+}
+
 .nav-list-item.active {
     background-color: #ffeded;
     transition      : all 0.2s ease-in-out;
