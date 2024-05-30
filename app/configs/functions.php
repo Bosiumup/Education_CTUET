@@ -7,46 +7,29 @@ function account($conn, $username)
     $query = "SELECT * FROM account WHERE Username = '$username'";
     return $conn->query($query);
 }
-<<<<<<< HEAD
-
 function updatePass($conn, $username, $hash_new_pass)
 {
     $query = "UPDATE account SET password = '$hash_new_pass' WHERE username = '$username'";
     return $conn->query($query);
 }
-
-=======
->>>>>>> michael
 // check login
 function checkLogin($conn, $username)
 {
     $query = "SELECT * FROM account WHERE Username = '$username'";
     return $conn->query($query);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> michael
 // Create account student
 function registerStudent($conn, $SinhVienID, $Username, $Password, $LoaiTaiKhoan)
 {
     $query = "INSERT INTO account (SinhVienID, Username, Password, LoaiTaiKhoan) VALUES ('$SinhVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
     return $conn->query($query);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> michael
 // Create account teacher
 function registerTeacher($conn, $GiangVienID, $Username, $Password, $LoaiTaiKhoan)
 {
     $query = "INSERT INTO account (GiangVienID, Username, Password, LoaiTaiKhoan) VALUES ('$GiangVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
     return $conn->query($query);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> michael
 // Kiểm tra có trùng ID và Username không
 function checkRegister($conn, $Username)
 {
