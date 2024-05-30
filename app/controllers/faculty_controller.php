@@ -58,6 +58,7 @@
             global $conn;
             if (isset($_POST['facultyUpdate'])) {
                 $facultyOldID = $_POST['facultyOldID'];
+                $facultyNewID = $_POST['facultyNewID'];
                 $facultyNewName = $_POST['facultyNewName'];
 
                 require "app/models/faculty_model.php";
@@ -81,7 +82,7 @@
                             </script>";    
                 } 
                 else {
-                    $facultyModel->update($conn, $facultyNewName, $facultyOldID);
+                    $facultyModel->update($conn, $facultyNewID, $facultyNewName, $facultyOldID);
                     echo "<script>
                             Swal.fire({
                                 position: 'center',

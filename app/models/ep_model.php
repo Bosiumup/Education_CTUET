@@ -15,14 +15,16 @@ class EP_Model {
     }
     function update($conn, $newID, $newKhoaID, $newName, $oldID)
     {
-        // Tắt kiểm tra ràng buộc khóa ngoại
-        // $conn->query('SET FOREIGN_KEY_CHECKS=0');
-
+        $conn->query('SET FOREIGN_KEY_CHECKS=0');
         $sql = "UPDATE chuongtrinhdaotao SET CTDaoTaoID = '$newID', KhoaID = '$newKhoaID', TenChuongTrinh = '$newName' WHERE CTDaoTaoID = '$oldID'";
+        if($sql) {
+            $sql_monhoc = "UPDATE monhoc SET CTDaoTaoID = '$newID' WHERE CTDaoTaoID = '$oldID'";
+            $conn->query($sql_monhoc);
+            $sql_sinhvien = "UPDATE sinhvien SET CTDaoTaoID = '$newID' WHERE CTDaoTaoID = '$oldID'";
+            $conn->query($sql_sinhvien);
+        }
+        $conn->query('SET FOREIGN_KEY_CHECKS=1');
         return $conn->query($sql);
-        
-        // Bật lại kiểm tra ràng buộc khóa ngoại
-        // $conn->query('SET FOREIGN_KEY_CHECKS=1');
     }
     public function delete($conn, $id)
     {

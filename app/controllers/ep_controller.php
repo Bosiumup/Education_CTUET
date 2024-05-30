@@ -70,7 +70,7 @@
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
-                                title: 'Chương trình đào tạo $epNewName đã có',
+                                title: '$epNewName đã có',
                                 showConfirmButton: false,
                                 timer: 2500,
                                 customClass: {

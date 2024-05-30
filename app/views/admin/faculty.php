@@ -62,7 +62,7 @@
                             <input type="hidden" name="facultyOldID" id="facultyOldID">
                             <label>
                                 <span>Mã khoa:</span>
-                                <input type="text" id="facultyFormID" required>
+                                <input type="text" id="facultyFormID" name="facultyNewID" required>
                             </label>
                             <br>
                             <label>
