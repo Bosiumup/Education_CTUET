@@ -7,6 +7,7 @@ function account($conn, $username)
     $query = "SELECT * FROM account WHERE Username = '$username'";
     return $conn->query($query);
 }
+<<<<<<< HEAD
 
 function updatePass($conn, $username, $hash_new_pass)
 {
@@ -14,27 +15,38 @@ function updatePass($conn, $username, $hash_new_pass)
     return $conn->query($query);
 }
 
+=======
+>>>>>>> michael
 // check login
 function checkLogin($conn, $username)
 {
     $query = "SELECT * FROM account WHERE Username = '$username'";
     return $conn->query($query);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> michael
 // Create account student
 function registerStudent($conn, $SinhVienID, $Username, $Password, $LoaiTaiKhoan)
 {
     $query = "INSERT INTO account (SinhVienID, Username, Password, LoaiTaiKhoan) VALUES ('$SinhVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
     return $conn->query($query);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> michael
 // Create account teacher
 function registerTeacher($conn, $GiangVienID, $Username, $Password, $LoaiTaiKhoan)
 {
     $query = "INSERT INTO account (GiangVienID, Username, Password, LoaiTaiKhoan) VALUES ('$GiangVienID', '$Username', '$Password', '$LoaiTaiKhoan')";
     return $conn->query($query);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> michael
 // Kiểm tra có trùng ID và Username không
 function checkRegister($conn, $Username)
 {
@@ -78,6 +90,7 @@ function EP_KhoaID($conn, $idkhoa)
     $sql = "SELECT * FROM chuongtrinhdaotao WHERE KhoaID = '$idkhoa'";
     return $conn->query($sql);
 }
+
 
 // ------------------- Teacher (Giang vien) --------------------------
 // viết các hàm liên quan đến giảng viên dựa vào ở trên \
@@ -138,4 +151,25 @@ function SJ_EpID($conn, $idEp)
 {
     $sql = "SELECT * FROM monhoc WHERE CTDaoTaoID = '$idEp'";
     return $conn->query($sql);
+}
+
+// ------------------- User (Teacher) --------------------------
+function EP_GiangVienID($conn, $idGiangVien)
+{
+    $sql = "SELECT chuongtrinhdaotao.CTDaoTaoID,chuongtrinhdaotao.TenChuongTrinh, khoa.KhoaID, khoa.TenKhoa,giangvien.GiangVienID
+    FROM chuongtrinhdaotao 
+    JOIN khoa ON chuongtrinhdaotao.KhoaID = khoa.KhoaID
+    JOIN giangvien ON giangvien.KhoaID = khoa.KhoaID
+    WHERE giangvien.GiangVienID = '$idGiangVien'";
+    return $conn->query($sql);
+}
+
+function SJ_EP($conn,$name){
+    $sql = "SELECT chuongtrinhdaotao.CTDaoTaoID,chuongtrinhdaotao.TenChuongTrinh,monhoc.MonHocID,monhoc.TenMonHoc FROM chuongtrinhdaotao 
+    JOIN monhoc ON chuongtrinhdaotao.CTDaoTaoID = monhoc.CTDaoTaoID where chuongtrinhdaotao.TenChuongTrinh='$name'";
+    return $conn -> query($sql);
+}
+function IN4_Teacher($conn,$id) {
+    $sql = "SELECT * FROM giangvien where GiangVienID = '$id'";
+    return $conn -> query($sql);
 }

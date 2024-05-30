@@ -67,8 +67,8 @@ $result = SJ($conn);
 
     <!-- Css link chương trình đào tạo -->
     <link rel="stylesheet" href="public/styles/header.css">
-    <link rel="stylesheet" href="public/styles/sidebar.css">
     <link rel="stylesheet" href="public/styles/login_register.css">
+    <link rel="stylesheet" href="public/styles/sidebar.css">
     <link rel="stylesheet" href="public/styles/events.css">
     <link rel="stylesheet" href="public/styles/table.css">
     <link rel="stylesheet" href="public/styles/modal.css">
@@ -76,6 +76,7 @@ $result = SJ($conn);
     <link rel="stylesheet" href="public/styles/profile.css">
 </head>
 
+<<<<<<< HEAD
 <!-- Header -->
 <header>
     <?php
@@ -89,6 +90,32 @@ $result = SJ($conn);
     require "app/views/user/sidebar.php";
     ?>
 </nav>
+=======
+<body style="padding-left: 18rem;">
+    <!-- Header -->
+    <header>
+        <?php
+        require "app/views/layouts/header.php";
+        ?>
+    </header>
+
+    <nav class="container-sideBar-admin">
+        <?php
+        require "app/views/user/layouts/sidebar.php";
+        ?>
+    </nav>
+
+    <main style="padding: 50px;" class="education_student">
+        <?php
+        if (isset($_GET["page"])) {
+            $p = $_GET["page"];
+            require "app/views/user/" . $p . ".php";
+        } else {
+            require "app/views/admin/layouts/dashboard.php";
+        }
+        ?>
+    </main>
+>>>>>>> michael
 
 <body>
 
