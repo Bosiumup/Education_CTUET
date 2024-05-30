@@ -20,35 +20,54 @@ require "app/components/role.php";
                     $row = $account_inf->fetch_assoc();
                     if ($row["LoaiTaiKhoan"] == "admin") {
                         ?>
-                        <div class="inf-log_out">
-                            <div class="inf">
-                                <i class="fa-solid fa-circle-user fa-fw"></i>
-                                <span><?php echo $row["Username"]; ?></span>
-                                <span><?php echo $row["LoaiTaiKhoan"]; ?></span>
-                            </div>
-                            <div class="log_out">
-                                <form action="admin.php" method="post">
-                                    <button name="Logout" type="submit">Đăng xuất</button>
-                                </form>
-                            </div>
-                        </div>
-                        <?php
-                    } else {
+            <div class="inf-log_out">
+                <div class="inf">
+                    <i class="fa-solid fa-circle-user fa-fw"></i>
+                    <span><?php echo $row["Username"]; ?></span>
+                    <span><?php echo $row["LoaiTaiKhoan"]; ?></span>
+                </div>
+                <div class="log_out">
+                    <form action="admin.php" method="post">
+                        <button name="Logout" type="submit">Đăng xuất</button>
+                    </form>
+                </div>
+            </div>
+            <?php
+                    }
+                    elseif ($row["LoaiTaiKhoan"] == "student") {
+                        $student_inf= Student($conn, $_SESSION["Username"]);
+                        $row_student = $student_inf->fetch_assoc();
                         ?>
-                        <div class="inf-log_out">
-                            <div class="inf">
-                                <i class="fa-solid fa-circle-user fa-fw"></i>
-                                <span><?php echo $row["Username"]; ?></span>
-                                <span><?php echo $row["LoaiTaiKhoan"]; ?></span>
-                            </div>
+            <div class="inf-log_out">
+                <div class="inf">
+                    <i class="fa-solid fa-circle-user fa-fw"></i>
+                    <span><?php echo $row_student["TenSinhVien"]; ?></span>
+                    <span><?php echo $row["Username"]; ?></span>
+                </div>
+                <div class="log_out">
+                    <form action="admin.php" method="post">
+                        <button name="Logout" type="submit">Đăng xuất</button>
+                    </form>
+                </div>
+            </div>
+            <?php
+                    } 
+                    else {
+                        ?>
+            <div class="inf-log_out">
+                <div class="inf">
+                    <i class="fa-solid fa-circle-user fa-fw"></i>
+                    <span><?php echo $row["Username"]; ?></span>
+                    <span><?php echo $row["LoaiTaiKhoan"]; ?></span>
+                </div>
 
-                            <div class="log_out">
-                                <form action="user.php" method="post">
-                                    <button name="Logout" type="submit">Đăng xuất</button>
-                                </form>
-                            </div>
-                        </div>
-                        <?php
+                <div class="log_out">
+                    <form action="user.php" method="post">
+                        <button name="Logout" type="submit">Đăng xuất</button>
+                    </form>
+                </div>
+            </div>
+            <?php
                     }
                 }
             }

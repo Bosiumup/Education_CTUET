@@ -4,8 +4,11 @@
             global $conn;
             if(isset($_POST['studentAdd'])){
                 $prefix = "2101";
-                $SinhVienID = $prefix . str_pad(crc32(uniqid()) % 10000, 4, '0', STR_PAD_LEFT);
+                $SinhVienID = $prefix . str_pad(crc32(uniqid()) % 10000, 3, '0', STR_PAD_LEFT);
+
                 $PassWord = "1";
+                $PassWord_hash = password_hash($PassWord, PASSWORD_DEFAULT);
+
                 $Role = "student";
 
                 $CTDaoTaoID = $_POST['StudentselectOption'];
@@ -20,7 +23,7 @@
                 $StudentModel = new Student_Model();
                 $result_add = $StudentModel->add($conn, $SinhVienID, $CTDaoTaoID, $StudentName, $Email, $SoDienThoai);
                 if($result_add) {
-                    $sql_register = registerStudent($conn, $SinhVienID, $SinhVienID, $PassWord, $Role);
+                    $sql_register = registerStudent($conn, $SinhVienID, $SinhVienID, $PassWord_hash, $Role);
                 }
                 echo "<script>
                         Swal.fire({

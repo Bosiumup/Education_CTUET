@@ -54,7 +54,7 @@ if (isset($_SESSION["Username"])) {
                             window.location.href='admin.php';
                         </script>";
                 } 
-                elseif ($account_data["LoaiTaiKhoan"] == "giangvien" || $account_data["LoaiTaiKhoan"] == "sinhvien") {
+                elseif ($account_data["LoaiTaiKhoan"] == "teacher" || $account_data["LoaiTaiKhoan"] == "student") {
                     $_SESSION['Username'] = $_POST['username'];
                     // Chuyển hướng đến trang user
                     echo "<script>

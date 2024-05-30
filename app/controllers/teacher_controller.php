@@ -7,7 +7,10 @@ class Teacher_Controller
         if (isset($_POST['teacherAdd'])) {
             $prefix = "GV";
             $teacherID = $prefix . str_pad(crc32(uniqid()) % 10000, 5, '0', STR_PAD_LEFT);
+
             $password = "1";
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
             $role = "teacher";
 
             $teacherKhoa = $_POST['TCselectOption'];
@@ -22,7 +25,7 @@ class Teacher_Controller
             $teacherModel = new Teacher_Model();
             $result_add = $teacherModel->add($conn, $teacherID, $teacherKhoa, $teacherName, $emailTeacher, $sdtTeacher);
             if($result_add) {
-                $sql_register = registerTeacher($conn, $teacherID, $teacherID, $password, $role);
+                $sql_register = registerTeacher($conn, $teacherID, $teacherID, $password_hash, $role);
             }
             echo "<script>
                     Swal.fire({
