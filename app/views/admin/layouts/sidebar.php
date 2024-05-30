@@ -23,36 +23,21 @@
                 </a>
             </li>
             <li class="nav-list-item">
+                <a href="?page=teacher">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>Giảng viên</span>
+                </a>
+            </li>
+            <li class="nav-list-item">
                 <a href="?page=subject">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Môn học</span>
                 </a>
             </li>
             <li class="nav-list-item">
-                <a href="?page=user_option">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Người dùng</span>
-                    <i class="fa-solid fa-caret-down fa-fw down-arrow"></i>
-                </a>
-                <ul class="subnav">
-                    <li class="nav-list-item">
-                        <a href="?page=teacher">
-                            <i class="fa-solid fa-user-tie"></i>
-                            <span>Giảng viên</span>
-                        </a>
-                    </li>
-                    <li class="nav-list-item">
-                        <a href="?page=student">
-                            <i class="fa-solid fa-user-graduate"></i>
-                            <span>Sinh viên</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-list-item">
-                <a href="?page=register">
-                    <i class="fa-solid fa-right-to-bracket"></i>
-                    <span>Cấp tài khoản</span>
+                <a href="?page=student">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>Sinh viên</span>
                 </a>
             </li>
         </ul>
