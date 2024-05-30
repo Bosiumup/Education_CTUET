@@ -90,31 +90,31 @@ $result = SJ($conn);
 </nav>
 <body style="padding-left: 18rem;">
 
-    <nav class="container-sideBar-admin">
-        <?php
-        require "app/views/user/layouts/sidebar.php";
-        ?>
-    </nav>
+<nav class="container-sideBar-admin">
+    <?php
+    require "app/views/user/layouts/sidebar.php";
+    ?>
+</nav>
 
-    <main style="padding: 50px;" class="education_student">
-        <?php
-        if (isset($_GET["page"])) {
-            $p = $_GET["page"];
-            require "app/views/user/teacher/" . $p . ".php";
-        } else {
-            require "app/views/admin/layouts/dashboard.php";
-        }
-        ?>
-    </main>
+<main style="padding: 50px;" class="education_student">
+    <?php
+    if (isset($_GET["page"])) {
+        $p = $_GET["page"];
+        require "app/views/user/teacher/" . $p . ".php";
+    } else {
+        require "app/views/admin/layouts/dashboard.php";
+    }
+    ?>
+</main>
 <body>
 
 <main class="education_student">
     <?php
     if (isset($_GET["page"])) {
         $p = $_GET["page"];
-        require "app/views/user/" . $p . ".php";
+        require "app/views/user/student/" . $p . ".php";
     } else {
-        require "app/views/user/student.php";
+        require "app/views/user/student/student.php";
     }
     ?>
 </main>
