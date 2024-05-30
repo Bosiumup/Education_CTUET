@@ -6,6 +6,13 @@
                 $prefix = "2101";
                 $SinhVienID = $prefix . str_pad(crc32(uniqid()) % 10000, 3, '0', STR_PAD_LEFT);
 
+//                           $prefix là một chuỗi cố định để đánh dấu ID sinh viên.
+//                       Số 3 chữ số được tạo bằng cách:
+//                       Tạo một ID duy nhất bằng uniqid().
+//                        Tính mã CRC-32 của ID này bằng crc32().
+//                       Lấy phần dư khi chia cho 10000 để giới hạn độ lớn.
+//                      Thêm các số 0 phía trước để đảm bảo có 3 chữ số.
+
                 $PassWord = "1";
                 $PassWord_hash = password_hash($PassWord, PASSWORD_DEFAULT);
 
