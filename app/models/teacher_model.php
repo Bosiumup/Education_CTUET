@@ -18,7 +18,13 @@ class Teacher_Model {
     }
     public function delete($conn, $id)
     {
+        $conn->query('SET FOREIGN_KEY_CHECKS=0');
         $sql = "DELETE FROM giangvien WHERE GiangVienID = '$id'";
+        if($sql) {
+            $sql_account= "DELETE FROM account WHERE GiangVienID = '$id'";
+            $conn->query($sql_account);
+        }
+        $conn->query('SET FOREIGN_KEY_CHECKS=1');
         return $conn->query($sql);
     }
 
